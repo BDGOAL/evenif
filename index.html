@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>evenif Brand Launch Strategy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-sand: #F5EFE6;
+            --text-charcoal: #2C2C2C;
+            --accent-moss: #3D4035;
+            --accent-sage: #8C9485;
+            --accent-gold: #C5A065;
+        }
+        body {
+            background-color: var(--bg-sand);
+            color: var(--text-charcoal);
+            font-family: 'Noto Sans TC', sans-serif;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4, .serif-font {
+            font-family: 'Noto Serif TC', serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            height: 350px;
+            max-height: 450px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #E5E7EB;
+            border-radius: 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .journey-step {
+            position: relative;
+            padding: 1.5rem;
+            border: 1px solid var(--accent-moss);
+            background: #fff;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .journey-step:not(:last-child)::after {
+            content: "↓";
+            position: absolute;
+            bottom: -1.75rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-moss);
+        }
+        .example-tag {
+            background-color: var(--accent-gold);
+            color: white;
+            padding: 2px 8px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-12">
+
+    <!-- Header / Manifesto Hook -->
+    <header class="max-w-6xl mx-auto mb-16 text-center">
+        <div class="mb-6">
+            <span class="text-xs tracking-[0.4em] uppercase text-[#3D4035] font-semibold">Strategic Roadmap 2026</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-8 text-[#2C2C2C] tracking-tight">evenif</h1>
+        <p class="text-xl md:text-2xl font-light tracking-[0.2em] italic mb-10 text-[#3D4035]">"The Art of Curative Insistence"</p>
+        <div class="max-w-4xl mx-auto bg-white p-10 shadow-sm border-l-[12px] border-[#3D4035]">
+            <p class="text-lg md:text-xl leading-relaxed font-light text-left">
+                The launch of <strong>evenif</strong> is not merely a store opening; it is the debut of a curative philosophy designed to capture market share through 
+                intellectual authority. We blend high-concept brand storytelling with a conversion-first sales architecture. 
+                Our objective: To transform the act of purchase into an <strong>acquisition of lifestyle</strong>. 
+                Target Launch: <span class="font-semibold border-b-2 border-[#C5A065]">February 1, 2026</span>.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
+
+        <!-- 1. The Launch Horizon -->
+        <section class="col-span-1 md:col-span-2">
+            <div class="mb-8 border-b border-[#3D4035] pb-4">
+                <h2 class="text-3xl font-bold serif-font text-[#3D4035]">1. The Launch Horizon</h2>
+            </div>
+            <p class="mb-8 text-gray-700 leading-relaxed text-lg">
+                Our timeline is built on the principle of "Foundation before Fanfare." Phase 1 secures the technical checkout experience, while Phase 2 builds a month-long narrative bridge to the official February launch. This ensures that the brand enters the market with a fully established voice.
+            </p>
+            <div class="card p-8">
+                <div class="chart-container">
+                    <canvas id="launchTimelineChart"></canvas>
+                </div>
+                <div class="mt-6 text-sm text-gray-600 flex justify-center space-x-8">
+                    <span class="flex items-center"><span class="w-3 h-3 bg-[#8C9485] mr-2"></span> Tech Build</span>
+                    <span class="flex items-center"><span class="w-3 h-3 bg-[#D6D3D1] mr-2"></span> Content Curation</span>
+                    <span class="flex items-center"><span class="w-3 h-3 bg-[#3D4035] mr-2"></span> Grand Launch</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Technical Excellence Deliverables -->
+        <section class="col-span-1 md:col-span-2">
+            <div class="mb-8 border-b border-[#3D4035] pb-4">
+                <h2 class="text-3xl font-bold serif-font text-[#3D4035]">2. Technical Excellence Deliverables</h2>
+            </div>
+            <p class="mb-8 text-gray-700 leading-relaxed text-lg">
+                Revenue depends on a frictionless digital environment. Between Jan 5 and Jan 15, we prioritize the conversion-focused e-commerce infrastructure that supports our curative tone without sacrificing the "Add to Cart" urgency.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card p-8 border-t-8 border-[#3D4035]">
+                    <h3 class="text-2xl font-bold mb-6 serif-font tracking-tight">E-Commerce Architecture</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="mr-3 text-[#C5A065] text-xl">&#10004;</span>
+                            <span class="text-base text-gray-800"><strong>Shopify Custom Logic:</strong> Immersive "Even if" dynamic typography and visual depth.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3 text-[#C5A065] text-xl">&#10004;</span>
+                            <span class="text-base text-gray-800"><strong>Strategic PDPs:</strong> Curative product pages designed to trigger high-intent purchasing.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3 text-[#C5A065] text-xl">&#10004;</span>
+                            <span class="text-base text-gray-800"><strong>Fluid Mobile UX:</strong> Responsive layouts ensuring luxury browsing on all devices.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3 text-[#C5A065] text-xl">&#10004;</span>
+                            <span class="text-base text-gray-800"><strong>Conversion Funnel:</strong> Integrated PayMe/HK Credit Card checkout gateways.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card p-8 border-t-8 border-[#8C9485]">
+                    <h3 class="text-2xl font-bold mb-6 serif-font tracking-tight">Meta Tracking & Logic</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="mr-3 text-[#C5A065] text-xl">&#10004;</span>
+                            <span class="text-base text-gray-800"><strong>BM Authority:</strong> Full setup of Page, IG, and Business Manager permissions.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3 text-[#C5A065] text-xl">&#10004;</span>
+                            <span class="text-base text-gray-800"><strong>Data Pixel:</strong> Advanced event tracking (ViewContent, Purchase) testing.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3 text-[#C5A065] text-xl">&#10004;</span>
+                            <span class="text-base text-gray-800"><strong>AEM Config:</strong> Aggregated Event Measurement setup for iOS 14+ tracking stability.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3 text-[#C5A065] text-xl">&#10004;</span>
+                            <span class="text-base text-gray-800"><strong>Social Sync:</strong> Seamless catalog integration between Shopify and Instagram.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Social Media Content Pillars -->
+        <section class="col-span-1">
+            <div class="mb-8 border-b border-[#3D4035] pb-4">
+                <h2 class="text-3xl font-bold serif-font text-[#3D4035]">3. Social Media Content Pillars</h2>
+            </div>
+            <p class="mb-8 text-gray-700 leading-relaxed">
+                Instagram is the official journal of <strong>evenif</strong>. The content strategy is segmented to build aesthetic identity while driving functional trust and <strong>sales conversion</strong>.
+            </p>
+            <div class="card p-8">
+                <div class="chart-container">
+                    <canvas id="pillarDonutChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. The Conversion Journey -->
+        <section class="col-span-1">
+            <div class="mb-8 border-b border-[#3D4035] pb-4">
+                <h2 class="text-3xl font-bold serif-font text-[#3D4035]">4. The Conversion Journey</h2>
+            </div>
+            <p class="mb-8 text-gray-700 leading-relaxed">
+                A psychological path from initial curiosity to final transaction, explained for the layman.
+            </p>
+            <div class="flex flex-col">
+                <div class="journey-step">
+                    <h4 class="font-bold text-[#3D4035] mb-2 serif-font">STAGE 1: Awareness (品牌覺知)</h4>
+                    <p class="text-sm text-gray-600"><strong>Content:</strong> 選物物件誌 (TOFU)</p>
+                    <p class="text-xs text-gray-500 mt-1 italic">透過故事化內容引起共鳴，接觸最廣泛的潛在客群。</p>
+                </div>
+                <div class="journey-step">
+                    <h4 class="font-bold text-[#3D4035] mb-2 serif-font">STAGE 2: Consideration (建立信任)</h4>
+                    <p class="text-sm text-gray-600"><strong>Content:</strong> 數據科研指標 (MOFU)</p>
+                    <p class="text-xs text-gray-500 mt-1 italic">提供專業證據與科學標準，解決顧客的猶豫與不信任。</p>
+                </div>
+                <div class="journey-step">
+                    <h4 class="font-bold text-[#C5A065] mb-2 serif-font text-lg">STAGE 3: Conversion (銷售驅動)</h4>
+                    <p class="text-sm text-gray-600"><strong>Content:</strong> 療癒生活儀式 (BOFU)</p>
+                    <p class="text-xs text-gray-500 mt-1 italic"><strong>銷售核心：</strong>展示產品開箱質感與首購組合，直接促成訂單轉化。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Growth & Observative Scaling -->
+        <section class="col-span-1 md:col-span-2">
+            <div class="mb-8 border-b border-[#3D4035] pb-4">
+                <h2 class="text-3xl font-bold serif-font text-[#3D4035]">5. Growth & Observative Scaling</h2>
+            </div>
+            <p class="mb-8 text-gray-700 leading-relaxed text-lg">
+                Instead of vanity metrics, we scale based on <strong>traffic quality</strong>. The first 8 weeks focus on stabilizing the retention of core "Intellectual Beauty" advocates before attempting broad-market expansion.
+            </p>
+            <div class="card p-8">
+                <div class="chart-container">
+                    <canvas id="scalingMatrixChart"></canvas>
+                </div>
+                <!-- Scaling Explanation added here -->
+                <div class="mt-8 p-6 bg-[#F9F7F5] border-l-4 border-[#3D4035]">
+                    <h4 class="font-bold mb-3 serif-font text-[#3D4035]">關於擴張策略的說明 (Scaling Logic)</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                        <div>
+                            <p class="font-semibold mb-1 text-[#3D4035]">1. Core Audience (核心受眾 / 高意向客戶)</p>
+                            <p class="text-gray-600 leading-relaxed">這是第一波最精確的人群，通常熱愛極簡美學、瑜珈或高品質選物。這群人對 <strong>evenif</strong> 的品牌語言共鳴度最高，是建立品牌口碑的基石，也是上線初期的主要轉化來源。</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold mb-1 text-[#3D4035]">2. Broad Market (大眾市場 / 潛在客戶)</p>
+                            <p class="text-gray-600 leading-relaxed">指核心圈層以外、更廣泛的護膚品消費者。這代表了品牌未來的成長空間。我們採取「先精後廣」的策略，在確保核心圈層穩固後，才逐步透過廣告「破圈」觸及大眾。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Content Pillar Examples -->
+        <section class="col-span-1 md:col-span-2 mt-8">
+            <div class="mb-8 border-b border-[#3D4035] pb-4">
+                <h2 class="text-3xl font-bold serif-font text-[#3D4035]">6. Content Pillar Examples (社群發佈範例)</h2>
+            </div>
+            <p class="mb-8 text-gray-700 leading-relaxed text-lg">
+                以下為 <strong>evenif</strong> 三大內容支柱的具體執行範例，展示如何將品牌調性與銷售力結合。
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Example A -->
+                <div class="card p-6 flex flex-col h-full">
+                    <div class="example-tag">範例 A: 選物物件誌</div>
+                    <h4 class="font-bold mb-3 serif-font">標題：編輯手稿 01 | 選品的「執著」</h4>
+                    <p class="text-sm text-gray-600 flex-grow leading-relaxed">
+                        「我們不生產物件，我們編輯妳的生活。」<br><br>
+                        在眾多草本配方中，evenif 為何唯獨挑選這款？是因為它在不同氣候下的安定表現。這不只是一瓶精華，它是我們在 1,000 個配方中「過濾」出的唯一。即使世界追求快速，我們依然執著於那 0.1% 的純度差異。
+                    </p>
+                    <div class="mt-4 pt-4 border-t border-gray-100 text-xs text-gray-400">
+                        #evenif #CuratedBeauty #選物誌
+                    </div>
+                </div>
+
+                <!-- Example B -->
+                <div class="card p-6 flex flex-col h-full">
+                    <div class="example-tag">範例 B: 數據科研指標</div>
+                    <h4 class="font-bold mb-3 serif-font">標題：智性美指標 | 12 萬例實證的重量</h4>
+                    <p class="text-sm text-gray-600 flex-grow leading-relaxed">
+                        講究，不應只是憑感覺。evenif 的每一項選品，背後都有一套嚴苛的數字系統：12 萬例臨床觀察、28 天皮膚更新周期測試、0% 爭議性成分添加。<br><br>
+                        我們深信：唯有理性的數據支持，才能賦予感性美學真正的安全感。
+                    </p>
+                    <div class="mt-4 pt-4 border-t border-gray-100 text-xs text-gray-400">
+                        #ScientificBeauty #智性美 #數據背書
+                    </div>
+                </div>
+
+                <!-- Example C (Updated to be more Sales-Driven) -->
+                <div class="card p-6 flex flex-col h-full bg-[#FCFBF9]">
+                    <div class="example-tag">範例 C: 療癒生活儀式 (Sales Closer)</div>
+                    <h4 class="font-bold mb-3 serif-font text-[#C5A065]">標題：與講究交手 | 初見組合限量發售</h4>
+                    <p class="text-sm text-gray-600 flex-grow leading-relaxed">
+                        這 15 分鐘的「初見組合」護理，是妳與大地、與自己重新連結的儀式。感受指尖與皮膚交手時的溫柔，這就是妳一直在尋找的「剛剛好」。<br><br>
+                        <strong>[立即入手：初見組合]</strong><br>
+                        即使今天再忙，妳依然值得這份專屬的平靜。官網限時首購優惠中，與妳的智性美第一次交手。
+                    </p>
+                    <div class="mt-4 pt-4 border-t border-gray-100 text-xs text-[#C5A065] font-semibold">
+                        #ShopNow #evenif #初見組合 #銷售轉化
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="mt-24 py-12 border-t border-[#3D4035] text-center">
+        <p class="serif-font text-3xl text-[#3D4035] mb-4">evenif</p>
+        <p class="text-sm text-gray-500 tracking-[0.5em] font-light">EITHER | STILL | INTENTIONAL</p>
+    </footer>
+
+    <script>
+        /**
+         * Label Wrapping Logic (16 char limit)
+         */
+        function wrapLabel(label, limit = 16) {
+            if (typeof label !== 'string') return label;
+            if (label.length <= limit) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            lines.push(currentLine.trim());
+            return lines;
+        }
+
+        Chart.defaults.font.family = "'Noto Sans TC', sans-serif";
+        Chart.defaults.color = '#2C2C2C';
+
+        /**
+         * 1. Strategic Timeline (Horizontal Bar)
+         */
+        const timelineCtx = document.getElementById('launchTimelineChart').getContext('2d');
+        const rawTimelineLabels = ['Phase 1: Tech Build', 'Phase 2: Content Prep', 'Phase 3: Grand Launch'];
+        const timelineLabels = rawTimelineLabels.map(l => wrapLabel(l));
+
+        new Chart(timelineCtx, {
+            type: 'bar',
+            data: {
+                labels: timelineLabels,
+                datasets: [{
+                    label: 'Timeline',
+                    data: [
+                        [new Date('2026-01-05').getTime(), new Date('2026-01-15').getTime()],
+                        [new Date('2026-01-16').getTime(), new Date('2026-01-31').getTime()],
+                        [new Date('2026-02-01').getTime(), new Date('2026-02-05').getTime()]
+                    ],
+                    backgroundColor: ['#8C9485', '#D6D3D1', '#3D4035'],
+                    borderRadius: 0,
+                    barPercentage: 0.5
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                maintainAspectRatio: false,
+                responsive: true,
+                scales: {
+                    x: {
+                        type: 'time',
+                        time: { unit: 'day', displayFormats: { day: 'MMM dd' } },
+                        min: new Date('2026-01-01').getTime(),
+                        max: new Date('2026-02-10').getTime(),
+                        grid: { 
+                            display: true,
+                            color: 'rgba(0,0,0,0.05)',
+                            lineWidth: 1
+                        }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                return tooltipItems[0].label;
+                            },
+                            label: function(context) {
+                                const start = new Date(context.raw[0]);
+                                const end = new Date(context.raw[1]);
+                                const format = d => d.toLocaleDateString('en-US', { month: 'short', day: '2-digit' });
+                                return `${format(start)} - ${format(end)}`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        /**
+         * 3. Content Pillars Donut (Updated Labels)
+         */
+        const pillarCtx = document.getElementById('pillarDonutChart').getContext('2d');
+        const pillarLabels = ['選物物件誌 (TOFU)', '數據科研指標 (MOFU)', '療癒生活儀式 (BOFU/Sales)'];
+
+        new Chart(pillarCtx, {
+            type: 'doughnut',
+            data: {
+                labels: pillarLabels,
+                datasets: [{
+                    data: [50, 30, 20],
+                    backgroundColor: ['#3D4035', '#8C9485', '#C5A065'],
+                    borderWidth: 0,
+                    hoverOffset: 15
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                cutout: '65%',
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { padding: 20, font: { size: 14 } }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                return tooltipItems[0].label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        /**
+         * 5. Scaling Matrix (Grouped Bar)
+         */
+        const scalingCtx = document.getElementById('scalingMatrixChart').getContext('2d');
+        const scalingLabels = ['Feb 2026', 'Mar 2026', 'Apr 2026'];
+
+        new Chart(scalingCtx, {
+            type: 'bar',
+            data: {
+                labels: scalingLabels,
+                datasets: [
+                    {
+                        label: 'Core Audience (High Intent)',
+                        data: [1500, 2200, 2800],
+                        backgroundColor: '#3D4035',
+                    },
+                    {
+                        label: 'Broad Market (Reach)',
+                        data: [500, 1200, 2400],
+                        backgroundColor: '#D6D3D1',
+                    }
+                ]
+            },
+            options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Monthly Active Visitors' },
+                        grid: { color: 'rgba(0,0,0,0.05)' }
+                    }
+                },
+                plugins: {
+                    legend: { position: 'bottom' },
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                return tooltipItems[0].label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+    <!-- 
+    Explicit Confirmation:
+    1. Mermaid JS was NOT used in this file.
+    2. SVG graphics were NOT used in this file. (Chart.js uses Canvas).
+    -->
+</body>
+</html>
