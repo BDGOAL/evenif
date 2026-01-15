@@ -1,995 +1,683 @@
-import React from 'react';
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>EvenIf 法式灰調色彩系統 Mockup</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Noto Sans TC", sans-serif;
+      background: #fafafa;
+      color: #2d2d2d;
+      padding: 24px;
+      line-height: 1.6;
+    }
 
-export default function ColorMockup() {
-  return (
-    <div style={{
-      minHeight: '100vh',
-      backgroundColor: '#f5f5f5',
-      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-      lineHeight: 1.6,
-      padding: '2rem'
-    }}>
-      <div style={{
-        maxWidth: '1400px',
-        margin: '0 auto'
-      }}>
-        <h1 style={{
-          fontSize: '2rem',
-          marginBottom: '2rem',
-          textAlign: 'center',
-          color: '#2d2d2d'
-        }}>
-          🎨 EvenIf 法式灰調色彩系統 Mockup
-        </h1>
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
 
-        {/* Color Palette */}
-        <ColorPaletteSection />
+    h2 {
+      font-size: 1.2rem;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+    }
 
-        {/* Header Comparison */}
-        <HeaderComparisonSection />
+    .section {
+      margin-top: 1.5rem;
+    }
 
-        {/* Product Card Comparison */}
-        <ProductCardSection />
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
 
-        {/* Cart Page Comparison */}
-        <CartPageSection />
+    @media (min-width: 768px) {
+      .grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
 
-        {/* 404 Page Comparison */}
-        <ErrorPageSection />
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
 
-        {/* Divider Comparison */}
-        <DividerSection />
+    .color-card {
+      border-radius: 8px;
+      padding: 12px;
+      background: #ffffff;
+      border: 1px solid #ececec;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
 
-        {/* Summary */}
-        <SummarySection />
+    .color-swatch {
+      width: 48px;
+      height: 48px;
+      border-radius: 6px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      flex-shrink: 0;
+    }
 
-        <div style={{
-          textAlign: 'center',
-          margin: '3rem 0',
-          padding: '2rem',
-          background: 'white',
-          borderRadius: '12px'
-        }}>
-          <h2 style={{ color: '#3A3835', marginBottom: '1rem' }}>準備好開始修改了嗎？</h2>
-          <p style={{ color: '#5A5855', fontSize: '1.1rem' }}>
-            如果您滿意這個色彩方案，我將立即開始逐步修改！
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
+    .color-info-label {
+      font-size: 0.8rem;
+      color: #666666;
+      margin-bottom: 2px;
+    }
 
-function ColorPaletteSection() {
-  const colors = [
-    { name: '品牌主色（現在）', code: '#9d8b7a', usage: '偏暖調米棕色', label: '舊色 - 米棕' },
-    { name: '品牌主色（新）', code: '#8B8985', usage: '法式冷調灰褐色', label: '新色 - 灰褐' },
-    { name: 'Header（現在）', code: 'rgba(255,255,255,0.95)', usage: '半透明白色', label: '舊色 - 淺色', textColor: '#2d2d2d' },
-    { name: 'Header & CTA（新）', code: '#4A4845', usage: '深灰炭色，沉穩優雅', label: '新色 - 深灰炭' },
-    { name: '背景（現在）', code: '#FFFFFF', usage: '純白色', label: '舊色 - 純白', textColor: '#2d2d2d', border: true },
-    { name: '背景（新）', code: '#F0EEEB', usage: '飽和度降低的奶灰白', label: '新色 - 奶灰白', textColor: '#3A3835' },
-    { name: 'Sale Tag（現在）', code: '#9d8b7a', usage: '與主色相同', label: '舊色 - 米棕' },
-    { name: 'Sale Tag（新）', code: '#A8A895', usage: '低飽和度橄欖灰綠', label: '新色 - 橄欖灰綠' },
-    { name: '大標題（現在）', code: '#2d2d2d', usage: '標準深灰', label: '舊色 - 深灰' },
-    { name: '大標題（新）', code: '#3A3835', usage: '帶灰調的深色', label: '新色 - 灰黑' },
-    { name: '分隔線（現在）', code: '#e5e5e5', usage: '冷調淺灰', label: '舊色 - 淺灰', textColor: '#2d2d2d' },
-    { name: '分隔線（新）', code: '#D4D2CE', usage: '帶暖調的中灰', label: '新色 - 暖灰', textColor: '#3A3835' }
-  ];
+    .color-info-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
 
-  return (
-    <div style={{
-      background: 'white',
-      padding: '2rem',
-      marginBottom: '2rem',
-      borderRadius: '12px',
-      boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
-    }}>
-      <h2 style={{
-        fontSize: '1.5rem',
-        marginBottom: '1.5rem',
-        paddingBottom: '0.5rem',
-        borderBottom: '2px solid #e5e5e5',
-        color: '#2d2d2d'
-      }}>
-        1️⃣ 核心色彩調色盤
-      </h2>
+    .color-info-code {
+      font-size: 0.8rem;
+      color: #999999;
+    }
 
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-        gap: '1.5rem',
-        marginTop: '1.5rem'
-      }}>
-        {colors.map((color, index) => (
-          <div key={index} style={{
-            background: 'white',
-            borderRadius: '8px',
-            overflow: 'hidden',
-            border: '1px solid #e5e5e5'
-          }}>
-            <div style={{
-              height: '120px',
-              background: color.code,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: color.textColor || 'white',
-              fontWeight: 600,
-              textShadow: color.textColor ? 'none' : '0 1px 3px rgba(0,0,0,0.3)',
-              border: color.border ? '1px solid #e5e5e5' : 'none'
-            }}>
-              {color.label}
-            </div>
-            <div style={{ padding: '1rem' }}>
-              <div style={{
-                fontWeight: 600,
-                marginBottom: '0.25rem',
-                fontSize: '0.95rem'
-              }}>
-                {color.name}
-              </div>
-              <div style={{
-                fontFamily: '"Courier New", monospace',
-                fontSize: '0.85rem',
-                color: '#666'
-              }}>
-                {color.code}
-              </div>
-              <div style={{
-                marginTop: '0.5rem',
-                fontSize: '0.8rem',
-                color: '#999'
-              }}>
-                {color.usage}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+    .color-info-usage {
+      font-size: 0.8rem;
+      color: #555555;
+      margin-top: 2px;
+    }
 
-function HeaderComparisonSection() {
-  return (
-    <div style={{
-      background: 'white',
-      padding: '2rem',
-      marginBottom: '2rem',
-      borderRadius: '12px',
-      boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
-    }}>
-      <h2 style={{
-        fontSize: '1.5rem',
-        marginBottom: '1.5rem',
-        paddingBottom: '0.5rem',
-        borderBottom: '2px solid #e5e5e5',
-        color: '#2d2d2d'
-      }}>
-        2️⃣ Header 導航欄對比
-      </h2>
+    .card {
+      padding: 16px;
+      border-radius: 10px;
+      border: 1px solid #e5e5e5;
+      background: #ffffff;
+    }
 
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: window.innerWidth > 768 ? '1fr 1fr' : '1fr',
-        gap: '2rem',
-        marginTop: '1.5rem'
-      }}>
-        {/* Old Header */}
-        <div style={{
-          border: '2px solid #e5e5e5',
-          borderRadius: '8px',
-          overflow: 'hidden'
-        }}>
-          <div style={{
-            padding: '0.75rem',
-            textAlign: 'center',
-            fontWeight: 600,
-            fontSize: '0.9rem',
-            background: '#fff3e0',
-            color: '#9d8b7a'
-          }}>
-            現在 - 淺色系
-          </div>
-          <div style={{
-            background: 'rgba(255, 255, 255, 0.95)',
-            backdropFilter: 'blur(10px)',
-            padding: '1.25rem 2rem',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            borderBottom: '1px solid rgba(0,0,0,0.08)'
-          }}>
-            <div style={{
-              fontSize: '1.25rem',
-              fontWeight: 300,
-              letterSpacing: '0.3em',
-              color: '#2d2d2d'
-            }}>
-              EVENIF
-            </div>
-            <div style={{
-              display: 'flex',
-              gap: '2rem',
-              fontSize: '0.9rem',
-              color: '#2d2d2d'
-            }}>
-              <span>首頁</span>
-              <span>商品</span>
-              <span>關於</span>
-            </div>
-            <div style={{
-              background: '#9d8b7a',
-              color: 'white',
-              padding: '0.6rem 1.5rem',
-              borderRadius: '4px',
-              fontSize: '0.85rem',
-              letterSpacing: '0.1em'
-            }}>
-              聯絡我們
-            </div>
-          </div>
-        </div>
+    .card-header {
+      font-size: 0.9rem;
+      color: #777777;
+      margin-bottom: 0.5rem;
+    }
 
-        {/* New Header */}
-        <div style={{
-          border: '2px solid #e5e5e5',
-          borderRadius: '8px',
-          overflow: 'hidden'
-        }}>
-          <div style={{
-            padding: '0.75rem',
-            textAlign: 'center',
-            fontWeight: 600,
-            fontSize: '0.9rem',
-            background: '#e8f5e9',
-            color: '#4A4845'
-          }}>
-            新版 - 深灰炭色
-          </div>
-          <div style={{
-            background: '#4A4845',
-            padding: '1.25rem 2rem',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center'
-          }}>
-            <div style={{
-              fontSize: '1.1rem',
-              fontWeight: 300,
-              letterSpacing: '0.3em',
-              color: '#F5F3F0'
-            }}>
-              EVENIF
-            </div>
-            <div style={{
-              display: 'flex',
-              gap: '1.75rem',
-              fontSize: '0.8rem',
-              color: '#D4D2CE'
-            }}>
-              <span>首頁</span>
-              <span>商品</span>
-              <span>關於</span>
-            </div>
-            <div style={{
-              background: '#4A4845',
-              color: '#F5F3F0',
-              padding: '0.5rem 1.25rem',
-              borderRadius: '4px',
-              fontSize: '0.75rem',
-              letterSpacing: '0.1em',
-              border: '1px solid #6A6865'
-            }}>
-              聯絡我們
-            </div>
-          </div>
-        </div>
-      </div>
+    .header-old {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 999px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      border: 1px solid #e5e5e5;
+    }
 
-      <p style={{
-        marginTop: '1rem',
-        color: '#666',
-        fontSize: '0.9rem'
-      }}>
-        ✨ <strong>變化：</strong>Header 改為深灰炭色 #4A4845，CTA 按鈕同色系，文字改為奶白色，整體字體縮小 10-15%
-      </p>
-    </div>
-  );
-}
+    .header-new {
+      background: #4a4845;
+      border-radius: 999px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: #f9f7f4;
+    }
 
-function ProductCardSection() {
-  return (
-    <div style={{
-      background: 'white',
-      padding: '2rem',
-      marginBottom: '2rem',
-      borderRadius: '12px',
-      boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
-    }}>
-      <h2 style={{
-        fontSize: '1.5rem',
-        marginBottom: '1.5rem',
-        paddingBottom: '0.5rem',
-        borderBottom: '2px solid #e5e5e5',
-        color: '#2d2d2d'
-      }}>
-        3️⃣ 產品卡片 & Sale Tag 對比
-      </h2>
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      font-size: 0.8rem;
+    }
 
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: window.innerWidth > 768 ? 'repeat(2, 1fr)' : '1fr',
-        gap: '2rem',
-        marginTop: '1.5rem'
-      }}>
-        {/* Old Product Card */}
+    .product-card {
+      border-radius: 12px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .product-card-old {
+      background: #ffffff;
+      border: 1px solid #e5e5e5;
+    }
+
+    .product-card-new {
+      background: #fafaf8;
+      border: 1px solid #d4d2ce;
+    }
+
+    .sale-tag-old {
+      display: inline-block;
+      padding: 2px 8px;
+      font-size: 0.7rem;
+      border-radius: 999px;
+      background: #9d8b7a;
+      color: #ffffff;
+    }
+
+    .sale-tag-new {
+      display: inline-block;
+      padding: 2px 8px;
+      font-size: 0.7rem;
+      border-radius: 999px;
+      background: #a8a895;
+      color: #ffffff;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 120px;
+      border-radius: 10px;
+      background: #e5e5e5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .product-title-old {
+      font-size: 1rem;
+      color: #2d2d2d;
+    }
+
+    .product-title-new {
+      font-size: 0.9rem;
+      color: #3a3835;
+    }
+
+    .product-price-old {
+      font-size: 0.95rem;
+      color: #2d2d2d;
+      font-weight: 600;
+    }
+
+    .product-price-new {
+      font-size: 0.9rem;
+      color: #8b8985;
+      font-weight: 600;
+    }
+
+    .cart-box-old {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid #e5e5e5;
+    }
+
+    .cart-box-new {
+      background: #f0eeeb;
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid #d4d2ce;
+    }
+
+    .cart-title-old {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #2d2d2d;
+      margin-bottom: 8px;
+    }
+
+    .cart-title-new {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #3a3835;
+      margin-bottom: 8px;
+    }
+
+    .btn-old {
+      margin-top: 12px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: none;
+      background: #9d8b7a;
+      color: #ffffff;
+      font-size: 0.85rem;
+      cursor: default;
+    }
+
+    .btn-new {
+      margin-top: 12px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: none;
+      background: #4a4845;
+      color: #f9f7f4;
+      font-size: 0.8rem;
+      cursor: default;
+    }
+
+    .error-box-old,
+    .error-box-new {
+      border-radius: 12px;
+      padding: 18px;
+      border: 1px solid #e5e5e5;
+    }
+
+    .error-box-old {
+      background: #ffffff;
+      color: #2d2d2d;
+    }
+
+    .error-box-new {
+      background: #f0eeeb;
+      color: #3a3835;
+      border-color: #d4d2ce;
+      font-size: 0.95rem;
+    }
+
+    .divider-old {
+      border-top: 1px solid #e5e5e5;
+      margin: 12px 0;
+    }
+
+    .divider-new {
+      border-top: 1px solid #d4d2ce;
+      margin: 12px 0;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .summary-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .summary-card {
+      border-radius: 12px;
+      padding: 14px;
+      border: 1px solid #e5e5e5;
+      background: #ffffff;
+      font-size: 0.9rem;
+    }
+
+    .summary-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+      font-size: 0.95rem;
+    }
+
+    .summary-list {
+      padding-left: 1.1rem;
+      margin: 0;
+    }
+
+    .summary-list li {
+      margin-bottom: 4px;
+      font-size: 0.85rem;
+    }
+
+    .highlight {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      background: #f0eeeb;
+      border-radius: 10px;
+      padding: 12px;
+      border: 1px solid #d4d2ce;
+    }
+
+    .cta-final {
+      margin-top: 2rem;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: #f5f3f0;
+      border: 1px solid #e0ddd8;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Main Title -->
+  <h1>🎨 EvenIf 法式灰調色彩系統 Mockup</h1>
+
+  <!-- 1️⃣ Color Palette -->
+  <section class="section" id="color-palette">
+    <h2>1️⃣ 核心色彩調色盤</h2>
+    <div class="color-grid">
+      <!-- 品牌主色（現在） -->
+      <div class="color-card">
+        <div class="color-swatch" style="background:#9d8b7a;"></div>
         <div>
-          <div style={{
-            padding: '0.75rem',
-            marginBottom: '1rem',
-            textAlign: 'center',
-            fontWeight: 600,
-            fontSize: '0.9rem',
-            background: '#fff3e0',
-            color: '#9d8b7a',
-            borderRadius: '4px'
-          }}>
-            現在 - 暖調米棕
-          </div>
-          <div style={{
-            borderRadius: '8px',
-            overflow: 'hidden'
-          }}>
-            <div style={{
-              width: '100%',
-              height: '280px',
-              background: '#f5f5f0',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '3rem',
-              color: '#ddd',
-              position: 'relative'
-            }}>
-              <div style={{
-                position: 'absolute',
-                top: '0.75rem',
-                left: '0.75rem',
-                background: '#9d8b7a',
-                color: 'white',
-                padding: '0.3rem 0.8rem',
-                borderRadius: '1rem',
-                fontSize: '0.7rem',
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase'
-              }}>
-                SALE
-              </div>
-              🖼️
-            </div>
-            <div style={{
-              padding: '1rem',
-              background: 'white'
-            }}>
-              <div style={{
-                fontSize: '1rem',
-                color: '#2d2d2d',
-                marginBottom: '0.5rem',
-                fontWeight: 400
-              }}>
-                法式香氛蠟燭禮盒
-              </div>
-              <div style={{
-                fontSize: '0.95rem',
-                color: '#9d8b7a',
-                fontWeight: 600
-              }}>
-                HKD 580
-              </div>
-            </div>
-          </div>
+          <div class="color-info-label">舊色 - 米棕</div>
+          <div class="color-info-name">品牌主色（現在）</div>
+          <div class="color-info-code">#9d8b7a</div>
+          <div class="color-info-usage">偏暖調米棕色</div>
         </div>
+      </div>
 
-        {/* New Product Card */}
+      <!-- 品牌主色（新） -->
+      <div class="color-card">
+        <div class="color-swatch" style="background:#8B8985;"></div>
         <div>
-          <div style={{
-            padding: '0.75rem',
-            marginBottom: '1rem',
-            textAlign: 'center',
-            fontWeight: 600,
-            fontSize: '0.9rem',
-            background: '#e8f5e9',
-            color: '#4A4845',
-            borderRadius: '4px'
-          }}>
-            新版 - 法式灰調
-          </div>
-          <div style={{
-            borderRadius: '8px',
-            overflow: 'hidden'
-          }}>
-            <div style={{
-              width: '100%',
-              height: '280px',
-              background: '#f5f5f0',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '3rem',
-              color: '#ddd',
-              position: 'relative'
-            }}>
-              <div style={{
-                position: 'absolute',
-                top: '0.75rem',
-                left: '0.75rem',
-                background: '#A8A895',
-                color: 'white',
-                padding: '0.25rem 0.7rem',
-                borderRadius: '1rem',
-                fontSize: '0.65rem',
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase'
-              }}>
-                SALE
-              </div>
-              🖼️
-            </div>
-            <div style={{
-              padding: '1rem',
-              background: '#FAFAF8',
-              borderTop: '1px solid #D4D2CE'
-            }}>
-              <div style={{
-                fontSize: '0.9rem',
-                color: '#3A3835',
-                marginBottom: '0.5rem',
-                fontWeight: 400,
-                lineHeight: 1.5
-              }}>
-                法式香氛蠟燭禮盒
-              </div>
-              <div style={{
-                fontSize: '0.85rem',
-                color: '#8B8985',
-                fontWeight: 500
-              }}>
-                HKD 580
-              </div>
-            </div>
-          </div>
+          <div class="color-info-label">新色 - 灰褐</div>
+          <div class="color-info-name">品牌主色（新）</div>
+          <div class="color-info-code">#8B8985</div>
+          <div class="color-info-usage">法式冷調灰褐色</div>
         </div>
       </div>
 
-      <p style={{
-        marginTop: '1.5rem',
-        color: '#666',
-        fontSize: '0.9rem'
-      }}>
-        ✨ <strong>變化：</strong>
-        <br />• Sale Tag 改為橄欖灰綠 #A8A895
-        <br />• 卡片背景改為 #FAFAF8（微灰白）
-        <br />• 添加暖灰分隔線 #D4D2CE
-        <br />• 標題縮小至 0.9rem，價格改為灰褐色
-      </p>
-    </div>
-  );
-}
-
-function CartPageSection() {
-  return (
-    <div style={{
-      background: 'white',
-      padding: '2rem',
-      marginBottom: '2rem',
-      borderRadius: '12px',
-      boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
-    }}>
-      <h2 style={{
-        fontSize: '1.5rem',
-        marginBottom: '1.5rem',
-        paddingBottom: '0.5rem',
-        borderBottom: '2px solid #e5e5e5',
-        color: '#2d2d2d'
-      }}>
-        4️⃣ 購物車頁面對比
-      </h2>
-
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: window.innerWidth > 768 ? '1fr 1fr' : '1fr',
-        gap: '2rem',
-        marginTop: '1.5rem'
-      }}>
-        {/* Old Cart */}
-        <div style={{
-          border: '2px solid #e5e5e5',
-          borderRadius: '8px',
-          overflow: 'hidden'
-        }}>
-          <div style={{
-            padding: '0.75rem',
-            textAlign: 'center',
-            fontWeight: 600,
-            fontSize: '0.9rem',
-            background: '#fff3e0',
-            color: '#9d8b7a'
-          }}>
-            現在 - 純白背景
-          </div>
-          <div style={{
-            padding: '2rem',
-            background: 'white'
-          }}>
-            <div style={{
-              fontSize: '2.5rem',
-              fontWeight: 300,
-              letterSpacing: '0.3em',
-              color: '#2d2d2d',
-              textAlign: 'center',
-              marginBottom: '1.5rem'
-            }}>
-              購物車
-            </div>
-            <div style={{
-              background: 'white',
-              padding: '1.5rem',
-              borderRadius: '8px',
-              borderBottom: '1px solid #f5f5f5',
-              display: 'flex',
-              gap: '1.5rem',
-              alignItems: 'center'
-            }}>
-              <div style={{
-                width: '80px',
-                height: '80px',
-                background: '#f5f5f0',
-                borderRadius: '8px'
-              }} />
-              <div>
-                <div style={{
-                  fontSize: '1.1rem',
-                  color: '#2d2d2d',
-                  fontWeight: 500
-                }}>
-                  經典香氛蠟燭
-                </div>
-                <div style={{
-                  color: '#999',
-                  fontSize: '0.9rem',
-                  marginTop: '0.25rem'
-                }}>
-                  數量: 1
-                </div>
-              </div>
-            </div>
-            <div style={{
-              background: '#9d8b7a',
-              color: 'white',
-              padding: '0.9rem 2rem',
-              borderRadius: '8px',
-              fontSize: '0.95rem',
-              letterSpacing: '0.15em',
-              textAlign: 'center',
-              marginTop: '1.5rem'
-            }}>
-              前往結帳
-            </div>
-          </div>
-        </div>
-
-        {/* New Cart */}
-        <div style={{
-          border: '2px solid #e5e5e5',
-          borderRadius: '8px',
-          overflow: 'hidden'
-        }}>
-          <div style={{
-            padding: '0.75rem',
-            textAlign: 'center',
-            fontWeight: 600,
-            fontSize: '0.9rem',
-            background: '#e8f5e9',
-            color: '#4A4845'
-          }}>
-            新版 - 奶灰白背景
-          </div>
-          <div style={{
-            padding: '2rem',
-            background: '#F0EEEB'
-          }}>
-            <div style={{
-              fontSize: '2rem',
-              fontWeight: 300,
-              letterSpacing: '0.3em',
-              color: '#3A3835',
-              textAlign: 'center',
-              marginBottom: '1.5rem'
-            }}>
-              購物車
-            </div>
-            <div style={{
-              background: '#FAFAF8',
-              padding: '1.5rem',
-              borderRadius: '8px',
-              borderBottom: '1px solid #D4D2CE',
-              display: 'flex',
-              gap: '1.5rem',
-              alignItems: 'center'
-            }}>
-              <div style={{
-                width: '80px',
-                height: '80px',
-                background: '#e8e6e3',
-                borderRadius: '8px'
-              }} />
-              <div>
-                <div style={{
-                  fontSize: '1rem',
-                  color: '#3A3835',
-                  fontWeight: 500
-                }}>
-                  經典香氛蠟燭
-                </div>
-                <div style={{
-                  color: '#8B8985',
-                  fontSize: '0.85rem',
-                  marginTop: '0.25rem'
-                }}>
-                  數量: 1
-                </div>
-              </div>
-            </div>
-            <div style={{
-              background: '#4A4845',
-              color: '#F5F3F0',
-              padding: '0.8rem 1.75rem',
-              borderRadius: '8px',
-              fontSize: '0.85rem',
-              letterSpacing: '0.12em',
-              textAlign: 'center',
-              marginTop: '1.5rem'
-            }}>
-              前往結帳
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <p style={{
-        marginTop: '1rem',
-        color: '#666',
-        fontSize: '0.9rem'
-      }}>
-        ✨ <strong>變化：</strong>
-        <br />• 背景改為奶灰白 #F0EEEB
-        <br />• 標題改為灰黑 #3A3835，字體縮小
-        <br />• 按鈕改為深灰 #4A4845
-        <br />• 分隔線改為暖灰 #D4D2CE
-      </p>
-    </div>
-  );
-}
-
-function ErrorPageSection() {
-  return (
-    <div style={{
-      background: 'white',
-      padding: '2rem',
-      marginBottom: '2rem',
-      borderRadius: '12px',
-      boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
-    }}>
-      <h2 style={{
-        fontSize: '1.5rem',
-        marginBottom: '1.5rem',
-        paddingBottom: '0.5rem',
-        borderBottom: '2px solid #e5e5e5',
-        color: '#2d2d2d'
-      }}>
-        5️⃣ 404 錯誤頁面對比
-      </h2>
-
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: window.innerWidth > 768 ? '1fr 1fr' : '1fr',
-        gap: '2rem',
-        marginTop: '1.5rem'
-      }}>
-        {/* Old 404 */}
-        <div style={{
-          border: '2px solid #e5e5e5',
-          borderRadius: '8px',
-          overflow: 'hidden'
-        }}>
-          <div style={{
-            padding: '0.75rem',
-            textAlign: 'center',
-            fontWeight: 600,
-            fontSize: '0.9rem',
-            background: '#fff3e0',
-            color: '#9d8b7a'
-          }}>
-            現在
-          </div>
-          <div style={{
-            padding: '3rem 2rem',
-            background: 'white',
-            textAlign: 'center'
-          }}>
-            <div style={{
-              fontSize: '3rem',
-              color: '#2d2d2d',
-              marginBottom: '1rem',
-              fontWeight: 300
-            }}>
-              找不到頁面
-            </div>
-            <div style={{
-              fontSize: '1.1rem',
-              color: '#666',
-              marginBottom: '2rem'
-            }}>
-              抱歉，您要找的頁面不存在。
-            </div>
-          </div>
-        </div>
-
-        {/* New 404 */}
-        <div style={{
-          border: '2px solid #e5e5e5',
-          borderRadius: '8px',
-          overflow: 'hidden'
-        }}>
-          <div style={{
-            padding: '0.75rem',
-            textAlign: 'center',
-            fontWeight: 600,
-            fontSize: '0.9rem',
-            background: '#e8f5e9',
-            color: '#4A4845'
-          }}>
-            新版
-          </div>
-          <div style={{
-            padding: '3rem 2rem',
-            background: '#F0EEEB',
-            textAlign: 'center'
-          }}>
-            <div style={{
-              fontSize: '2.5rem',
-              color: '#3A3835',
-              marginBottom: '1rem',
-              fontWeight: 300
-            }}>
-              找不到頁面
-            </div>
-            <div style={{
-              fontSize: '1rem',
-              color: '#5A5855',
-              marginBottom: '2rem',
-              lineHeight: 1.8
-            }}>
-              抱歉，您要找的頁面不存在。
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <p style={{
-        marginTop: '1rem',
-        color: '#666',
-        fontSize: '0.9rem'
-      }}>
-        ✨ <strong>變化：</strong>背景改為奶灰白，標題改為灰黑色，字體縮小
-      </p>
-    </div>
-  );
-}
-
-function DividerSection() {
-  return (
-    <div style={{
-      background: 'white',
-      padding: '2rem',
-      marginBottom: '2rem',
-      borderRadius: '12px',
-      boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
-    }}>
-      <h2 style={{
-        fontSize: '1.5rem',
-        marginBottom: '1.5rem',
-        paddingBottom: '0.5rem',
-        borderBottom: '2px solid #e5e5e5',
-        color: '#2d2d2d'
-      }}>
-        6️⃣ 分隔線對比
-      </h2>
-
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: window.innerWidth > 768 ? '1fr 1fr' : '1fr',
-        gap: '2rem',
-        marginTop: '1.5rem'
-      }}>
-        {/* Old Divider */}
+      <!-- Header（現在） -->
+      <div class="color-card">
+        <div class="color-swatch" style="background:rgba(255,255,255,0.95);"></div>
         <div>
-          <div style={{
-            padding: '0.75rem',
-            textAlign: 'center',
-            fontWeight: 600,
-            fontSize: '0.9rem',
-            background: '#fff3e0',
-            color: '#9d8b7a',
-            marginBottom: '1rem',
-            borderRadius: '4px'
-          }}>
-            現在 - 冷灰
-          </div>
-          <div style={{
-            padding: '2rem',
-            background: 'white',
-            border: '1px solid #e5e5e5',
-            borderRadius: '8px'
-          }}>
-            <p style={{ color: '#666' }}>上方內容</p>
-            <div style={{
-              height: '1px',
-              background: '#e5e5e5',
-              margin: '1.5rem 0'
-            }} />
-            <p style={{ color: '#666' }}>下方內容</p>
-          </div>
+          <div class="color-info-label">舊色 - 淺色</div>
+          <div class="color-info-name">Header（現在）</div>
+          <div class="color-info-code">rgba(255,255,255,0.95)</div>
+          <div class="color-info-usage">半透明白色</div>
         </div>
+      </div>
 
-        {/* New Divider */}
+      <!-- Header & CTA（新） -->
+      <div class="color-card">
+        <div class="color-swatch" style="background:#4A4845;"></div>
         <div>
-          <div style={{
-            padding: '0.75rem',
-            textAlign: 'center',
-            fontWeight: 600,
-            fontSize: '0.9rem',
-            background: '#e8f5e9',
-            color: '#4A4845',
-            marginBottom: '1rem',
-            borderRadius: '4px'
-          }}>
-            新版 - 暖灰
-          </div>
-          <div style={{
-            padding: '2rem',
-            background: '#FAFAF8',
-            border: '1px solid #D4D2CE',
-            borderRadius: '8px'
-          }}>
-            <p style={{ color: '#5A5855' }}>上方內容</p>
-            <div style={{
-              height: '1px',
-              background: '#D4D2CE',
-              margin: '1.5rem 0'
-            }} />
-            <p style={{ color: '#5A5855' }}>下方內容</p>
-          </div>
+          <div class="color-info-label">新色 - 深灰炭</div>
+          <div class="color-info-name">Header &amp; CTA（新）</div>
+          <div class="color-info-code">#4A4845</div>
+          <div class="color-info-usage">深灰炭色，沉穩優雅</div>
         </div>
       </div>
 
-      <p style={{
-        marginTop: '1rem',
-        color: '#666',
-        fontSize: '0.9rem'
-      }}>
-        ✨ <strong>變化：</strong>分隔線從冷灰 #e5e5e5 改為帶暖調的 #D4D2CE，與整體色調更協調
-      </p>
+      <!-- 背景（現在） -->
+      <div class="color-card">
+        <div class="color-swatch" style="background:#FFFFFF;"></div>
+        <div>
+          <div class="color-info-label">舊色 - 純白</div>
+          <div class="color-info-name">背景（現在）</div>
+          <div class="color-info-code">#FFFFFF</div>
+          <div class="color-info-usage">純白色</div>
+        </div>
+      </div>
+
+      <!-- 背景（新） -->
+      <div class="color-card">
+        <div class="color-swatch" style="background:#F0EEEB;"></div>
+        <div>
+          <div class="color-info-label">新色 - 奶灰白</div>
+          <div class="color-info-name">背景（新）</div>
+          <div class="color-info-code">#F0EEEB</div>
+          <div class="color-info-usage">飽和度降低的奶灰白</div>
+        </div>
+      </div>
+
+      <!-- Sale Tag（現在） -->
+      <div class="color-card">
+        <div class="color-swatch" style="background:#9d8b7a;"></div>
+        <div>
+          <div class="color-info-label">舊色 - 米棕</div>
+          <div class="color-info-name">Sale Tag（現在）</div>
+          <div class="color-info-code">#9d8b7a</div>
+          <div class="color-info-usage">與主色相同</div>
+        </div>
+      </div>
+
+      <!-- Sale Tag（新） -->
+      <div class="color-card">
+        <div class="color-swatch" style="background:#A8A895;"></div>
+        <div>
+          <div class="color-info-label">新色 - 橄欖灰綠</div>
+          <div class="color-info-name">Sale Tag（新）</div>
+          <div class="color-info-code">#A8A895</div>
+          <div class="color-info-usage">低飽和度橄欖灰綠</div>
+        </div>
+      </div>
+
+      <!-- 大標題（現在） -->
+      <div class="color-card">
+        <div class="color-swatch" style="background:#2d2d2d;"></div>
+        <div>
+          <div class="color-info-label">舊色 - 深灰</div>
+          <div class="color-info-name">大標題（現在）</div>
+          <div class="color-info-code">#2d2d2d</div>
+          <div class="color-info-usage">標準深灰</div>
+        </div>
+      </div>
+
+      <!-- 大標題（新） -->
+      <div class="color-card">
+        <div class="color-swatch" style="background:#3A3835;"></div>
+        <div>
+          <div class="color-info-label">新色 - 灰黑</div>
+          <div class="color-info-name">大標題（新）</div>
+          <div class="color-info-code">#3A3835</div>
+          <div class="color-info-usage">帶灰調的深色</div>
+        </div>
+      </div>
+
+      <!-- 分隔線（現在） -->
+      <div class="color-card">
+        <div class="color-swatch" style="background:#e5e5e5;"></div>
+        <div>
+          <div class="color-info-label">舊色 - 淺灰</div>
+          <div class="color-info-name">分隔線（現在）</div>
+          <div class="color-info-code">#e5e5e5</div>
+          <div class="color-info-usage">冷調淺灰</div>
+        </div>
+      </div>
+
+      <!-- 分隔線（新） -->
+      <div class="color-card">
+        <div class="color-swatch" style="background:#D4D2CE;"></div>
+        <div>
+          <div class="color-info-label">新色 - 暖灰</div>
+          <div class="color-info-name">分隔線（新）</div>
+          <div class="color-info-code">#D4D2CE</div>
+          <div class="color-info-usage">帶暖調的中灰</div>
+        </div>
+      </div>
     </div>
-  );
-}
+  </section>
 
-function SummarySection() {
-  return (
-    <div style={{
-      background: 'linear-gradient(135deg, #F0EEEB 0%, #FAFAF8 100%)',
-      padding: '2rem',
-      marginBottom: '2rem',
-      borderRadius: '12px',
-      boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
-    }}>
-      <h2 style={{
-        fontSize: '1.5rem',
-        marginBottom: '1.5rem',
-        paddingBottom: '0.5rem',
-        borderBottom: '2px solid #e5e5e5',
-        color: '#2d2d2d'
-      }}>
-        📊 整體色調對比總結
-      </h2>
-
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: window.innerWidth > 768 ? '1fr 1fr' : '1fr',
-        gap: '2rem',
-        marginTop: '1.5rem'
-      }}>
-        <div style={{
-          background: 'white',
-          padding: '1.5rem',
-          borderRadius: '8px'
-        }}>
-          <h3 style={{
-            color: '#9d8b7a',
-            marginBottom: '1rem',
-            fontSize: '1.2rem'
-          }}>
-            現在 - 暖調米棕系
-          </h3>
-          <ul style={{
-            color: '#666',
-            lineHeight: 2,
-            fontSize: '0.9rem',
-            listStyle: 'none',
-            padding: 0
-          }}>
-            <li>✓ 主色偏暖 (#9d8b7a)</li>
-            <li>✓ 純白背景</li>
-            <li>✓ Header 淺色</li>
-            <li>✓ 整體偏 warm tone</li>
-          </ul>
-        </div>
-
-        <div style={{
-          background: '#FAFAF8',
-          padding: '1.5rem',
-          borderRadius: '8px',
-          border: '2px solid #4A4845'
-        }}>
-          <h3 style={{
-            color: '#4A4845',
-            marginBottom: '1rem',
-            fontSize: '1.2rem'
-          }}>
-            新版 - 法式冷灰系
-          </h3>
-          <ul style={{
-            color: '#5A5855',
-            lineHeight: 2,
-            fontSize: '0.9rem',
-            listStyle: 'none',
-            padding: 0
-          }}>
-            <li>✓ 主色冷灰 (#8B8985)</li>
-            <li>✓ 奶灰白背景 (#F0EEEB)</li>
-            <li>✓ Header 深灰炭 (#4A4845)</li>
-            <li>✓ 橄欖灰綠點綴 (#A8A895)</li>
-            <li>✓ 整體飽和度降低</li>
-            <li>✓ 字體縮小 10-15%</li>
-          </ul>
+  <!-- 2️⃣ Header Comparison -->
+  <section class="section" id="header-comparison">
+    <h2>2️⃣ Header 導航欄對比</h2>
+    <div class="grid-2">
+      <!-- Old Header -->
+      <div class="card">
+        <div class="card-header">現在 - 淺色系</div>
+        <div class="header-old">
+          <div>EVENIF</div>
+          <div class="nav-links">
+            <span>首頁</span>
+            <span>商品</span>
+            <span>關於</span>
+            <span>聯絡我們</span>
+          </div>
         </div>
       </div>
 
-      <div style={{
-        marginTop: '2rem',
-        padding: '1.5rem',
-        background: 'white',
-        borderRadius: '8px',
-        borderLeft: '4px solid #4A4845'
-      }}>
-        <h4 style={{
-          color: '#3A3835',
-          marginBottom: '0.75rem',
-          fontSize: '1.1rem'
-        }}>
-          ✨ 核心改變
-        </h4>
-        <p style={{
-          color: '#5A5855',
-          lineHeight: 1.8,
-          fontSize: '0.95rem'
-        }}>
-          從<strong style={{ color: '#9d8b7a' }}>溫暖舒適的米棕調</strong>轉變為<strong style={{ color: '#4A4845' }}>沉穩優雅的法式灰調</strong>，
-          營造出<strong>法式小鄉村</strong>的質樸高雅氛圍，降低飽和度讓視覺更加柔和舒適，
-          同時保持品牌的精緻感與時尚感。
+      <!-- New Header -->
+      <div class="card">
+        <div class="card-header">新版 - 深灰炭色</div>
+        <div class="header-new">
+          <div>EVENIF</div>
+          <div class="nav-links">
+            <span>首頁</span>
+            <span>商品</span>
+            <span>關於</span>
+            <span>聯絡我們</span>
+          </div>
+        </div>
+        <p style="margin-top:0.75rem;font-size:0.85rem;">
+          ✨ 變化：Header 改為深灰炭色 #4A4845，CTA 按鈕同色系，文字改為奶白色，整體字體縮小 10–15%
         </p>
       </div>
     </div>
-  );
-}
+  </section>
+
+  <!-- 3️⃣ Product Card -->
+  <section class="section" id="product-card">
+    <h2>3️⃣ 產品卡片 &amp; Sale Tag 對比</h2>
+    <div class="grid-2">
+      <!-- Old Product Card -->
+      <div class="card">
+        <div class="card-header">現在 - 暖調米棕</div>
+        <div class="product-card product-card-old">
+          <span class="sale-tag-old">SALE</span>
+          <div class="product-image">🖼️</div>
+          <div class="product-title-old">法式香氛蠟燭禮盒</div>
+          <div class="product-price-old">HKD 580</div>
+        </div>
+      </div>
+
+      <!-- New Product Card -->
+      <div class="card">
+        <div class="card-header">新版 - 法式灰調</div>
+        <div class="product-card product-card-new">
+          <span class="sale-tag-new">SALE</span>
+          <div class="product-image">🖼️</div>
+          <div class="product-title-new">法式香氛蠟燭禮盒</div>
+          <div class="product-price-new">HKD 580</div>
+        </div>
+        <ul style="margin-top:0.75rem;font-size:0.85rem;padding-left:1.1rem;">
+          <li>Sale Tag 改為橄欖灰綠 #A8A895</li>
+          <li>卡片背景改為 #FAFAF8（微灰白）</li>
+          <li>添加暖灰分隔線 #D4D2CE</li>
+          <li>標題縮小至 0.9rem，價格改為灰褐色</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4️⃣ Cart Page -->
+  <section class="section" id="cart-page">
+    <h2>4️⃣ 購物車頁面對比</h2>
+    <div class="grid-2">
+      <!-- Old Cart -->
+      <div class="card">
+        <div class="card-header">現在 - 純白背景</div>
+        <div class="cart-box-old">
+          <div class="cart-title-old">購物車</div>
+          <div style="font-size:0.9rem;margin-bottom:4px;">經典香氛蠟燭</div>
+          <div style="font-size:0.85rem;color:#666666;">數量: 1</div>
+          <button class="btn-old">前往結帳</button>
+        </div>
+      </div>
+
+      <!-- New Cart -->
+      <div class="card">
+        <div class="card-header">新版 - 奶灰白背景</div>
+        <div class="cart-box-new">
+          <div class="cart-title-new">購物車</div>
+          <div style="font-size:0.9rem;margin-bottom:4px;">經典香氛蠟燭</div>
+          <div style="font-size:0.8rem;color:#666666;">數量: 1</div>
+          <button class="btn-new">前往結帳</button>
+        </div>
+        <ul style="margin-top:0.75rem;font-size:0.85rem;padding-left:1.1rem;">
+          <li>背景改為奶灰白 #F0EEEB</li>
+          <li>標題改為灰黑 #3A3835，字體縮小</li>
+          <li>按鈕改為深灰 #4A4845</li>
+          <li>分隔線改為暖灰 #D4D2CE</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5️⃣ 404 Page -->
+  <section class="section" id="error-page">
+    <h2>5️⃣ 404 錯誤頁面對比</h2>
+    <div class="grid-2">
+      <!-- Old 404 -->
+      <div class="card">
+        <div class="card-header">現在</div>
+        <div class="error-box-old">
+          <div style="font-size:1.1rem;font-weight:600;margin-bottom:6px;">找不到頁面</div>
+          <div style="font-size:0.9rem;color:#555555;">
+            抱歉，您要找的頁面不存在。
+          </div>
+        </div>
+      </div>
+
+      <!-- New 404 -->
+      <div class="card">
+        <div class="card-header">新版</div>
+        <div class="error-box-new">
+          <div style="font-size:1rem;font-weight:600;margin-bottom:6px;">找不到頁面</div>
+          <div style="font-size:0.9rem;">
+            抱歉，您要找的頁面不存在。
+          </div>
+        </div>
+        <p style="margin-top:0.75rem;font-size:0.85rem;">
+          ✨ 變化：背景改為奶灰白，標題改為灰黑色，字體縮小
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6️⃣ Divider -->
+  <section class="section" id="divider">
+    <h2>6️⃣ 分隔線對比</h2>
+    <div class="grid-2">
+      <!-- Old Divider -->
+      <div class="card">
+        <div class="card-header">現在 - 冷灰</div>
+        <div style="font-size:0.9rem;">
+          <div>上方內容</div>
+          <div class="divider-old"></div>
+          <div>下方內容</div>
+        </div>
+      </div>
+
+      <!-- New Divider -->
+      <div class="card">
+        <div class="card-header">新版 - 暖灰</div>
+        <div style="font-size:0.9rem;">
+          <div>上方內容</div>
+          <div class="divider-new"></div>
+          <div>下方內容</div>
+        </div>
+        <p style="margin-top:0.75rem;font-size:0.85rem;">
+          ✨ 變化：分隔線從冷灰 #e5e5e5 改為帶暖調的 #D4D2CE，與整體色調更協調
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7️⃣ Summary -->
+  <section class="section" id="summary">
+    <h2>📊 整體色調對比總結</h2>
+    <div class="summary-grid">
+      <!-- Current -->
+      <div class="summary-card">
+        <h3>現在 - 暖調米棕系</h3>
+        <ul class="summary-list">
+          <li>✓ 主色偏暖 (#9d8b7a)</li>
+          <li>✓ 純白背景</li>
+          <li>✓ Header 淺色</li>
+          <li>✓ 整體偏 warm tone</li>
+        </ul>
+      </div>
+
+      <!-- New -->
+      <div class="summary-card">
+        <h3>新版 - 法式冷灰系</h3>
+        <ul class="summary-list">
+          <li>✓ 主色冷灰 (#8B8985)</li>
+          <li>✓ 奶灰白背景 (#F0EEEB)</li>
+          <li>✓ Header 深灰炭 (#4A4845)</li>
+          <li>✓ 橄欖灰綠點綴 (#A8A895)</li>
+          <li>✓ 整體飽和度降低</li>
+          <li>✓ 字體縮小 10–15%</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="highlight">
+      ✨ 核心改變：從溫暖舒適的米棕調轉變為沉穩優雅的法式灰調，營造出法式小鄉村的質樸高雅氛圍，降低飽和度讓視覺更加柔和舒適，同時保持品牌的精緻感與時尚感。
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <div class="cta-final">
+    <div>準備好開始修改了嗎？</div>
+    <div>如果您滿意這個色彩方案，我將立即開始逐步修改！</div>
+  </div>
+</body>
+</html>
