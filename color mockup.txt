@@ -1,0 +1,995 @@
+import React from 'react';
+
+export default function ColorMockup() {
+  return (
+    <div style={{
+      minHeight: '100vh',
+      backgroundColor: '#f5f5f5',
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+      lineHeight: 1.6,
+      padding: '2rem'
+    }}>
+      <div style={{
+        maxWidth: '1400px',
+        margin: '0 auto'
+      }}>
+        <h1 style={{
+          fontSize: '2rem',
+          marginBottom: '2rem',
+          textAlign: 'center',
+          color: '#2d2d2d'
+        }}>
+          🎨 EvenIf 法式灰調色彩系統 Mockup
+        </h1>
+
+        {/* Color Palette */}
+        <ColorPaletteSection />
+
+        {/* Header Comparison */}
+        <HeaderComparisonSection />
+
+        {/* Product Card Comparison */}
+        <ProductCardSection />
+
+        {/* Cart Page Comparison */}
+        <CartPageSection />
+
+        {/* 404 Page Comparison */}
+        <ErrorPageSection />
+
+        {/* Divider Comparison */}
+        <DividerSection />
+
+        {/* Summary */}
+        <SummarySection />
+
+        <div style={{
+          textAlign: 'center',
+          margin: '3rem 0',
+          padding: '2rem',
+          background: 'white',
+          borderRadius: '12px'
+        }}>
+          <h2 style={{ color: '#3A3835', marginBottom: '1rem' }}>準備好開始修改了嗎？</h2>
+          <p style={{ color: '#5A5855', fontSize: '1.1rem' }}>
+            如果您滿意這個色彩方案，我將立即開始逐步修改！
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ColorPaletteSection() {
+  const colors = [
+    { name: '品牌主色（現在）', code: '#9d8b7a', usage: '偏暖調米棕色', label: '舊色 - 米棕' },
+    { name: '品牌主色（新）', code: '#8B8985', usage: '法式冷調灰褐色', label: '新色 - 灰褐' },
+    { name: 'Header（現在）', code: 'rgba(255,255,255,0.95)', usage: '半透明白色', label: '舊色 - 淺色', textColor: '#2d2d2d' },
+    { name: 'Header & CTA（新）', code: '#4A4845', usage: '深灰炭色，沉穩優雅', label: '新色 - 深灰炭' },
+    { name: '背景（現在）', code: '#FFFFFF', usage: '純白色', label: '舊色 - 純白', textColor: '#2d2d2d', border: true },
+    { name: '背景（新）', code: '#F0EEEB', usage: '飽和度降低的奶灰白', label: '新色 - 奶灰白', textColor: '#3A3835' },
+    { name: 'Sale Tag（現在）', code: '#9d8b7a', usage: '與主色相同', label: '舊色 - 米棕' },
+    { name: 'Sale Tag（新）', code: '#A8A895', usage: '低飽和度橄欖灰綠', label: '新色 - 橄欖灰綠' },
+    { name: '大標題（現在）', code: '#2d2d2d', usage: '標準深灰', label: '舊色 - 深灰' },
+    { name: '大標題（新）', code: '#3A3835', usage: '帶灰調的深色', label: '新色 - 灰黑' },
+    { name: '分隔線（現在）', code: '#e5e5e5', usage: '冷調淺灰', label: '舊色 - 淺灰', textColor: '#2d2d2d' },
+    { name: '分隔線（新）', code: '#D4D2CE', usage: '帶暖調的中灰', label: '新色 - 暖灰', textColor: '#3A3835' }
+  ];
+
+  return (
+    <div style={{
+      background: 'white',
+      padding: '2rem',
+      marginBottom: '2rem',
+      borderRadius: '12px',
+      boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+    }}>
+      <h2 style={{
+        fontSize: '1.5rem',
+        marginBottom: '1.5rem',
+        paddingBottom: '0.5rem',
+        borderBottom: '2px solid #e5e5e5',
+        color: '#2d2d2d'
+      }}>
+        1️⃣ 核心色彩調色盤
+      </h2>
+
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+        gap: '1.5rem',
+        marginTop: '1.5rem'
+      }}>
+        {colors.map((color, index) => (
+          <div key={index} style={{
+            background: 'white',
+            borderRadius: '8px',
+            overflow: 'hidden',
+            border: '1px solid #e5e5e5'
+          }}>
+            <div style={{
+              height: '120px',
+              background: color.code,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: color.textColor || 'white',
+              fontWeight: 600,
+              textShadow: color.textColor ? 'none' : '0 1px 3px rgba(0,0,0,0.3)',
+              border: color.border ? '1px solid #e5e5e5' : 'none'
+            }}>
+              {color.label}
+            </div>
+            <div style={{ padding: '1rem' }}>
+              <div style={{
+                fontWeight: 600,
+                marginBottom: '0.25rem',
+                fontSize: '0.95rem'
+              }}>
+                {color.name}
+              </div>
+              <div style={{
+                fontFamily: '"Courier New", monospace',
+                fontSize: '0.85rem',
+                color: '#666'
+              }}>
+                {color.code}
+              </div>
+              <div style={{
+                marginTop: '0.5rem',
+                fontSize: '0.8rem',
+                color: '#999'
+              }}>
+                {color.usage}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function HeaderComparisonSection() {
+  return (
+    <div style={{
+      background: 'white',
+      padding: '2rem',
+      marginBottom: '2rem',
+      borderRadius: '12px',
+      boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+    }}>
+      <h2 style={{
+        fontSize: '1.5rem',
+        marginBottom: '1.5rem',
+        paddingBottom: '0.5rem',
+        borderBottom: '2px solid #e5e5e5',
+        color: '#2d2d2d'
+      }}>
+        2️⃣ Header 導航欄對比
+      </h2>
+
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: window.innerWidth > 768 ? '1fr 1fr' : '1fr',
+        gap: '2rem',
+        marginTop: '1.5rem'
+      }}>
+        {/* Old Header */}
+        <div style={{
+          border: '2px solid #e5e5e5',
+          borderRadius: '8px',
+          overflow: 'hidden'
+        }}>
+          <div style={{
+            padding: '0.75rem',
+            textAlign: 'center',
+            fontWeight: 600,
+            fontSize: '0.9rem',
+            background: '#fff3e0',
+            color: '#9d8b7a'
+          }}>
+            現在 - 淺色系
+          </div>
+          <div style={{
+            background: 'rgba(255, 255, 255, 0.95)',
+            backdropFilter: 'blur(10px)',
+            padding: '1.25rem 2rem',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            borderBottom: '1px solid rgba(0,0,0,0.08)'
+          }}>
+            <div style={{
+              fontSize: '1.25rem',
+              fontWeight: 300,
+              letterSpacing: '0.3em',
+              color: '#2d2d2d'
+            }}>
+              EVENIF
+            </div>
+            <div style={{
+              display: 'flex',
+              gap: '2rem',
+              fontSize: '0.9rem',
+              color: '#2d2d2d'
+            }}>
+              <span>首頁</span>
+              <span>商品</span>
+              <span>關於</span>
+            </div>
+            <div style={{
+              background: '#9d8b7a',
+              color: 'white',
+              padding: '0.6rem 1.5rem',
+              borderRadius: '4px',
+              fontSize: '0.85rem',
+              letterSpacing: '0.1em'
+            }}>
+              聯絡我們
+            </div>
+          </div>
+        </div>
+
+        {/* New Header */}
+        <div style={{
+          border: '2px solid #e5e5e5',
+          borderRadius: '8px',
+          overflow: 'hidden'
+        }}>
+          <div style={{
+            padding: '0.75rem',
+            textAlign: 'center',
+            fontWeight: 600,
+            fontSize: '0.9rem',
+            background: '#e8f5e9',
+            color: '#4A4845'
+          }}>
+            新版 - 深灰炭色
+          </div>
+          <div style={{
+            background: '#4A4845',
+            padding: '1.25rem 2rem',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center'
+          }}>
+            <div style={{
+              fontSize: '1.1rem',
+              fontWeight: 300,
+              letterSpacing: '0.3em',
+              color: '#F5F3F0'
+            }}>
+              EVENIF
+            </div>
+            <div style={{
+              display: 'flex',
+              gap: '1.75rem',
+              fontSize: '0.8rem',
+              color: '#D4D2CE'
+            }}>
+              <span>首頁</span>
+              <span>商品</span>
+              <span>關於</span>
+            </div>
+            <div style={{
+              background: '#4A4845',
+              color: '#F5F3F0',
+              padding: '0.5rem 1.25rem',
+              borderRadius: '4px',
+              fontSize: '0.75rem',
+              letterSpacing: '0.1em',
+              border: '1px solid #6A6865'
+            }}>
+              聯絡我們
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p style={{
+        marginTop: '1rem',
+        color: '#666',
+        fontSize: '0.9rem'
+      }}>
+        ✨ <strong>變化：</strong>Header 改為深灰炭色 #4A4845，CTA 按鈕同色系，文字改為奶白色，整體字體縮小 10-15%
+      </p>
+    </div>
+  );
+}
+
+function ProductCardSection() {
+  return (
+    <div style={{
+      background: 'white',
+      padding: '2rem',
+      marginBottom: '2rem',
+      borderRadius: '12px',
+      boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+    }}>
+      <h2 style={{
+        fontSize: '1.5rem',
+        marginBottom: '1.5rem',
+        paddingBottom: '0.5rem',
+        borderBottom: '2px solid #e5e5e5',
+        color: '#2d2d2d'
+      }}>
+        3️⃣ 產品卡片 & Sale Tag 對比
+      </h2>
+
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: window.innerWidth > 768 ? 'repeat(2, 1fr)' : '1fr',
+        gap: '2rem',
+        marginTop: '1.5rem'
+      }}>
+        {/* Old Product Card */}
+        <div>
+          <div style={{
+            padding: '0.75rem',
+            marginBottom: '1rem',
+            textAlign: 'center',
+            fontWeight: 600,
+            fontSize: '0.9rem',
+            background: '#fff3e0',
+            color: '#9d8b7a',
+            borderRadius: '4px'
+          }}>
+            現在 - 暖調米棕
+          </div>
+          <div style={{
+            borderRadius: '8px',
+            overflow: 'hidden'
+          }}>
+            <div style={{
+              width: '100%',
+              height: '280px',
+              background: '#f5f5f0',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '3rem',
+              color: '#ddd',
+              position: 'relative'
+            }}>
+              <div style={{
+                position: 'absolute',
+                top: '0.75rem',
+                left: '0.75rem',
+                background: '#9d8b7a',
+                color: 'white',
+                padding: '0.3rem 0.8rem',
+                borderRadius: '1rem',
+                fontSize: '0.7rem',
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase'
+              }}>
+                SALE
+              </div>
+              🖼️
+            </div>
+            <div style={{
+              padding: '1rem',
+              background: 'white'
+            }}>
+              <div style={{
+                fontSize: '1rem',
+                color: '#2d2d2d',
+                marginBottom: '0.5rem',
+                fontWeight: 400
+              }}>
+                法式香氛蠟燭禮盒
+              </div>
+              <div style={{
+                fontSize: '0.95rem',
+                color: '#9d8b7a',
+                fontWeight: 600
+              }}>
+                HKD 580
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* New Product Card */}
+        <div>
+          <div style={{
+            padding: '0.75rem',
+            marginBottom: '1rem',
+            textAlign: 'center',
+            fontWeight: 600,
+            fontSize: '0.9rem',
+            background: '#e8f5e9',
+            color: '#4A4845',
+            borderRadius: '4px'
+          }}>
+            新版 - 法式灰調
+          </div>
+          <div style={{
+            borderRadius: '8px',
+            overflow: 'hidden'
+          }}>
+            <div style={{
+              width: '100%',
+              height: '280px',
+              background: '#f5f5f0',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '3rem',
+              color: '#ddd',
+              position: 'relative'
+            }}>
+              <div style={{
+                position: 'absolute',
+                top: '0.75rem',
+                left: '0.75rem',
+                background: '#A8A895',
+                color: 'white',
+                padding: '0.25rem 0.7rem',
+                borderRadius: '1rem',
+                fontSize: '0.65rem',
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase'
+              }}>
+                SALE
+              </div>
+              🖼️
+            </div>
+            <div style={{
+              padding: '1rem',
+              background: '#FAFAF8',
+              borderTop: '1px solid #D4D2CE'
+            }}>
+              <div style={{
+                fontSize: '0.9rem',
+                color: '#3A3835',
+                marginBottom: '0.5rem',
+                fontWeight: 400,
+                lineHeight: 1.5
+              }}>
+                法式香氛蠟燭禮盒
+              </div>
+              <div style={{
+                fontSize: '0.85rem',
+                color: '#8B8985',
+                fontWeight: 500
+              }}>
+                HKD 580
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p style={{
+        marginTop: '1.5rem',
+        color: '#666',
+        fontSize: '0.9rem'
+      }}>
+        ✨ <strong>變化：</strong>
+        <br />• Sale Tag 改為橄欖灰綠 #A8A895
+        <br />• 卡片背景改為 #FAFAF8（微灰白）
+        <br />• 添加暖灰分隔線 #D4D2CE
+        <br />• 標題縮小至 0.9rem，價格改為灰褐色
+      </p>
+    </div>
+  );
+}
+
+function CartPageSection() {
+  return (
+    <div style={{
+      background: 'white',
+      padding: '2rem',
+      marginBottom: '2rem',
+      borderRadius: '12px',
+      boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+    }}>
+      <h2 style={{
+        fontSize: '1.5rem',
+        marginBottom: '1.5rem',
+        paddingBottom: '0.5rem',
+        borderBottom: '2px solid #e5e5e5',
+        color: '#2d2d2d'
+      }}>
+        4️⃣ 購物車頁面對比
+      </h2>
+
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: window.innerWidth > 768 ? '1fr 1fr' : '1fr',
+        gap: '2rem',
+        marginTop: '1.5rem'
+      }}>
+        {/* Old Cart */}
+        <div style={{
+          border: '2px solid #e5e5e5',
+          borderRadius: '8px',
+          overflow: 'hidden'
+        }}>
+          <div style={{
+            padding: '0.75rem',
+            textAlign: 'center',
+            fontWeight: 600,
+            fontSize: '0.9rem',
+            background: '#fff3e0',
+            color: '#9d8b7a'
+          }}>
+            現在 - 純白背景
+          </div>
+          <div style={{
+            padding: '2rem',
+            background: 'white'
+          }}>
+            <div style={{
+              fontSize: '2.5rem',
+              fontWeight: 300,
+              letterSpacing: '0.3em',
+              color: '#2d2d2d',
+              textAlign: 'center',
+              marginBottom: '1.5rem'
+            }}>
+              購物車
+            </div>
+            <div style={{
+              background: 'white',
+              padding: '1.5rem',
+              borderRadius: '8px',
+              borderBottom: '1px solid #f5f5f5',
+              display: 'flex',
+              gap: '1.5rem',
+              alignItems: 'center'
+            }}>
+              <div style={{
+                width: '80px',
+                height: '80px',
+                background: '#f5f5f0',
+                borderRadius: '8px'
+              }} />
+              <div>
+                <div style={{
+                  fontSize: '1.1rem',
+                  color: '#2d2d2d',
+                  fontWeight: 500
+                }}>
+                  經典香氛蠟燭
+                </div>
+                <div style={{
+                  color: '#999',
+                  fontSize: '0.9rem',
+                  marginTop: '0.25rem'
+                }}>
+                  數量: 1
+                </div>
+              </div>
+            </div>
+            <div style={{
+              background: '#9d8b7a',
+              color: 'white',
+              padding: '0.9rem 2rem',
+              borderRadius: '8px',
+              fontSize: '0.95rem',
+              letterSpacing: '0.15em',
+              textAlign: 'center',
+              marginTop: '1.5rem'
+            }}>
+              前往結帳
+            </div>
+          </div>
+        </div>
+
+        {/* New Cart */}
+        <div style={{
+          border: '2px solid #e5e5e5',
+          borderRadius: '8px',
+          overflow: 'hidden'
+        }}>
+          <div style={{
+            padding: '0.75rem',
+            textAlign: 'center',
+            fontWeight: 600,
+            fontSize: '0.9rem',
+            background: '#e8f5e9',
+            color: '#4A4845'
+          }}>
+            新版 - 奶灰白背景
+          </div>
+          <div style={{
+            padding: '2rem',
+            background: '#F0EEEB'
+          }}>
+            <div style={{
+              fontSize: '2rem',
+              fontWeight: 300,
+              letterSpacing: '0.3em',
+              color: '#3A3835',
+              textAlign: 'center',
+              marginBottom: '1.5rem'
+            }}>
+              購物車
+            </div>
+            <div style={{
+              background: '#FAFAF8',
+              padding: '1.5rem',
+              borderRadius: '8px',
+              borderBottom: '1px solid #D4D2CE',
+              display: 'flex',
+              gap: '1.5rem',
+              alignItems: 'center'
+            }}>
+              <div style={{
+                width: '80px',
+                height: '80px',
+                background: '#e8e6e3',
+                borderRadius: '8px'
+              }} />
+              <div>
+                <div style={{
+                  fontSize: '1rem',
+                  color: '#3A3835',
+                  fontWeight: 500
+                }}>
+                  經典香氛蠟燭
+                </div>
+                <div style={{
+                  color: '#8B8985',
+                  fontSize: '0.85rem',
+                  marginTop: '0.25rem'
+                }}>
+                  數量: 1
+                </div>
+              </div>
+            </div>
+            <div style={{
+              background: '#4A4845',
+              color: '#F5F3F0',
+              padding: '0.8rem 1.75rem',
+              borderRadius: '8px',
+              fontSize: '0.85rem',
+              letterSpacing: '0.12em',
+              textAlign: 'center',
+              marginTop: '1.5rem'
+            }}>
+              前往結帳
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p style={{
+        marginTop: '1rem',
+        color: '#666',
+        fontSize: '0.9rem'
+      }}>
+        ✨ <strong>變化：</strong>
+        <br />• 背景改為奶灰白 #F0EEEB
+        <br />• 標題改為灰黑 #3A3835，字體縮小
+        <br />• 按鈕改為深灰 #4A4845
+        <br />• 分隔線改為暖灰 #D4D2CE
+      </p>
+    </div>
+  );
+}
+
+function ErrorPageSection() {
+  return (
+    <div style={{
+      background: 'white',
+      padding: '2rem',
+      marginBottom: '2rem',
+      borderRadius: '12px',
+      boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+    }}>
+      <h2 style={{
+        fontSize: '1.5rem',
+        marginBottom: '1.5rem',
+        paddingBottom: '0.5rem',
+        borderBottom: '2px solid #e5e5e5',
+        color: '#2d2d2d'
+      }}>
+        5️⃣ 404 錯誤頁面對比
+      </h2>
+
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: window.innerWidth > 768 ? '1fr 1fr' : '1fr',
+        gap: '2rem',
+        marginTop: '1.5rem'
+      }}>
+        {/* Old 404 */}
+        <div style={{
+          border: '2px solid #e5e5e5',
+          borderRadius: '8px',
+          overflow: 'hidden'
+        }}>
+          <div style={{
+            padding: '0.75rem',
+            textAlign: 'center',
+            fontWeight: 600,
+            fontSize: '0.9rem',
+            background: '#fff3e0',
+            color: '#9d8b7a'
+          }}>
+            現在
+          </div>
+          <div style={{
+            padding: '3rem 2rem',
+            background: 'white',
+            textAlign: 'center'
+          }}>
+            <div style={{
+              fontSize: '3rem',
+              color: '#2d2d2d',
+              marginBottom: '1rem',
+              fontWeight: 300
+            }}>
+              找不到頁面
+            </div>
+            <div style={{
+              fontSize: '1.1rem',
+              color: '#666',
+              marginBottom: '2rem'
+            }}>
+              抱歉，您要找的頁面不存在。
+            </div>
+          </div>
+        </div>
+
+        {/* New 404 */}
+        <div style={{
+          border: '2px solid #e5e5e5',
+          borderRadius: '8px',
+          overflow: 'hidden'
+        }}>
+          <div style={{
+            padding: '0.75rem',
+            textAlign: 'center',
+            fontWeight: 600,
+            fontSize: '0.9rem',
+            background: '#e8f5e9',
+            color: '#4A4845'
+          }}>
+            新版
+          </div>
+          <div style={{
+            padding: '3rem 2rem',
+            background: '#F0EEEB',
+            textAlign: 'center'
+          }}>
+            <div style={{
+              fontSize: '2.5rem',
+              color: '#3A3835',
+              marginBottom: '1rem',
+              fontWeight: 300
+            }}>
+              找不到頁面
+            </div>
+            <div style={{
+              fontSize: '1rem',
+              color: '#5A5855',
+              marginBottom: '2rem',
+              lineHeight: 1.8
+            }}>
+              抱歉，您要找的頁面不存在。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p style={{
+        marginTop: '1rem',
+        color: '#666',
+        fontSize: '0.9rem'
+      }}>
+        ✨ <strong>變化：</strong>背景改為奶灰白，標題改為灰黑色，字體縮小
+      </p>
+    </div>
+  );
+}
+
+function DividerSection() {
+  return (
+    <div style={{
+      background: 'white',
+      padding: '2rem',
+      marginBottom: '2rem',
+      borderRadius: '12px',
+      boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+    }}>
+      <h2 style={{
+        fontSize: '1.5rem',
+        marginBottom: '1.5rem',
+        paddingBottom: '0.5rem',
+        borderBottom: '2px solid #e5e5e5',
+        color: '#2d2d2d'
+      }}>
+        6️⃣ 分隔線對比
+      </h2>
+
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: window.innerWidth > 768 ? '1fr 1fr' : '1fr',
+        gap: '2rem',
+        marginTop: '1.5rem'
+      }}>
+        {/* Old Divider */}
+        <div>
+          <div style={{
+            padding: '0.75rem',
+            textAlign: 'center',
+            fontWeight: 600,
+            fontSize: '0.9rem',
+            background: '#fff3e0',
+            color: '#9d8b7a',
+            marginBottom: '1rem',
+            borderRadius: '4px'
+          }}>
+            現在 - 冷灰
+          </div>
+          <div style={{
+            padding: '2rem',
+            background: 'white',
+            border: '1px solid #e5e5e5',
+            borderRadius: '8px'
+          }}>
+            <p style={{ color: '#666' }}>上方內容</p>
+            <div style={{
+              height: '1px',
+              background: '#e5e5e5',
+              margin: '1.5rem 0'
+            }} />
+            <p style={{ color: '#666' }}>下方內容</p>
+          </div>
+        </div>
+
+        {/* New Divider */}
+        <div>
+          <div style={{
+            padding: '0.75rem',
+            textAlign: 'center',
+            fontWeight: 600,
+            fontSize: '0.9rem',
+            background: '#e8f5e9',
+            color: '#4A4845',
+            marginBottom: '1rem',
+            borderRadius: '4px'
+          }}>
+            新版 - 暖灰
+          </div>
+          <div style={{
+            padding: '2rem',
+            background: '#FAFAF8',
+            border: '1px solid #D4D2CE',
+            borderRadius: '8px'
+          }}>
+            <p style={{ color: '#5A5855' }}>上方內容</p>
+            <div style={{
+              height: '1px',
+              background: '#D4D2CE',
+              margin: '1.5rem 0'
+            }} />
+            <p style={{ color: '#5A5855' }}>下方內容</p>
+          </div>
+        </div>
+      </div>
+
+      <p style={{
+        marginTop: '1rem',
+        color: '#666',
+        fontSize: '0.9rem'
+      }}>
+        ✨ <strong>變化：</strong>分隔線從冷灰 #e5e5e5 改為帶暖調的 #D4D2CE，與整體色調更協調
+      </p>
+    </div>
+  );
+}
+
+function SummarySection() {
+  return (
+    <div style={{
+      background: 'linear-gradient(135deg, #F0EEEB 0%, #FAFAF8 100%)',
+      padding: '2rem',
+      marginBottom: '2rem',
+      borderRadius: '12px',
+      boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+    }}>
+      <h2 style={{
+        fontSize: '1.5rem',
+        marginBottom: '1.5rem',
+        paddingBottom: '0.5rem',
+        borderBottom: '2px solid #e5e5e5',
+        color: '#2d2d2d'
+      }}>
+        📊 整體色調對比總結
+      </h2>
+
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: window.innerWidth > 768 ? '1fr 1fr' : '1fr',
+        gap: '2rem',
+        marginTop: '1.5rem'
+      }}>
+        <div style={{
+          background: 'white',
+          padding: '1.5rem',
+          borderRadius: '8px'
+        }}>
+          <h3 style={{
+            color: '#9d8b7a',
+            marginBottom: '1rem',
+            fontSize: '1.2rem'
+          }}>
+            現在 - 暖調米棕系
+          </h3>
+          <ul style={{
+            color: '#666',
+            lineHeight: 2,
+            fontSize: '0.9rem',
+            listStyle: 'none',
+            padding: 0
+          }}>
+            <li>✓ 主色偏暖 (#9d8b7a)</li>
+            <li>✓ 純白背景</li>
+            <li>✓ Header 淺色</li>
+            <li>✓ 整體偏 warm tone</li>
+          </ul>
+        </div>
+
+        <div style={{
+          background: '#FAFAF8',
+          padding: '1.5rem',
+          borderRadius: '8px',
+          border: '2px solid #4A4845'
+        }}>
+          <h3 style={{
+            color: '#4A4845',
+            marginBottom: '1rem',
+            fontSize: '1.2rem'
+          }}>
+            新版 - 法式冷灰系
+          </h3>
+          <ul style={{
+            color: '#5A5855',
+            lineHeight: 2,
+            fontSize: '0.9rem',
+            listStyle: 'none',
+            padding: 0
+          }}>
+            <li>✓ 主色冷灰 (#8B8985)</li>
+            <li>✓ 奶灰白背景 (#F0EEEB)</li>
+            <li>✓ Header 深灰炭 (#4A4845)</li>
+            <li>✓ 橄欖灰綠點綴 (#A8A895)</li>
+            <li>✓ 整體飽和度降低</li>
+            <li>✓ 字體縮小 10-15%</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style={{
+        marginTop: '2rem',
+        padding: '1.5rem',
+        background: 'white',
+        borderRadius: '8px',
+        borderLeft: '4px solid #4A4845'
+      }}>
+        <h4 style={{
+          color: '#3A3835',
+          marginBottom: '0.75rem',
+          fontSize: '1.1rem'
+        }}>
+          ✨ 核心改變
+        </h4>
+        <p style={{
+          color: '#5A5855',
+          lineHeight: 1.8,
+          fontSize: '0.95rem'
+        }}>
+          從<strong style={{ color: '#9d8b7a' }}>溫暖舒適的米棕調</strong>轉變為<strong style={{ color: '#4A4845' }}>沉穩優雅的法式灰調</strong>，
+          營造出<strong>法式小鄉村</strong>的質樸高雅氛圍，降低飽和度讓視覺更加柔和舒適，
+          同時保持品牌的精緻感與時尚感。
+        </p>
+      </div>
+    </div>
+  );
+}
