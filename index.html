@@ -2,701 +2,790 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <title>EvenIf 法式灰調色彩系統 Mockup</title>
+  <title>EvenIf Footer 設計預覽</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {
-      min-height: 100vh;
-      background-color: #f5f5f5;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      line-height: 1.6;
-      padding: 2rem;
-      margin: 0;
-    }
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      text-align: center;
-      color: #2d2d2d;
-    }
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid #e5e5e5;
-      color: #2d2d2d;
-    }
-    h3 {
-      margin: 0;
-    }
-    section {
-      background: white;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .grid-auto {
-      display: grid;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-top: 1.5rem;
-    }
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin-top: 1.5rem;
-    }
-    .color-group {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 8px;
-      border: 1px solid #e5e5e5;
-    }
-    .color-group-title {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-      color: #2d2d2d;
-      border-bottom: 2px solid #e5e5e5;
-      padding-bottom: 0.5rem;
-    }
-    .color-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-    }
-    .color-card {
-      background: white;
-      border-radius: 6px;
-      overflow: hidden;
-      border: 1px solid #ddd;
-    }
-    .color-swatch {
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      font-size: 0.85rem;
-    }
-    .color-info {
-      padding: 0.75rem;
-    }
-    .color-name {
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-      font-size: 0.85rem;
-    }
-    .color-code {
-      font-family: "Courier New", monospace;
-      font-size: 0.75rem;
-      color: #666;
-      margin-bottom: 0.25rem;
-    }
-    .color-usage {
-      font-size: 0.7rem;
-      color: #999;
-    }
-
-    .pill-header {
-      padding: 0.75rem;
-      text-align: center;
-      font-weight: 600;
-      font-size: 0.9rem;
-      border-radius: 4px;
-      margin-bottom: 1rem;
-    }
-
-    .card-border {
-      border: 2px solid #e5e5e5;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .header-old-top {
-      background: #fff3e0;
-      color: #9d8b7a;
-    }
-    .header-new-top {
-      background: #f0e6d2;
-      color: #69573B;
-    }
-    .header-old-bar {
-      background: rgba(255, 255, 255, 0.95);
-      padding: 1.25rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-    }
-    .header-new-bar {
-      background: #69573B;
-      padding: 1.25rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .header-logo {
-      font-weight: 300;
-      letter-spacing: 0.3em;
-    }
-    .header-old-logo {
-      font-size: 1.25rem;
-      color: #2d2d2d;
-    }
-    .header-new-logo {
-      font-size: 1.1rem;
-      color: #F5F3F0;
-    }
-    .header-nav {
-      display: flex;
-      gap: 1.75rem;
-      font-size: 0.8rem;
-    }
-    .header-old-nav {
-      color: #2d2d2d;
-    }
-    .header-new-nav {
-      color: #D4D2CE;
-    }
-    .header-cta-old {
-      background: #9d8b7a;
-      color: white;
-      padding: 0.6rem 1.5rem;
-      border-radius: 4px;
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-    }
-    .header-cta-new {
-      background: #8B7355;
-      color: #F5F3F0;
-      padding: 0.5rem 1.25rem;
-      border-radius: 4px;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-    }
-
-    .cta-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin-top: 1.5rem;
-    }
-    .cta-card {
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .cta-top-1 {
-      background: #f0e6d2;
-      color: #69573B;
-    }
-    .cta-top-2 {
-      background: #fff3e0;
-      color: #9d8b7a;
-    }
-    .cta-top-3 {
-      background: #fff3e0;
-      color: #9d8b7a;
-    }
-    .cta-body {
-      padding: 1.5rem;
-      background: #FAFAF8;
-      text-align: center;
-    }
-    .cta-btn-1 {
-      background: #8B7355;
-      color: #F5F3F0;
-      padding: 0.75rem 1.5rem;
-      border-radius: 4px;
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      display: inline-block;
-    }
-    .cta-btn-2 {
-      background: #9D8B6F;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 4px;
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      display: inline-block;
-    }
-    .cta-btn-3 {
-      background: #A89968;
-      color: #2d2d2d;
-      padding: 0.75rem 1.5rem;
-      border-radius: 4px;
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      display: inline-block;
-    }
-    .cta-note {
-      margin-top: 1rem;
-      font-size: 0.75rem;
-      color: #5A5855;
-    }
-
-    .product-img {
-      width: 100%;
-      height: 280px;
-      background: #f5f5f0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      color: #ddd;
-      position: relative;
-    }
-    .sale-tag-old {
-      position: absolute;
-      top: 0.75rem;
-      left: 0.75rem;
-      background: #9d8b7a;
-      color: white;
-      padding: 0.3rem 0.8rem;
-      border-radius: 1rem;
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-    .sale-tag-new {
-      position: absolute;
-      top: 0.75rem;
-      left: 0.75rem;
-      background: #333F29;
-      color: white;
-      padding: 0.25rem 0.7rem;
-      border-radius: 1rem;
-      font-size: 0.65rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    .product-body-old {
-      padding: 1rem;
-      background: white;
-    }
-    .product-body-new {
-      padding: 1rem;
-      background: #FAFAF8;
-      border-top: 1px solid #D4D2CE;
-    }
-    .product-title-old {
-      font-size: 1rem;
-      color: #2d2d2d;
-      margin-bottom: 0.5rem;
-      font-weight: 400;
-    }
-    .product-title-new {
-      font-size: 0.9rem;
-      color: #3A3835;
-      margin-bottom: 0.5rem;
-      font-weight: 400;
-      line-height: 1.5;
-    }
-    .product-price-old {
-      font-size: 0.95rem;
-      color: #9d8b7a;
-      font-weight: 600;
-    }
-    .product-price-new {
-      font-size: 0.85rem;
-      color: #8B8985;
-      font-weight: 500;
-    }
-
-    .cart-title-old {
-      font-size: 2.5rem;
-      font-weight: 300;
-      letter-spacing: 0.3em;
-      color: #2d2d2d;
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-    .cart-title-new {
-      font-size: 2rem;
-      font-weight: 300;
-      letter-spacing: 0.3em;
-      color: #3A3835;
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-    .cart-item-old {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 8px;
-      border-bottom: 1px solid #f5f5f5;
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-    }
-    .cart-item-new {
-      background: #FAFAF8;
-      padding: 1.5rem;
-      border-radius: 8px;
-      border-bottom: 1px solid #D4D2CE;
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-    }
-    .cart-thumb-old {
-      width: 80px;
-      height: 80px;
-      background: #f5f5f0;
-      border-radius: 8px;
-    }
-    .cart-thumb-new {
-      width: 80px;
-      height: 80px;
-      background: #e8e6e3;
-      border-radius: 8px;
-    }
-    .cart-btn-old {
-      background: #9d8b7a;
-      color: white;
-      padding: 0.9rem 2rem;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      letter-spacing: 0.15em;
-      text-align: center;
-      margin-top: 1.5rem;
-    }
-    .cart-btn-new {
-      background: #69573B;
-      color: #F5F3F0;
-      padding: 0.8rem 1.75rem;
-      border-radius: 4px;
-      font-size: 0.85rem;
-      letter-spacing: 0.12em;
-      text-align: center;
-      margin-top: 1.5rem;
-    }
-
-    .error-title-old {
-      font-size: 3rem;
-      color: #2d2d2d;
-      margin-bottom: 1rem;
-      font-weight: 300;
-    }
-    .error-title-new {
-      font-size: 2.5rem;
-      color: #3A3835;
-      margin-bottom: 1rem;
-      font-weight: 300;
-    }
-
-    .divider-old-box,
-    .divider-new-box {
-      padding: 2rem;
-      border-radius: 8px;
-    }
-    .divider-old-box {
-      background: white;
-      border: 1px solid #e5e5e5;
-    }
-    .divider-new-box {
-      background: #FAFAF8;
-      border: 1px solid #D4D2CE;
-    }
-    .divider-old-line {
-      height: 1px;
-      background: #e5e5e5;
-      margin: 1.5rem 0;
-    }
-    .divider-new-line {
-      height: 1px;
-      background: #D4D2CE;
-      margin: 1.5rem 0;
-    }
-
-    .radius-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin-top: 1.5rem;
-    }
-    .radius-note {
-      margin-top: 1.5rem;
-      color: #666;
-      font-size: 0.9rem;
-    }
-
-    .summary-main {
-      background: linear-gradient(135deg, #F0EEEB 0%, #FAFAF8 100%);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .summary-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-top: 1.5rem;
-    }
-    .summary-box-old {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 8px;
-    }
-    .summary-box-new {
-      background: #FAFAF8;
-      padding: 1.5rem;
-      border-radius: 8px;
-      border: 2px solid #69573B;
-    }
-    .summary-list {
-      color: #666;
-      line-height: 2;
-      font-size: 0.9rem;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .summary-list-new {
-      color: #5A5855;
-    }
-    .summary-bottom {
-      margin-top: 2rem;
-      padding: 1.5rem;
-      background: white;
-      border-radius: 8px;
-      border-left: 4px solid #333F29;
-    }
-
-    .final-cta {
-      text-align: center;
-      margin: 3rem 0;
-      padding: 2rem;
-      background: white;
-      border-radius: 12px;
-    }
+    :root {
+      --bg: #F0EEEB;
+      --headerBrown: #69573B;
+      --brandGray: #8B8985;
+      --ctaGold: #A89968;
+      --saleGreen: #333F29;
+      --textSecondary: #5A5855;
+      --white: #FFFFFF;
+    }
+    [data-variant] { display: none; }
+    [data-variant].active { display: block; }
+    .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; opacity: 0; }
+    .accordion-content.open { max-height: 500px; opacity: 1; }
+    .accordion-chevron { transition: transform 0.3s ease; }
+    .accordion-chevron.open { transform: rotate(180deg); }
   </style>
 </head>
-<body>
-  <div class="container">
-    <h1>🎨 EvenIf 法式灰調色彩系統 Mockup</h1>
-
-    <!-- 1️⃣ 核心色彩調色盤（分類展示） -->
-    <section>
-      <h2>1️⃣ 核心色彩調色盤（分類展示）</h2>
-      <div class="grid-auto">
-        <!-- 品牌主色 -->
-        <div class="color-group">
-          <div class="color-group-title">🎨 品牌主色</div>
-          <div class="color-cards">
-            <div class="color-card">
-              <div class="color-swatch" style="background:#9d8b7a;color:#fff;">
-                舊 - 米棕
-              </div>
-              <div class="color-info">
-                <div class="color-name">品牌主色（現在）</div>
-                <div class="color-code">#9d8b7a</div>
-                <div class="color-usage">偏暖調米棕色</div>
-              </div>
-            </div>
-            <div class="color-card">
-              <div class="color-swatch" style="background:#8B8985;color:#fff;">
-                新 - 灰褐
-              </div>
-              <div class="color-info">
-                <div class="color-name">品牌主色（新）</div>
-                <div class="color-code">#8B8985</div>
-                <div class="color-usage">法式冷調灰褐色</div>
-              </div>
-            </div>
-          </div>
+<body class="min-h-screen bg-gray-50">
+  <!-- Header -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+        <div>
+          <h1 class="text-xl font-semibold text-gray-900">EvenIf Footer 設計預覽</h1>
+          <p class="text-sm text-gray-600 mt-1">Botanical 法式鄉村風格 • 4 種設計變體</p>
         </div>
-
-        <!-- Header 導航欄 -->
-        <div class="color-group">
-          <div class="color-group-title">📱 Header 導航欄</div>
-          <div class="color-cards">
-            <div class="color-card">
-              <div class="color-swatch" style="background:rgba(255,255,255,0.95);color:#2d2d2d;">
-                舊 - 淺色
-              </div>
-              <div class="color-info">
-                <div class="color-name">Header（現在）</div>
-                <div class="color-code">rgba(255,255,255,0.95)</div>
-                <div class="color-usage">半透明白色</div>
-              </div>
-            </div>
-            <div class="color-card">
-              <div class="color-swatch" style="background:#69573B;color:#fff;">
-                新 - 深棕
-              </div>
-              <div class="color-info">
-                <div class="color-name">Header（新）</div>
-                <div class="color-code">#69573B</div>
-                <div class="color-usage">深棕色 - 溫暖法式鄉村</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 背景色彩 -->
-        <div class="color-group">
-          <div class="color-group-title">🖼️ 背景色彩</div>
-          <div class="color-cards">
-            <div class="color-card">
-              <div class="color-swatch" style="background:#F5EFE6;color:#2d2d2d;">
-                舊 - 暖米白
-              </div>
-              <div class="color-info">
-                <div class="color-name">背景（現在）</div>
-                <div class="color-code">#F5EFE6</div>
-                <div class="color-usage">暖米白色</div>
-              </div>
-            </div>
-            <div class="color-card">
-              <div class="color-swatch" style="background:#F0EEEB;color:#3A3835;">
-                新 - 奶灰白
-              </div>
-              <div class="color-info">
-                <div class="color-name">背景（新）</div>
-                <div class="color-code">#F0EEEB</div>
-                <div class="color-usage">飽和度降低的奶灰白</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- CTA 按鈕選項 -->
-        <div class="color-group">
-          <div class="color-group-title">🔘 CTA 按鈕選項</div>
-          <div class="color-cards">
-            <div class="color-card">
-              <div class="color-swatch" style="background:#8B7355;color:#fff;">
-                CTA - 淺棕
-              </div>
-              <div class="color-info">
-                <div class="color-name">CTA 選項 1 ✅</div>
-                <div class="color-code">#8B7355</div>
-                <div class="color-usage">淺棕色 - 與 Header 協調（推薦）</div>
-              </div>
-            </div>
-            <div class="color-card">
-              <div class="color-swatch" style="background:#9D8B6F;color:#fff;">
-                CTA - 米棕
-              </div>
-              <div class="color-info">
-                <div class="color-name">CTA 選項 2</div>
-                <div class="color-code">#9D8B6F</div>
-                <div class="color-usage">米棕色 - 更明亮</div>
-              </div>
-            </div>
-            <div class="color-card">
-              <div class="color-swatch" style="background:#A89968;color:#2d2d2d;">
-                CTA - 金棕
-              </div>
-              <div class="color-info">
-                <div class="color-name">CTA 選項 3</div>
-                <div class="color-code">#A89968</div>
-                <div class="color-usage">金棕色 - 奢華感</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 強調色 & 點綴 -->
-        <div class="color-group">
-          <div class="color-group-title">✨ 強調色 & 點綴</div>
-          <div class="color-cards">
-            <div class="color-card">
-              <div class="color-swatch" style="background:#333F29;color:#fff;">
-                Sale - 植物綠
-              </div>
-              <div class="color-info">
-                <div class="color-name">Sale Tag（新）🌿</div>
-                <div class="color-code">#333F29</div>
-                <div class="color-usage">深橄欖綠 - Botanical 植物風</div>
-              </div>
-            </div>
-            <div class="color-card">
-              <div class="color-swatch" style="background:#3A3835;color:#fff;">
-                標題 - 灰黑
-              </div>
-              <div class="color-info">
-                <div class="color-name">大標題（新）</div>
-                <div class="color-code">#3A3835</div>
-                <div class="color-usage">帶灰調的深色</div>
-              </div>
-            </div>
-            <div class="color-card">
-              <div class="color-swatch" style="background:#D4D2CE;color:#3A3835;">
-                分隔線 - 暖灰
-              </div>
-              <div class="color-info">
-                <div class="color-name">分隔線（新）</div>
-                <div class="color-code">#D4D2CE</div>
-                <div class="color-usage">帶暖調的中灰</div>
-              </div>
-            </div>
-          </div>
+        <div class="flex flex-wrap gap-3">
+          <button
+            data-variant-button="current"
+            class="variant-btn px-4 py-2 rounded-md text-sm font-medium transition-all bg-[#A89968] text-white shadow-md"
+          >
+            當前設計
+          </button>
+          <button
+            data-variant-button="minimalist"
+            class="variant-btn px-4 py-2 rounded-md text-sm font-medium transition-all bg-gray-100 text-gray-700 hover:bg-gray-200"
+          >
+            極簡變體
+          </button>
+          <button
+            data-variant-button="botanical"
+            class="variant-btn px-4 py-2 rounded-md text-sm font-medium transition-all bg-gray-100 text-gray-700 hover:bg-gray-200"
+          >
+            植物變體
+          </button>
+          <button
+            data-variant-button="elegant"
+            class="variant-btn px-4 py-2 rounded-md text-sm font-medium transition-all bg-gray-100 text-gray-700 hover:bg-gray-200"
+          >
+            優雅變體
+          </button>
         </div>
       </div>
-    </section>
+    </div>
+  </header>
 
-    <!-- 2️⃣ Botanical 法式鄉村風格指南 -->
-    <section>
-      <h2>2️⃣ 🌿 Botanical 法式鄉村風格指南</h2>
-
-      <!-- Introduction -->
-      <div style="background:linear-gradient(135deg,#F0EEEB 0%,#FAFAF8 100%);padding:1.5rem;border-radius:8px;margin-bottom:2rem;border:2px solid #333F29;">
-        <h3 style="color:#333F29;margin-bottom:0.75rem;font-size:1.2rem;display:flex;align-items:center;gap:0.5rem;">
-          🌿 Botanical 法式鄉村風格定義
-        </h3>
-        <p style="color:#5A5855;line-height:1.8;font-size:0.95rem;margin-bottom:1rem;">
-          <strong>Botanical 法式鄉村風格</strong>融合了<strong>普羅旺斯田園</strong>的自然美學與<strong>植物學</strong>的純淨理念，
-          透過<strong>低飽和度灰調</strong>和<strong>深橄欖綠</strong>的點綴，營造出<strong>優雅、內斂、永恆</strong>的視覺體驗。
-        </p>
-        <p style="color:#5A5855;line-height:1.8;font-size:0.9rem;font-style:italic;padding-left:1rem;border-left:3px solid #333F29;">
-          「如同法國南部的石屋與草本花園，在時間的沉澱中散發出永恆的優雅。」
-        </p>
+  <!-- Variant Info -->
+  <div class="bg-white border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex items-center gap-4">
+        <span class="text-sm font-medium text-gray-900">當前選擇：</span>
+        <span id="variant-desc" class="text-sm text-gray-600">
+          平衡的兩欄佈局
+        </span>
       </div>
+    </div>
+  </div>
 
-      <!-- Style Features Grid -->
-      <div class="grid-2">
-        <!-- 色彩策略 -->
-        <div style="background:#FAFAF8;padding:1.5rem;border-radius:8px;border:1px solid #D4D2CE;">
-          <h4 style="color:#3A3835;margin-bottom:1rem;font-size:1.05rem;display:flex;align-items:center;gap:0.5rem;">
-            🎨 色彩策略
-          </h4>
-          <ul style="color:#5A5855;line-height:1.8;font-size:0.85rem;padding-left:1.25rem;">
-            <li><strong>低飽和度灰調</strong> - 營造沉穩、內斂的氛圍</li>
-            <li><strong>深橄欖綠點綴</strong> - 呼應植物萃取與自然純淨</li>
-            <li><strong>奶灰白背景</strong> - 柔和舒適，避免視覺疲勞</li>
-            <li><strong>深棕色 Header</strong> - 溫暖的法式鄉村感</li>
-            <li><strong>暖灰分隔線</strong> - 與整體色調協調統一</li>
-          </ul>
+  <!-- Footer Preview -->
+  <div class="py-8">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+
+        <!-- 當前設計 -->
+        <footer data-variant="current" class="active" style="background-color: var(--bg);">
+          <div class="max-w-[1400px] mx-auto px-10 py-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-12">
+              <!-- Left Column -->
+              <div class="max-w-[560px]">
+                <p class="text-[11px] font-semibold tracking-[0.15em] uppercase mb-4" style="color: var(--textSecondary);">
+                  Curated with Clinical Standards
+                </p>
+                <div class="w-[60px] h-[1px] opacity-40 mb-6" style="background-color: var(--ctaGold);"></div>
+                <h2 class="text-[28px] font-semibold tracking-[0.05em] uppercase mb-6 leading-tight text-gray-900">
+                  加入智性美學的對話
+                </h2>
+                <p class="text-[14px] leading-relaxed mb-8" style="color: var(--textSecondary);">
+                  訂閱 evenif 選物誌，優先獲取醫師級護理檔案與會員限定禮遇。我們以嚴苛臨床標準策展，過濾掉 99% 的營銷雜訊，為妳的肌膚找尋那 1% 的真相。
+                </p>
+
+                <!-- Newsletter -->
+                <form class="mb-8">
+                  <div class="flex flex-col sm:flex-row gap-3">
+                    <input
+                      type="email"
+                      placeholder="電子郵件地址"
+                      class="flex-1 px-5 py-3.5 text-[13px] border rounded-[3px]"
+                      style="border-color: #8B898540; background-color: var(--white); color: var(--textSecondary);"
+                    />
+                    <button
+                      type="submit"
+                      class="px-8 py-4 text-[11px] font-semibold tracking-[0.15em] uppercase text-white rounded-[3px] shadow-md hover:shadow-lg transition-all"
+                      style="background-color: var(--ctaGold);"
+                    >
+                      領取首購 9 折優惠
+                    </button>
+                  </div>
+                </form>
+
+                <!-- Social -->
+                <div class="flex gap-4">
+                  <a
+                    href="#"
+                    class="w-[40px] h-[40px] flex items-center justify-center border rounded-[3px] bg-white hover:border-[#A89968] hover:text-[#A89968] transition-all hover:-translate-y-1"
+                    style="border-color: #8B898553; color: var(--textSecondary);"
+                  >
+                    <!-- Instagram icon placeholder -->
+                    <span class="text-sm">IG</span>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-[40px] h-[40px] flex items-center justify-center border rounded-[3px] bg-white hover:border-[#A89968] hover:text-[#A89968] transition-all hover:-translate-y-1"
+                    style="border-color: #8B898553; color: var(--textSecondary);"
+                  >
+                    <!-- Message icon placeholder -->
+                    <span class="text-sm">MSG</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Right Column -->
+              <div class="bg-white rounded-[4px] p-8 shadow-md border" style="border-color: #8B898526;">
+                <!-- Accordion: 品牌深度 -->
+                <div class="border-t py-6" style="border-color:#8B898526;">
+                  <button
+                    type="button"
+                    class="accordion-trigger w-full flex justify-between items-center group"
+                    data-accordion="current-brand"
+                  >
+                    <span class="text-[13px] font-semibold tracking-[0.12em] uppercase text-gray-900 group-hover:text-[#A89968] transition-colors">
+                      品牌深度
+                    </span>
+                    <span class="accordion-chevron text-sm" style="color: var(--brandGray);">⌄</span>
+                  </button>
+                  <div class="accordion-content">
+                    <ul class="space-y-3 mt-6">
+                      <li>
+                        <a href="#" class="text-[13px] transition-colors relative inline-block group" style="color: var(--textSecondary);">
+                          策展初衷
+                          <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#A89968] transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="text-[13px] transition-colors relative inline-block group" style="color: var(--textSecondary);">
+                          選物指標：12 萬例數據實證
+                          <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#A89968] transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="text-[13px] transition-colors relative inline-block group" style="color: var(--textSecondary);">
+                          智性選物誌
+                          <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#A89968] transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="text-[13px] transition-colors relative inline-block group" style="color: var(--textSecondary);">
+                          合作夥伴與醫師團隊
+                          <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#A89968] transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Accordion: 選物目錄 -->
+                <div class="border-t py-6" style="border-color:#8B898526;">
+                  <button
+                    type="button"
+                    class="accordion-trigger w-full flex justify-between items-center group"
+                    data-accordion="current-catalog"
+                  >
+                    <span class="text-[13px] font-semibold tracking-[0.12em] uppercase text-gray-900 group-hover:text-[#A89968] transition-colors">
+                      選物目錄
+                    </span>
+                    <span class="accordion-chevron text-sm" style="color: var(--brandGray);">⌄</span>
+                  </button>
+                  <div class="accordion-content">
+                    <ul class="space-y-3 mt-6">
+                      <li><a href="#" class="text-[13px] group relative inline-block" style="color: var(--textSecondary);">所有選物</a></li>
+                      <li><a href="#" class="text-[13px] group relative inline-block" style="color: var(--textSecondary);">臉部修復</a></li>
+                      <li><a href="#" class="text-[13px] group relative inline-block" style="color: var(--textSecondary);">內在秩序：營養補給</a></li>
+                      <li><a href="#" class="text-[13px] group relative inline-block" style="color: var(--textSecondary);">初見組合</a></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Accordion: 顧客支援 -->
+                <div class="border-t py-6" style="border-color:#8B898526;">
+                  <button
+                    type="button"
+                    class="accordion-trigger w-full flex justify-between items-center group"
+                    data-accordion="current-support"
+                  >
+                    <span class="text-[13px] font-semibold tracking-[0.12em] uppercase text-gray-900 group-hover:text-[#A89968] transition-colors">
+                      顧客支援
+                    </span>
+                    <span class="accordion-chevron text-sm" style="color: var(--brandGray);">⌄</span>
+                  </button>
+                  <div class="accordion-content">
+                    <ul class="space-y-3 mt-6">
+                      <li><a href="#" class="text-[13px] group relative inline-block" style="color: var(--textSecondary);">常見問題</a></li>
+                      <li><a href="#" class="text-[13px] group relative inline-block" style="color: var(--textSecondary);">配送說明（香港地區順豐配送）</a></li>
+                      <li><a href="#" class="text-[13px] group relative inline-block" style="color: var(--textSecondary);">退換貨政策</a></li>
+                      <li><a href="#" class="text-[13px] group relative inline-block" style="color: var(--textSecondary);">聯繫我們</a></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="mt-8 pt-8 border-t" style="border-color:#8B898526;">
+                  <button
+                    class="w-full py-4 text-[11px] font-semibold tracking-[0.15em] uppercase text-white rounded-[3px] shadow-md"
+                    style="background-color: var(--headerBrown);"
+                  >
+                    探索選物
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom -->
+            <div class="border-t pt-12" style="border-color: #8B898533;">
+              <p class="text-[14px] italic text-center mb-8" style="color: var(--textSecondary);">
+                即使時鐘全速前進，妳內在的永恆，正覺察著這場遷徙。
+              </p>
+              <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <span class="text-[11px]" style="color: var(--brandGray);">
+                  PayMe · FPS · VISA · Mastercard
+                </span>
+                <span class="text-[11px] tracking-[0.12em] uppercase" style="color: var(--brandGray);">
+                  © 2026 evenif All Rights Reserved
+                </span>
+              </div>
+            </div>
+          </div>
+        </footer>
+
+        <!-- 極簡變體 -->
+        <footer data-variant="minimalist" style="background-color: var(--bg);">
+          <div class="max-w-[1400px] mx-auto px-10 py-24">
+            <!-- Newsletter -->
+            <div class="max-w-[700px] mx-auto text-center mb-20">
+              <h2 class="text-[32px] font-light tracking-[0.08em] uppercase mb-4 text-gray-900">
+                加入智性美學的對話
+              </h2>
+              <p class="text-[13px] leading-relaxed mb-8" style="color: var(--textSecondary);">
+                訂閱 evenif 選物誌，優先獲取醫師級護理檔案與會員限定禮遇
+              </p>
+              <div class="flex flex-col sm:flex-row gap-3 max-w-[500px] mx-auto">
+                <input
+                  type="email"
+                  placeholder="電子郵件地址"
+                  class="flex-1 px-5 py-3.5 text-[13px] border rounded-[2px]"
+                  style="border-color:#8B898530;background-color:var(--white);"
+                />
+                <button
+                  class="px-8 py-3.5 text-[11px] font-semibold tracking-[0.15em] uppercase text-white rounded-[2px]"
+                  style="background-color: var(--ctaGold);"
+                >
+                  訂閱
+                </button>
+              </div>
+            </div>
+
+            <!-- Links -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16 max-w-[1200px] mx-auto">
+              <div>
+                <h3 class="text-[12px] font-semibold tracking-[0.12em] uppercase mb-6 text-gray-900">品牌深度</h3>
+                <ul class="space-y-3">
+                  <li><a href="#" class="text-[12px] hover:text-[#A89968] transition-colors" style="color:var(--textSecondary);">策展初衷</a></li>
+                  <li><a href="#" class="text-[12px] hover:text-[#A89968] transition-colors" style="color:var(--textSecondary);">選物指標</a></li>
+                  <li><a href="#" class="text-[12px] hover:text-[#A89968] transition-colors" style="color:var(--textSecondary);">智性選物誌</a></li>
+                  <li><a href="#" class="text-[12px] hover:text-[#A89968] transition-colors" style="color:var(--textSecondary);">合作夥伴</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="text-[12px] font-semibold tracking-[0.12em] uppercase mb-6 text-gray-900">選物目錄</h3>
+                <ul class="space-y-3">
+                  <li><a href="#" class="text-[12px] hover:text-[#A89968]" style="color:var(--textSecondary);">所有選物</a></li>
+                  <li><a href="#" class="text-[12px] hover:text-[#A89968]" style="color:var(--textSecondary);">臉部修復</a></li>
+                  <li><a href="#" class="text-[12px] hover:text-[#A89968]" style="color:var(--textSecondary);">營養補給</a></li>
+                  <li><a href="#" class="text-[12px] hover:text-[#A89968]" style="color:var(--textSecondary);">初見組合</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="text-[12px] font-semibold tracking-[0.12em] uppercase mb-6 text-gray-900">顧客支援</h3>
+                <ul class="space-y-3">
+                  <li><a href="#" class="text-[12px] hover:text-[#A89968]" style="color:var(--textSecondary);">常見問題</a></li>
+                  <li><a href="#" class="text-[12px] hover:text-[#A89968]" style="color:var(--textSecondary);">配送說明</a></li>
+                  <li><a href="#" class="text-[12px] hover:text-[#A89968]" style="color:var(--textSecondary);">退換貨政策</a></li>
+                  <li><a href="#" class="text-[12px] hover:text-[#A89968]" style="color:var(--textSecondary);">聯繫我們</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="text-[12px] font-semibold tracking-[0.12em] uppercase mb-6 text-gray-900">法律與隱私</h3>
+                <ul class="space-y-3">
+                  <li><a href="#" class="text-[12px] hover:text-[#A89968]" style="color:var(--textSecondary);">隱私政策</a></li>
+                  <li><a href="#" class="text-[12px] hover:text-[#A89968]" style="color:var(--textSecondary);">服務條款</a></li>
+                  <li><a href="#" class="text-[12px] hover:text-[#A89968]" style="color:var(--textSecondary);">免責聲明</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Bottom -->
+            <div class="border-t pt-8 flex flex-col md:flex-row justify-between items-center gap-6" style="border-color:#8B898520;">
+              <div class="flex gap-4">
+                <a
+                  href="#"
+                  class="w-[36px] h-[36px] flex items-center justify-center rounded-full hover:bg-[#A89968] hover:text-white transition-all"
+                  style="background-color:#8B898510;color:var(--textSecondary);"
+                >
+                  IG
+                </a>
+                <a
+                  href="#"
+                  class="w-[36px] h-[36px] flex items-center justify-center rounded-full hover:bg-[#A89968] hover:text-white transition-all"
+                  style="background-color:#8B898510;color:var(--textSecondary);"
+                >
+                  MSG
+                </a>
+              </div>
+              <span class="text-[10px] tracking-[0.12em] uppercase" style="color:var(--brandGray);">
+                © 2026 evenif
+              </span>
+              <span class="text-[10px]" style="color:var(--brandGray);">
+                PayMe · FPS · VISA · Mastercard
+              </span>
+            </div>
+          </div>
+        </footer>
+
+        <!-- 植物變體 Botanical -->
+        <footer data-variant="botanical" class="relative overflow-hidden" style="background-color:var(--bg);">
+          <!-- 背景植物 SVG -->
+          <div class="absolute top-0 right-0 w-[300px] h-[300px] opacity-[0.03] pointer-events-none">
+            <svg viewBox="0 0 200 200" fill="none" stroke="#333F29" stroke-width="1.5">
+              <path d="M100,40 Q110,60 100,80 Q90,60 100,40 M100,80 L100,160 M85,100 Q100,105 115,100 M80,120 Q100,125 120,120 M85,140 Q100,145 115,140" />
+            </svg>
+          </div>
+
+          <div class="max-w-[1400px] mx-auto px-10 py-20 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-12">
+              <!-- Left Column -->
+              <div class="max-w-[560px]">
+                <div class="flex items-center gap-4 mb-6">
+                  <div
+                    class="w-[44px] h-[44px] rounded-full flex items-center justify-center relative"
+                    style="background-color:#333F2908;border:1.5px solid #333F2925;"
+                  >
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#333F29" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 2 Q16 6 12 10 Q8 6 12 2 M12 10 L12 22 M8 12 Q12 13 16 12 M7 16 Q12 17 17 16" />
+                    </svg>
+                  </div>
+                  <p class="text-[11px] font-semibold tracking-[0.15em] uppercase" style="color:var(--textSecondary);">
+                    Botanical Curation
+                  </p>
+                </div>
+
+                <h2 class="text-[28px] font-semibold tracking-[0.05em] uppercase mb-6 leading-tight text-gray-900">
+                  加入智性美學的對話
+                </h2>
+                <p class="text-[14px] leading-relaxed mb-8" style="color:var(--textSecondary);">
+                  訂閱 evenif 選物誌，優先獲取醫師級護理檔案與會員限定禮遇。我們以嚴苛臨床標準策展，過濾掉 99% 的營銷雜訊，為妳的肌膚找尋那 1% 的真相。
+                </p>
+
+                <!-- Newsletter -->
+                <form class="mb-8">
+                  <div class="flex flex-col sm:flex-row gap-3">
+                    <input
+                      type="email"
+                      placeholder="電子郵件地址"
+                      class="flex-1 px-5 py-3.5 text-[13px] border rounded-[3px]"
+                      style="border-color:#333F2930;background-color:var(--white);"
+                    />
+                    <button
+                      type="submit"
+                      class="px-8 py-4 text-[11px] font-semibold tracking-[0.15em] uppercase text-white rounded-[3px] shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5"
+                      style="background-color:var(--saleGreen);"
+                    >
+                      領取首購 9 折優惠
+                    </button>
+                  </div>
+                </form>
+
+                <!-- Social -->
+                <div class="flex items-center gap-6">
+                  <a href="#" class="transition-all hover:opacity-70" style="color:var(--textSecondary);">
+                    IG
+                  </a>
+                  <a href="#" class="transition-all hover:opacity-70" style="color:var(--textSecondary);">
+                    MSG
+                  </a>
+                  <div class="flex-1 h-[1px] ml-4" style="background-color:#333F2920;"></div>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333F29" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="opacity-40">
+                    <path d="M12 2 Q14 4 12 6 Q10 4 12 2 M12 6 L12 12" />
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Right Column -->
+              <div class="bg-white rounded-[4px] p-8 shadow-md border-2" style="border-color:#333F2920;">
+                <!-- 品牌深度 -->
+                <div class="border-t py-6" style="border-color:#333F2920;">
+                  <button
+                    type="button"
+                    class="accordion-trigger w-full flex justify-between items-center group"
+                    data-accordion="botanical-brand"
+                  >
+                    <span class="text-[13px] font-semibold tracking-[0.12em] uppercase text-gray-900 group-hover:text-[#A89968] transition-colors">
+                      品牌深度
+                    </span>
+                    <span class="accordion-chevron text-sm" style="color:var(--brandGray);">⌄</span>
+                  </button>
+                  <div class="accordion-content">
+                    <ul class="space-y-3 mt-6">
+                      <li><a href="#" class="text-[13px]" style="color:var(--textSecondary);">策展初衷</a></li>
+                      <li><a href="#" class="text-[13px]" style="color:var(--textSecondary);">選物指標：12 萬例數據實證</a></li>
+                      <li><a href="#" class="text-[13px]" style="color:var(--textSecondary);">智性選物誌</a></li>
+                      <li><a href="#" class="text-[13px]" style="color:var(--textSecondary);">合作夥伴與醫師團隊</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- 選物目錄 -->
+                <div class="border-t py-6" style="border-color:#333F2920;">
+                  <button
+                    type="button"
+                    class="accordion-trigger w-full flex justify-between items-center group"
+                    data-accordion="botanical-catalog"
+                  >
+                    <span class="text-[13px] font-semibold tracking-[0.12em] uppercase text-gray-900 group-hover:text-[#A89968] transition-colors">
+                      選物目錄
+                    </span>
+                    <span class="accordion-chevron text-sm" style="color:var(--brandGray);">⌄</span>
+                  </button>
+                  <div class="accordion-content">
+                    <ul class="space-y-3 mt-6">
+                      <li><a href="#" class="text-[13px]" style="color:var(--textSecondary);">所有選物</a></li>
+                      <li><a href="#" class="text-[13px]" style="color:var(--textSecondary);">臉部修復</a></li>
+                      <li><a href="#" class="text-[13px]" style="color:var(--textSecondary);">內在秩序：營養補給</a></li>
+                      <li><a href="#" class="text-[13px]" style="color:var(--textSecondary);">初見組合</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- 顧客支援 -->
+                <div class="border-t py-6" style="border-color:#333F2920;">
+                  <button
+                    type="button"
+                    class="accordion-trigger w-full flex justify-between items-center group"
+                    data-accordion="botanical-support"
+                  >
+                    <span class="text-[13px] font-semibold tracking-[0.12em] uppercase text-gray-900 group-hover:text-[#A89968] transition-colors">
+                      顧客支援
+                    </span>
+                    <span class="accordion-chevron text-sm" style="color:var(--brandGray);">⌄</span>
+                  </button>
+                  <div class="accordion-content">
+                    <ul class="space-y-3 mt-6">
+                      <li><a href="#" class="text-[13px]" style="color:var(--textSecondary);">常見問題</a></li>
+                      <li><a href="#" class="text-[13px]" style="color:var(--textSecondary);">配送說明（香港地區順豐配送）</a></li>
+                      <li><a href="#" class="text-[13px]" style="color:var(--textSecondary);">退換貨政策</a></li>
+                      <li><a href="#" class="text-[13px]" style="color:var(--textSecondary);">聯繫我們</a></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="mt-8 pt-8 border-t flex items-center justify-between gap-3" style="border-color:#333F2920;">
+                  <button
+                    class="flex-1 py-4 text-[11px] font-semibold tracking-[0.15em] uppercase text-white rounded-[3px] shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5"
+                    style="background-color:var(--saleGreen);"
+                  >
+                    探索選物
+                  </button>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#333F29" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="opacity-30">
+                    <path d="M12 2 Q14 4 12 6 Q10 4 12 2 M12 6 L12 12" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom -->
+            <div class="border-t pt-12" style="border-color:#333F2915;">
+              <p class="text-[14px] italic text-center mb-8" style="color:var(--textSecondary);">
+                即使時鐘全速前進，妳內在的永恆，正覺察著這場遷徙。
+              </p>
+              <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <span class="text-[11px]" style="color:var(--brandGray);">PayMe · FPS · VISA · Mastercard</span>
+                <span class="text-[11px] tracking-[0.12em] uppercase" style="color:var(--brandGray);">
+                  © 2026 evenif All Rights Reserved
+                </span>
+              </div>
+            </div>
+          </div>
+        </footer>
+
+        <!-- 優雅變體 -->
+        <footer data-variant="elegant" style="background-color:var(--bg);">
+          <div class="max-w-[1400px] mx-auto px-10 py-24">
+            <!-- Top -->
+            <div class="text-center mb-20">
+              <div class="inline-block mb-6">
+                <div class="flex items-center gap-4">
+                  <div class="w-[60px] h-[1px]" style="background-color:var(--ctaGold);"></div>
+                  <p class="text-[11px] font-semibold tracking-[0.2em] uppercase" style="color:var(--textSecondary);">
+                    Evenif Signature
+                  </p>
+                  <div class="w-[60px] h-[1px]" style="background-color:var(--ctaGold);"></div>
+                </div>
+              </div>
+
+              <h2 class="text-[36px] font-light tracking-[0.1em] mb-6 text-gray-900" style="font-family:Georgia,serif;">
+                加入智性美學的對話
+              </h2>
+              <p class="text-[13px] leading-relaxed max-w-[600px] mx-auto mb-10" style="color:var(--textSecondary);">
+                訂閱 evenif 選物誌，優先獲取醫師級護理檔案與會員限定禮遇<br/>
+                我們以嚴苛臨床標準策展，為妳的肌膚找尋那 1% 的真相
+              </p>
+
+              <!-- Newsletter -->
+              <form class="max-w-[500px] mx-auto mb-12">
+                <div class="flex flex-col sm:flex-row gap-3">
+                  <input
+                    type="email"
+                    placeholder="電子郵件地址"
+                    class="flex-1 px-6 py-4 text-[13px] border-2 rounded-[2px]"
+                    style="border-color:#A8996840;background-color:var(--white);"
+                  />
+                  <button
+                    class="px-10 py-4 text-[11px] font-semibold tracking-[0.2em] uppercase text-white rounded-[2px]"
+                    style="background-color:var(--ctaGold);box-shadow:0 4px 12px rgba(168,153,104,0.3);"
+                  >
+                    訂閱
+                  </button>
+                </div>
+              </form>
+
+              <!-- Social -->
+              <div class="flex justify-center gap-6">
+                <a href="#" class="flex flex-col items-center gap-2 group">
+                  <div
+                    class="w-[44px] h-[44px] flex items-center justify-center border-2 rounded-[2px] bg-white group-hover:border-[#A89968] group-hover:text-[#A89968] transition-all"
+                    style="border-color:#A8996840;color:var(--textSecondary);"
+                  >
+                    IG
+                  </div>
+                  <span class="text-[10px] tracking-wider uppercase" style="color:var(--textSecondary);">
+                    Instagram
+                  </span>
+                </a>
+                <a href="#" class="flex flex-col items-center gap-2 group">
+                  <div
+                    class="w-[44px] h-[44px] flex items-center justify-center border-2 rounded-[2px] bg-white group-hover:border-[#A89968] group-hover:text-[#A89968] transition-all"
+                    style="border-color:#A8996840;color:var(--textSecondary);"
+                  >
+                    MSG
+                  </div>
+                  <span class="text-[10px] tracking-wider uppercase" style="color:var(--textSecondary);">
+                    聯繫我們
+                  </span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Links -->
+            <div
+              class="grid grid-cols-2 md:grid-cols-4 gap-12 mb-20 border-t border-b py-16"
+              style="border-color:#8B898520;"
+            >
+              <div>
+                <h3 class="text-[12px] font-semibold tracking-[0.15em] uppercase mb-8 text-gray-900">品牌深度</h3>
+                <ul class="space-y-4">
+                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968] transition-colors" style="color:var(--textSecondary);">策展初衷</a></li>
+                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">選物指標</a></li>
+                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">智性選物誌</a></li>
+                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">合作夥伴</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="text-[12px] font-semibold tracking-[0.15em] uppercase mb-8 text-gray-900">選物目錄</h3>
+                <ul class="space-y-4">
+                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">所有選物</a></li>
+                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">臉部修復</a></li>
+                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">營養補給</a></li>
+                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">初見組合</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="text-[12px] font-semibold tracking-[0.15em] uppercase mb-8 text-gray-900">顧客支援</h3>
+                <ul class="space-y-4">
+                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">常見問題</a></li>
+                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">配送說明</a></li>
+                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">退換貨政策</a></li>
+                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">聯繫我們</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="text-[12px] font-semibold tracking-[0.15em] uppercase mb-8 text-gray-900">法律與隱私</h3>
+                <ul class="space-y-4">
+                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">隱私政策</a></li>
+                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">服務條款</a></li>
+                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">免責聲明</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Bottom -->
+            <div class="text-center">
+              <p class="text-[15px] italic mb-8 font-light" style="color:var(--textSecondary);font-family:Georgia,serif;">
+                即使時鐘全速前進，妳內在的永恆，正覺察著這場遷徙。
+              </p>
+              <div class="flex flex-col items-center gap-4">
+                <span class="text-[10px] tracking-[0.15em] uppercase" style="color:var(--brandGray);">
+                  PayMe · FPS · VISA · Mastercard
+                </span>
+                <div class="w-[40px] h-[1px]" style="background-color:#8B898530;"></div>
+                <span class="text-[10px] tracking-[0.15em] uppercase" style="color:var(--brandGray);">
+                  © 2026 evenif All Rights Reserved
+                </span>
+              </div>
+            </div>
+          </div>
+        </footer>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Design Notes -->
+  <div class="max-w-7xl mx-auto px-6 pb-12">
+    <div class="bg-white rounded-lg shadow-md p-6">
+      <h2 class="text-lg font-semibold text-gray-900 mb-4">🎨 設計說明</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- 當前設計 -->
+        <div class="bg-gray-50 rounded-lg p-4">
+          <h3 class="text-sm font-semibold text-gray-900 mb-3">當前設計</h3>
+          <div class="space-y-3">
+            <div>
+              <p class="text-xs font-medium text-green-700 mb-2">✓ 優點</p>
+              <ul class="space-y-1">
+                <li class="text-xs text-gray-600">• 平衡的兩欄佈局</li>
+                <li class="text-xs text-gray-600">• 右側白色卡片突出</li>
+                <li class="text-xs text-gray-600">• 清晰的視覺層次</li>
+              </ul>
+            </div>
+            <div>
+              <p class="text-xs font-medium text-orange-700 mb-2">⚠ 考量</p>
+              <ul class="space-y-1">
+                <li class="text-xs text-gray-600">• 可能略顯商業化</li>
+                <li class="text-xs text-gray-600">• 植物元素較少</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
-        <!-- 字體排版 -->
-        <div style="background:#FAFAF8;padding:1.5rem;border-radius:8px;border:1px solid #D4D2CE;">
-          <h4 style="color:#3A3835;margin-bottom:1rem;font-size:1.05rem;display:flex;align-items:center;gap:0.5rem;">
-            ✍️ 字體排版
-          </h4>
-          <ul style="color:#5A5855;line-height:1.8;font-size:0.85rem;padding-left:1.25rem;">
-            <li><strong>極細字重 (300)</strong> - 輕盈優雅，不厚重</li>
-            <li><strong>寬字距 (0.3em)</strong> - 呼吸感，高端質感</li>
-            <li><strong>字體縮小 10-15%</strong> - 避免視覺密集</li>
-            <li><strong>無襯線字體 (Inter)</strong> - 現代清晰</li>
-            <li><strong>行高放寬 (1.6-1.8)</strong> - 舒適閱讀體驗</li>
-          </ul>
+        <!-- 極簡變體 -->
+        <div class="bg-gray-50 rounded-lg p-4">
+          <h3 class="text-sm font-semibold text-gray-900 mb-3">極簡變體</h3>
+          <div class="space-y-3">
+            <div>
+              <p class="text-xs font-medium text-green-700 mb-2">✓ 優點</p>
+              <ul class="space-y-1">
+                <li class="text-xs text-gray-600">• 更簡潔的視覺</li>
+                <li class="text-xs text-gray-600">• 更大的留白</li>
+                <li class="text-xs text-gray-600">• 更現代感</li>
+              </ul>
+            </div>
+            <div>
+              <p class="text-xs font-medium text-orange-700 mb-2">⚠ 考量</p>
+              <ul class="space-y-1">
+                <li class="text-xs text-gray-600">• 可能過於簡約</li>
+                <li class="text-xs text-gray-600">• 鄉村感較弱</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
-        <!-- 視覺元素 -->
-        <div style="background:#FAFAF8;padding:1.5rem;border-radius:8px;border:1px solid #D4D2CE;">
-          <h4 style="color:#3A3835;margin-bottom:1rem;font-size:1.05rem;display:flex;align-items:center;gap:0.5rem;">
-            🖼️ 視覺元素
-          </h4>
-          <ul style="color:#5A5855;line-height:1.8;font-size:0.85rem;padding-left:1.25rem;">
-            <li><strong>微圓角 (2-4px)</strong> - 優雅內斂，不過於銳利<
+        <!-- 植物變體 -->
+        <div class="bg-gray-50 rounded-lg p-4">
+          <h3 class="text-sm font-semibold text-gray-900 mb-3">植物變體</h3>
+          <div class="space-y-3">
+            <div>
+              <p class="text-xs font-medium text-green-700 mb-2">✓ 優點</p>
+              <ul class="space-y-1">
+                <li class="text-xs text-gray-600">• 更多法式鄉村元素</li>
+                <li class="text-xs text-gray-600">• 植物裝飾增加氛圍</li>
+                <li class="text-xs text-gray-600">• 溫暖親和</li>
+              </ul>
+            </div>
+            <div>
+              <p class="text-xs font-medium text-orange-700 mb-2">⚠ 考量</p>
+              <ul class="space-y-1">
+                <li class="text-xs text-gray-600">• 可能略顯裝飾</li>
+                <li class="text-xs text-gray-600">• 需要平衡</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 優雅變體 -->
+        <div class="bg-gray-50 rounded-lg p-4">
+          <h3 class="text-sm font-semibold text-gray-900 mb-3">優雅變體</h3>
+          <div class="space-y-3">
+            <div>
+              <p class="text-xs font-medium text-green-700 mb-2">✓ 優點</p>
+              <ul class="space-y-1">
+                <li class="text-xs text-gray-600">• 更多細節處理</li>
+                <li class="text-xs text-gray-600">• 奢華感提升</li>
+                <li class="text-xs text-gray-600">• 呼吸空間充足</li>
+              </ul>
+            </div>
+            <div>
+              <p class="text-xs font-medium text-orange-700 mb-2">⚠ 考量</p>
+              <ul class="space-y-1">
+                <li class="text-xs text-gray-600">• 可能過於精緻</li>
+                <li class="text-xs text-gray-600">• 資訊密度較低</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // variant 切換
+    const variantButtons = document.querySelectorAll('.variant-btn');
+    const variants = document.querySelectorAll('[data-variant]');
+    const descEl = document.getElementById('variant-desc');
+    const variantDescMap = {
+      current: '平衡的兩欄佈局',
+      minimalist: '更簡潔的單色調',
+      botanical: '增加植物裝飾元素',
+      elegant: '更多留白與細節'
+    };
+
+    variantButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-variant-button');
+        variantButtons.forEach(b => {
+          b.classList.remove('bg-[#A89968]', 'text-white', 'shadow-md');
+          b.classList.add('bg-gray-100', 'text-gray-700');
+        });
+        btn.classList.remove('bg-gray-100', 'text-gray-700');
+        btn.classList.add('bg-[#A89968]', 'text-white', 'shadow-md');
+
+        variants.forEach(v => v.classList.remove('active'));
+        const target = document.querySelector('[data-variant="' + id + '"]');
+        if (target) target.classList.add('active');
+
+        if (descEl && variantDescMap[id]) descEl.textContent = variantDescMap[id];
+      });
+    });
+
+    // accordion
+    document.querySelectorAll('.accordion-trigger').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-accordion');
+        const content = btn.parentElement.querySelector('.accordion-content');
+        const chev = btn.querySelector('.accordion-chevron');
+        const isOpen = content.classList.contains('open');
+
+        // close all accordions within same footer card
+        const container = btn.closest('footer, .bg-white.rounded-[4px]');
+        container.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
+        container.querySelectorAll('.accordion-chevron').forEach(ch => ch.classList.remove('open'));
+
+        if (!isOpen) {
+          content.classList.add('open');
+          chev.classList.add('open');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
