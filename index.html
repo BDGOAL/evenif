@@ -1,791 +1,348 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>EvenIf Footer 設計預覽</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    :root {
-      --bg: #F0EEEB;
-      --headerBrown: #69573B;
-      --brandGray: #8B8985;
-      --ctaGold: #A89968;
-      --saleGreen: #333F29;
-      --textSecondary: #5A5855;
-      --white: #FFFFFF;
-    }
-    [data-variant] { display: none; }
-    [data-variant].active { display: block; }
-    .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; opacity: 0; }
-    .accordion-content.open { max-height: 500px; opacity: 1; }
-    .accordion-chevron { transition: transform 0.3s ease; }
-    .accordion-chevron.open { transform: rotate(180deg); }
-  </style>
-</head>
-<body class="min-h-screen bg-gray-50">
-  <!-- Header -->
-  <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-    <div class="max-w-7xl mx-auto px-6 py-4">
-      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-        <div>
-          <h1 class="text-xl font-semibold text-gray-900">EvenIf Footer 設計預覽</h1>
-          <p class="text-sm text-gray-600 mt-1">Botanical 法式鄉村風格 • 4 種設計變體</p>
-        </div>
-        <div class="flex flex-wrap gap-3">
-          <button
-            data-variant-button="current"
-            class="variant-btn px-4 py-2 rounded-md text-sm font-medium transition-all bg-[#A89968] text-white shadow-md"
-          >
-            當前設計
-          </button>
-          <button
-            data-variant-button="minimalist"
-            class="variant-btn px-4 py-2 rounded-md text-sm font-medium transition-all bg-gray-100 text-gray-700 hover:bg-gray-200"
-          >
-            極簡變體
-          </button>
-          <button
-            data-variant-button="botanical"
-            class="variant-btn px-4 py-2 rounded-md text-sm font-medium transition-all bg-gray-100 text-gray-700 hover:bg-gray-200"
-          >
-            植物變體
-          </button>
-          <button
-            data-variant-button="elegant"
-            class="variant-btn px-4 py-2 rounded-md text-sm font-medium transition-all bg-gray-100 text-gray-700 hover:bg-gray-200"
-          >
-            優雅變體
-          </button>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- Variant Info -->
-  <div class="bg-white border-b border-gray-200">
-    <div class="max-w-7xl mx-auto px-6 py-4">
-      <div class="flex items-center gap-4">
-        <span class="text-sm font-medium text-gray-900">當前選擇：</span>
-        <span id="variant-desc" class="text-sm text-gray-600">
-          平衡的兩欄佈局
-        </span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer Preview -->
-  <div class="py-8">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="bg-white rounded-lg shadow-xl overflow-hidden">
-
-        <!-- 當前設計 -->
-        <footer data-variant="current" class="active" style="background-color: var(--bg);">
-          <div class="max-w-[1400px] mx-auto px-10 py-20">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-12">
-              <!-- Left Column -->
-              <div class="max-w-[560px]">
-                <p class="text-[11px] font-semibold tracking-[0.15em] uppercase mb-4" style="color: var(--textSecondary);">
-                  Curated with Clinical Standards
-                </p>
-                <div class="w-[60px] h-[1px] opacity-40 mb-6" style="background-color: var(--ctaGold);"></div>
-                <h2 class="text-[28px] font-semibold tracking-[0.05em] uppercase mb-6 leading-tight text-gray-900">
-                  加入智性美學的對話
-                </h2>
-                <p class="text-[14px] leading-relaxed mb-8" style="color: var(--textSecondary);">
-                  訂閱 evenif 選物誌，優先獲取醫師級護理檔案與會員限定禮遇。我們以嚴苛臨床標準策展，過濾掉 99% 的營銷雜訊，為妳的肌膚找尋那 1% 的真相。
-                </p>
-
-                <!-- Newsletter -->
-                <form class="mb-8">
-                  <div class="flex flex-col sm:flex-row gap-3">
-                    <input
-                      type="email"
-                      placeholder="電子郵件地址"
-                      class="flex-1 px-5 py-3.5 text-[13px] border rounded-[3px]"
-                      style="border-color: #8B898540; background-color: var(--white); color: var(--textSecondary);"
-                    />
-                    <button
-                      type="submit"
-                      class="px-8 py-4 text-[11px] font-semibold tracking-[0.15em] uppercase text-white rounded-[3px] shadow-md hover:shadow-lg transition-all"
-                      style="background-color: var(--ctaGold);"
-                    >
-                      領取首購 9 折優惠
-                    </button>
-                  </div>
-                </form>
-
-                <!-- Social -->
-                <div class="flex gap-4">
-                  <a
-                    href="#"
-                    class="w-[40px] h-[40px] flex items-center justify-center border rounded-[3px] bg-white hover:border-[#A89968] hover:text-[#A89968] transition-all hover:-translate-y-1"
-                    style="border-color: #8B898553; color: var(--textSecondary);"
-                  >
-                    <!-- Instagram icon placeholder -->
-                    <span class="text-sm">IG</span>
-                  </a>
-                  <a
-                    href="#"
-                    class="w-[40px] h-[40px] flex items-center justify-center border rounded-[3px] bg-white hover:border-[#A89968] hover:text-[#A89968] transition-all hover:-translate-y-1"
-                    style="border-color: #8B898553; color: var(--textSecondary);"
-                  >
-                    <!-- Message icon placeholder -->
-                    <span class="text-sm">MSG</span>
-                  </a>
-                </div>
-              </div>
-
-              <!-- Right Column -->
-              <div class="bg-white rounded-[4px] p-8 shadow-md border" style="border-color: #8B898526;">
-                <!-- Accordion: 品牌深度 -->
-                <div class="border-t py-6" style="border-color:#8B898526;">
-                  <button
-                    type="button"
-                    class="accordion-trigger w-full flex justify-between items-center group"
-                    data-accordion="current-brand"
-                  >
-                    <span class="text-[13px] font-semibold tracking-[0.12em] uppercase text-gray-900 group-hover:text-[#A89968] transition-colors">
-                      品牌深度
-                    </span>
-                    <span class="accordion-chevron text-sm" style="color: var(--brandGray);">⌄</span>
-                  </button>
-                  <div class="accordion-content">
-                    <ul class="space-y-3 mt-6">
-                      <li>
-                        <a href="#" class="text-[13px] transition-colors relative inline-block group" style="color: var(--textSecondary);">
-                          策展初衷
-                          <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#A89968] transition-all duration-300 group-hover:w-full"></span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" class="text-[13px] transition-colors relative inline-block group" style="color: var(--textSecondary);">
-                          選物指標：12 萬例數據實證
-                          <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#A89968] transition-all duration-300 group-hover:w-full"></span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" class="text-[13px] transition-colors relative inline-block group" style="color: var(--textSecondary);">
-                          智性選物誌
-                          <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#A89968] transition-all duration-300 group-hover:w-full"></span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" class="text-[13px] transition-colors relative inline-block group" style="color: var(--textSecondary);">
-                          合作夥伴與醫師團隊
-                          <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-[#A89968] transition-all duration-300 group-hover:w-full"></span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <!-- Accordion: 選物目錄 -->
-                <div class="border-t py-6" style="border-color:#8B898526;">
-                  <button
-                    type="button"
-                    class="accordion-trigger w-full flex justify-between items-center group"
-                    data-accordion="current-catalog"
-                  >
-                    <span class="text-[13px] font-semibold tracking-[0.12em] uppercase text-gray-900 group-hover:text-[#A89968] transition-colors">
-                      選物目錄
-                    </span>
-                    <span class="accordion-chevron text-sm" style="color: var(--brandGray);">⌄</span>
-                  </button>
-                  <div class="accordion-content">
-                    <ul class="space-y-3 mt-6">
-                      <li><a href="#" class="text-[13px] group relative inline-block" style="color: var(--textSecondary);">所有選物</a></li>
-                      <li><a href="#" class="text-[13px] group relative inline-block" style="color: var(--textSecondary);">臉部修復</a></li>
-                      <li><a href="#" class="text-[13px] group relative inline-block" style="color: var(--textSecondary);">內在秩序：營養補給</a></li>
-                      <li><a href="#" class="text-[13px] group relative inline-block" style="color: var(--textSecondary);">初見組合</a></li>
-                    </ul>
-                  </div>
-                </div>
-
-                <!-- Accordion: 顧客支援 -->
-                <div class="border-t py-6" style="border-color:#8B898526;">
-                  <button
-                    type="button"
-                    class="accordion-trigger w-full flex justify-between items-center group"
-                    data-accordion="current-support"
-                  >
-                    <span class="text-[13px] font-semibold tracking-[0.12em] uppercase text-gray-900 group-hover:text-[#A89968] transition-colors">
-                      顧客支援
-                    </span>
-                    <span class="accordion-chevron text-sm" style="color: var(--brandGray);">⌄</span>
-                  </button>
-                  <div class="accordion-content">
-                    <ul class="space-y-3 mt-6">
-                      <li><a href="#" class="text-[13px] group relative inline-block" style="color: var(--textSecondary);">常見問題</a></li>
-                      <li><a href="#" class="text-[13px] group relative inline-block" style="color: var(--textSecondary);">配送說明（香港地區順豐配送）</a></li>
-                      <li><a href="#" class="text-[13px] group relative inline-block" style="color: var(--textSecondary);">退換貨政策</a></li>
-                      <li><a href="#" class="text-[13px] group relative inline-block" style="color: var(--textSecondary);">聯繫我們</a></li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div class="mt-8 pt-8 border-t" style="border-color:#8B898526;">
-                  <button
-                    class="w-full py-4 text-[11px] font-semibold tracking-[0.15em] uppercase text-white rounded-[3px] shadow-md"
-                    style="background-color: var(--headerBrown);"
-                  >
-                    探索選物
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <!-- Bottom -->
-            <div class="border-t pt-12" style="border-color: #8B898533;">
-              <p class="text-[14px] italic text-center mb-8" style="color: var(--textSecondary);">
-                即使時鐘全速前進，妳內在的永恆，正覺察著這場遷徙。
-              </p>
-              <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                <span class="text-[11px]" style="color: var(--brandGray);">
-                  PayMe · FPS · VISA · Mastercard
-                </span>
-                <span class="text-[11px] tracking-[0.12em] uppercase" style="color: var(--brandGray);">
-                  © 2026 evenif All Rights Reserved
-                </span>
-              </div>
-            </div>
-          </div>
-        </footer>
-
-        <!-- 極簡變體 -->
-        <footer data-variant="minimalist" style="background-color: var(--bg);">
-          <div class="max-w-[1400px] mx-auto px-10 py-24">
-            <!-- Newsletter -->
-            <div class="max-w-[700px] mx-auto text-center mb-20">
-              <h2 class="text-[32px] font-light tracking-[0.08em] uppercase mb-4 text-gray-900">
-                加入智性美學的對話
-              </h2>
-              <p class="text-[13px] leading-relaxed mb-8" style="color: var(--textSecondary);">
-                訂閱 evenif 選物誌，優先獲取醫師級護理檔案與會員限定禮遇
-              </p>
-              <div class="flex flex-col sm:flex-row gap-3 max-w-[500px] mx-auto">
-                <input
-                  type="email"
-                  placeholder="電子郵件地址"
-                  class="flex-1 px-5 py-3.5 text-[13px] border rounded-[2px]"
-                  style="border-color:#8B898530;background-color:var(--white);"
-                />
-                <button
-                  class="px-8 py-3.5 text-[11px] font-semibold tracking-[0.15em] uppercase text-white rounded-[2px]"
-                  style="background-color: var(--ctaGold);"
-                >
-                  訂閱
-                </button>
-              </div>
-            </div>
-
-            <!-- Links -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16 max-w-[1200px] mx-auto">
-              <div>
-                <h3 class="text-[12px] font-semibold tracking-[0.12em] uppercase mb-6 text-gray-900">品牌深度</h3>
-                <ul class="space-y-3">
-                  <li><a href="#" class="text-[12px] hover:text-[#A89968] transition-colors" style="color:var(--textSecondary);">策展初衷</a></li>
-                  <li><a href="#" class="text-[12px] hover:text-[#A89968] transition-colors" style="color:var(--textSecondary);">選物指標</a></li>
-                  <li><a href="#" class="text-[12px] hover:text-[#A89968] transition-colors" style="color:var(--textSecondary);">智性選物誌</a></li>
-                  <li><a href="#" class="text-[12px] hover:text-[#A89968] transition-colors" style="color:var(--textSecondary);">合作夥伴</a></li>
-                </ul>
-              </div>
-              <div>
-                <h3 class="text-[12px] font-semibold tracking-[0.12em] uppercase mb-6 text-gray-900">選物目錄</h3>
-                <ul class="space-y-3">
-                  <li><a href="#" class="text-[12px] hover:text-[#A89968]" style="color:var(--textSecondary);">所有選物</a></li>
-                  <li><a href="#" class="text-[12px] hover:text-[#A89968]" style="color:var(--textSecondary);">臉部修復</a></li>
-                  <li><a href="#" class="text-[12px] hover:text-[#A89968]" style="color:var(--textSecondary);">營養補給</a></li>
-                  <li><a href="#" class="text-[12px] hover:text-[#A89968]" style="color:var(--textSecondary);">初見組合</a></li>
-                </ul>
-              </div>
-              <div>
-                <h3 class="text-[12px] font-semibold tracking-[0.12em] uppercase mb-6 text-gray-900">顧客支援</h3>
-                <ul class="space-y-3">
-                  <li><a href="#" class="text-[12px] hover:text-[#A89968]" style="color:var(--textSecondary);">常見問題</a></li>
-                  <li><a href="#" class="text-[12px] hover:text-[#A89968]" style="color:var(--textSecondary);">配送說明</a></li>
-                  <li><a href="#" class="text-[12px] hover:text-[#A89968]" style="color:var(--textSecondary);">退換貨政策</a></li>
-                  <li><a href="#" class="text-[12px] hover:text-[#A89968]" style="color:var(--textSecondary);">聯繫我們</a></li>
-                </ul>
-              </div>
-              <div>
-                <h3 class="text-[12px] font-semibold tracking-[0.12em] uppercase mb-6 text-gray-900">法律與隱私</h3>
-                <ul class="space-y-3">
-                  <li><a href="#" class="text-[12px] hover:text-[#A89968]" style="color:var(--textSecondary);">隱私政策</a></li>
-                  <li><a href="#" class="text-[12px] hover:text-[#A89968]" style="color:var(--textSecondary);">服務條款</a></li>
-                  <li><a href="#" class="text-[12px] hover:text-[#A89968]" style="color:var(--textSecondary);">免責聲明</a></li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- Bottom -->
-            <div class="border-t pt-8 flex flex-col md:flex-row justify-between items-center gap-6" style="border-color:#8B898520;">
-              <div class="flex gap-4">
-                <a
-                  href="#"
-                  class="w-[36px] h-[36px] flex items-center justify-center rounded-full hover:bg-[#A89968] hover:text-white transition-all"
-                  style="background-color:#8B898510;color:var(--textSecondary);"
-                >
-                  IG
-                </a>
-                <a
-                  href="#"
-                  class="w-[36px] h-[36px] flex items-center justify-center rounded-full hover:bg-[#A89968] hover:text-white transition-all"
-                  style="background-color:#8B898510;color:var(--textSecondary);"
-                >
-                  MSG
-                </a>
-              </div>
-              <span class="text-[10px] tracking-[0.12em] uppercase" style="color:var(--brandGray);">
-                © 2026 evenif
-              </span>
-              <span class="text-[10px]" style="color:var(--brandGray);">
-                PayMe · FPS · VISA · Mastercard
-              </span>
-            </div>
-          </div>
-        </footer>
-
-        <!-- 植物變體 Botanical -->
-        <footer data-variant="botanical" class="relative overflow-hidden" style="background-color:var(--bg);">
-          <!-- 背景植物 SVG -->
-          <div class="absolute top-0 right-0 w-[300px] h-[300px] opacity-[0.03] pointer-events-none">
-            <svg viewBox="0 0 200 200" fill="none" stroke="#333F29" stroke-width="1.5">
-              <path d="M100,40 Q110,60 100,80 Q90,60 100,40 M100,80 L100,160 M85,100 Q100,105 115,100 M80,120 Q100,125 120,120 M85,140 Q100,145 115,140" />
-            </svg>
-          </div>
-
-          <div class="max-w-[1400px] mx-auto px-10 py-20 relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-12">
-              <!-- Left Column -->
-              <div class="max-w-[560px]">
-                <div class="flex items-center gap-4 mb-6">
-                  <div
-                    class="w-[44px] h-[44px] rounded-full flex items-center justify-center relative"
-                    style="background-color:#333F2908;border:1.5px solid #333F2925;"
-                  >
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#333F29" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M12 2 Q16 6 12 10 Q8 6 12 2 M12 10 L12 22 M8 12 Q12 13 16 12 M7 16 Q12 17 17 16" />
-                    </svg>
-                  </div>
-                  <p class="text-[11px] font-semibold tracking-[0.15em] uppercase" style="color:var(--textSecondary);">
-                    Botanical Curation
-                  </p>
-                </div>
-
-                <h2 class="text-[28px] font-semibold tracking-[0.05em] uppercase mb-6 leading-tight text-gray-900">
-                  加入智性美學的對話
-                </h2>
-                <p class="text-[14px] leading-relaxed mb-8" style="color:var(--textSecondary);">
-                  訂閱 evenif 選物誌，優先獲取醫師級護理檔案與會員限定禮遇。我們以嚴苛臨床標準策展，過濾掉 99% 的營銷雜訊，為妳的肌膚找尋那 1% 的真相。
-                </p>
-
-                <!-- Newsletter -->
-                <form class="mb-8">
-                  <div class="flex flex-col sm:flex-row gap-3">
-                    <input
-                      type="email"
-                      placeholder="電子郵件地址"
-                      class="flex-1 px-5 py-3.5 text-[13px] border rounded-[3px]"
-                      style="border-color:#333F2930;background-color:var(--white);"
-                    />
-                    <button
-                      type="submit"
-                      class="px-8 py-4 text-[11px] font-semibold tracking-[0.15em] uppercase text-white rounded-[3px] shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5"
-                      style="background-color:var(--saleGreen);"
-                    >
-                      領取首購 9 折優惠
-                    </button>
-                  </div>
-                </form>
-
-                <!-- Social -->
-                <div class="flex items-center gap-6">
-                  <a href="#" class="transition-all hover:opacity-70" style="color:var(--textSecondary);">
-                    IG
-                  </a>
-                  <a href="#" class="transition-all hover:opacity-70" style="color:var(--textSecondary);">
-                    MSG
-                  </a>
-                  <div class="flex-1 h-[1px] ml-4" style="background-color:#333F2920;"></div>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333F29" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="opacity-40">
-                    <path d="M12 2 Q14 4 12 6 Q10 4 12 2 M12 6 L12 12" />
-                  </svg>
-                </div>
-              </div>
-
-              <!-- Right Column -->
-              <div class="bg-white rounded-[4px] p-8 shadow-md border-2" style="border-color:#333F2920;">
-                <!-- 品牌深度 -->
-                <div class="border-t py-6" style="border-color:#333F2920;">
-                  <button
-                    type="button"
-                    class="accordion-trigger w-full flex justify-between items-center group"
-                    data-accordion="botanical-brand"
-                  >
-                    <span class="text-[13px] font-semibold tracking-[0.12em] uppercase text-gray-900 group-hover:text-[#A89968] transition-colors">
-                      品牌深度
-                    </span>
-                    <span class="accordion-chevron text-sm" style="color:var(--brandGray);">⌄</span>
-                  </button>
-                  <div class="accordion-content">
-                    <ul class="space-y-3 mt-6">
-                      <li><a href="#" class="text-[13px]" style="color:var(--textSecondary);">策展初衷</a></li>
-                      <li><a href="#" class="text-[13px]" style="color:var(--textSecondary);">選物指標：12 萬例數據實證</a></li>
-                      <li><a href="#" class="text-[13px]" style="color:var(--textSecondary);">智性選物誌</a></li>
-                      <li><a href="#" class="text-[13px]" style="color:var(--textSecondary);">合作夥伴與醫師團隊</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <!-- 選物目錄 -->
-                <div class="border-t py-6" style="border-color:#333F2920;">
-                  <button
-                    type="button"
-                    class="accordion-trigger w-full flex justify-between items-center group"
-                    data-accordion="botanical-catalog"
-                  >
-                    <span class="text-[13px] font-semibold tracking-[0.12em] uppercase text-gray-900 group-hover:text-[#A89968] transition-colors">
-                      選物目錄
-                    </span>
-                    <span class="accordion-chevron text-sm" style="color:var(--brandGray);">⌄</span>
-                  </button>
-                  <div class="accordion-content">
-                    <ul class="space-y-3 mt-6">
-                      <li><a href="#" class="text-[13px]" style="color:var(--textSecondary);">所有選物</a></li>
-                      <li><a href="#" class="text-[13px]" style="color:var(--textSecondary);">臉部修復</a></li>
-                      <li><a href="#" class="text-[13px]" style="color:var(--textSecondary);">內在秩序：營養補給</a></li>
-                      <li><a href="#" class="text-[13px]" style="color:var(--textSecondary);">初見組合</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <!-- 顧客支援 -->
-                <div class="border-t py-6" style="border-color:#333F2920;">
-                  <button
-                    type="button"
-                    class="accordion-trigger w-full flex justify-between items-center group"
-                    data-accordion="botanical-support"
-                  >
-                    <span class="text-[13px] font-semibold tracking-[0.12em] uppercase text-gray-900 group-hover:text-[#A89968] transition-colors">
-                      顧客支援
-                    </span>
-                    <span class="accordion-chevron text-sm" style="color:var(--brandGray);">⌄</span>
-                  </button>
-                  <div class="accordion-content">
-                    <ul class="space-y-3 mt-6">
-                      <li><a href="#" class="text-[13px]" style="color:var(--textSecondary);">常見問題</a></li>
-                      <li><a href="#" class="text-[13px]" style="color:var(--textSecondary);">配送說明（香港地區順豐配送）</a></li>
-                      <li><a href="#" class="text-[13px]" style="color:var(--textSecondary);">退換貨政策</a></li>
-                      <li><a href="#" class="text-[13px]" style="color:var(--textSecondary);">聯繫我們</a></li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div class="mt-8 pt-8 border-t flex items-center justify-between gap-3" style="border-color:#333F2920;">
-                  <button
-                    class="flex-1 py-4 text-[11px] font-semibold tracking-[0.15em] uppercase text-white rounded-[3px] shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5"
-                    style="background-color:var(--saleGreen);"
-                  >
-                    探索選物
-                  </button>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#333F29" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="opacity-30">
-                    <path d="M12 2 Q14 4 12 6 Q10 4 12 2 M12 6 L12 12" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            <!-- Bottom -->
-            <div class="border-t pt-12" style="border-color:#333F2915;">
-              <p class="text-[14px] italic text-center mb-8" style="color:var(--textSecondary);">
-                即使時鐘全速前進，妳內在的永恆，正覺察著這場遷徙。
-              </p>
-              <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                <span class="text-[11px]" style="color:var(--brandGray);">PayMe · FPS · VISA · Mastercard</span>
-                <span class="text-[11px] tracking-[0.12em] uppercase" style="color:var(--brandGray);">
-                  © 2026 evenif All Rights Reserved
-                </span>
-              </div>
-            </div>
-          </div>
-        </footer>
-
-        <!-- 優雅變體 -->
-        <footer data-variant="elegant" style="background-color:var(--bg);">
-          <div class="max-w-[1400px] mx-auto px-10 py-24">
-            <!-- Top -->
-            <div class="text-center mb-20">
-              <div class="inline-block mb-6">
-                <div class="flex items-center gap-4">
-                  <div class="w-[60px] h-[1px]" style="background-color:var(--ctaGold);"></div>
-                  <p class="text-[11px] font-semibold tracking-[0.2em] uppercase" style="color:var(--textSecondary);">
-                    Evenif Signature
-                  </p>
-                  <div class="w-[60px] h-[1px]" style="background-color:var(--ctaGold);"></div>
-                </div>
-              </div>
-
-              <h2 class="text-[36px] font-light tracking-[0.1em] mb-6 text-gray-900" style="font-family:Georgia,serif;">
-                加入智性美學的對話
-              </h2>
-              <p class="text-[13px] leading-relaxed max-w-[600px] mx-auto mb-10" style="color:var(--textSecondary);">
-                訂閱 evenif 選物誌，優先獲取醫師級護理檔案與會員限定禮遇<br/>
-                我們以嚴苛臨床標準策展，為妳的肌膚找尋那 1% 的真相
-              </p>
-
-              <!-- Newsletter -->
-              <form class="max-w-[500px] mx-auto mb-12">
-                <div class="flex flex-col sm:flex-row gap-3">
-                  <input
-                    type="email"
-                    placeholder="電子郵件地址"
-                    class="flex-1 px-6 py-4 text-[13px] border-2 rounded-[2px]"
-                    style="border-color:#A8996840;background-color:var(--white);"
-                  />
-                  <button
-                    class="px-10 py-4 text-[11px] font-semibold tracking-[0.2em] uppercase text-white rounded-[2px]"
-                    style="background-color:var(--ctaGold);box-shadow:0 4px 12px rgba(168,153,104,0.3);"
-                  >
-                    訂閱
-                  </button>
-                </div>
-              </form>
-
-              <!-- Social -->
-              <div class="flex justify-center gap-6">
-                <a href="#" class="flex flex-col items-center gap-2 group">
-                  <div
-                    class="w-[44px] h-[44px] flex items-center justify-center border-2 rounded-[2px] bg-white group-hover:border-[#A89968] group-hover:text-[#A89968] transition-all"
-                    style="border-color:#A8996840;color:var(--textSecondary);"
-                  >
-                    IG
-                  </div>
-                  <span class="text-[10px] tracking-wider uppercase" style="color:var(--textSecondary);">
-                    Instagram
-                  </span>
-                </a>
-                <a href="#" class="flex flex-col items-center gap-2 group">
-                  <div
-                    class="w-[44px] h-[44px] flex items-center justify-center border-2 rounded-[2px] bg-white group-hover:border-[#A89968] group-hover:text-[#A89968] transition-all"
-                    style="border-color:#A8996840;color:var(--textSecondary);"
-                  >
-                    MSG
-                  </div>
-                  <span class="text-[10px] tracking-wider uppercase" style="color:var(--textSecondary);">
-                    聯繫我們
-                  </span>
-                </a>
-              </div>
-            </div>
-
-            <!-- Links -->
-            <div
-              class="grid grid-cols-2 md:grid-cols-4 gap-12 mb-20 border-t border-b py-16"
-              style="border-color:#8B898520;"
-            >
-              <div>
-                <h3 class="text-[12px] font-semibold tracking-[0.15em] uppercase mb-8 text-gray-900">品牌深度</h3>
-                <ul class="space-y-4">
-                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968] transition-colors" style="color:var(--textSecondary);">策展初衷</a></li>
-                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">選物指標</a></li>
-                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">智性選物誌</a></li>
-                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">合作夥伴</a></li>
-                </ul>
-              </div>
-              <div>
-                <h3 class="text-[12px] font-semibold tracking-[0.15em] uppercase mb-8 text-gray-900">選物目錄</h3>
-                <ul class="space-y-4">
-                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">所有選物</a></li>
-                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">臉部修復</a></li>
-                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">營養補給</a></li>
-                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">初見組合</a></li>
-                </ul>
-              </div>
-              <div>
-                <h3 class="text-[12px] font-semibold tracking-[0.15em] uppercase mb-8 text-gray-900">顧客支援</h3>
-                <ul class="space-y-4">
-                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">常見問題</a></li>
-                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">配送說明</a></li>
-                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">退換貨政策</a></li>
-                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">聯繫我們</a></li>
-                </ul>
-              </div>
-              <div>
-                <h3 class="text-[12px] font-semibold tracking-[0.15em] uppercase mb-8 text-gray-900">法律與隱私</h3>
-                <ul class="space-y-4">
-                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">隱私政策</a></li>
-                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">服務條款</a></li>
-                  <li><a href="#" class="text-[13px] font-light hover:text-[#A89968]" style="color:var(--textSecondary);">免責聲明</a></li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- Bottom -->
-            <div class="text-center">
-              <p class="text-[15px] italic mb-8 font-light" style="color:var(--textSecondary);font-family:Georgia,serif;">
-                即使時鐘全速前進，妳內在的永恆，正覺察著這場遷徙。
-              </p>
-              <div class="flex flex-col items-center gap-4">
-                <span class="text-[10px] tracking-[0.15em] uppercase" style="color:var(--brandGray);">
-                  PayMe · FPS · VISA · Mastercard
-                </span>
-                <div class="w-[40px] h-[1px]" style="background-color:#8B898530;"></div>
-                <span class="text-[10px] tracking-[0.15em] uppercase" style="color:var(--brandGray);">
-                  © 2026 evenif All Rights Reserved
-                </span>
-              </div>
-            </div>
-          </div>
-        </footer>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- Design Notes -->
-  <div class="max-w-7xl mx-auto px-6 pb-12">
-    <div class="bg-white rounded-lg shadow-md p-6">
-      <h2 class="text-lg font-semibold text-gray-900 mb-4">🎨 設計說明</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <!-- 當前設計 -->
-        <div class="bg-gray-50 rounded-lg p-4">
-          <h3 class="text-sm font-semibold text-gray-900 mb-3">當前設計</h3>
-          <div class="space-y-3">
-            <div>
-              <p class="text-xs font-medium text-green-700 mb-2">✓ 優點</p>
-              <ul class="space-y-1">
-                <li class="text-xs text-gray-600">• 平衡的兩欄佈局</li>
-                <li class="text-xs text-gray-600">• 右側白色卡片突出</li>
-                <li class="text-xs text-gray-600">• 清晰的視覺層次</li>
-              </ul>
-            </div>
-            <div>
-              <p class="text-xs font-medium text-orange-700 mb-2">⚠ 考量</p>
-              <ul class="space-y-1">
-                <li class="text-xs text-gray-600">• 可能略顯商業化</li>
-                <li class="text-xs text-gray-600">• 植物元素較少</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- 極簡變體 -->
-        <div class="bg-gray-50 rounded-lg p-4">
-          <h3 class="text-sm font-semibold text-gray-900 mb-3">極簡變體</h3>
-          <div class="space-y-3">
-            <div>
-              <p class="text-xs font-medium text-green-700 mb-2">✓ 優點</p>
-              <ul class="space-y-1">
-                <li class="text-xs text-gray-600">• 更簡潔的視覺</li>
-                <li class="text-xs text-gray-600">• 更大的留白</li>
-                <li class="text-xs text-gray-600">• 更現代感</li>
-              </ul>
-            </div>
-            <div>
-              <p class="text-xs font-medium text-orange-700 mb-2">⚠ 考量</p>
-              <ul class="space-y-1">
-                <li class="text-xs text-gray-600">• 可能過於簡約</li>
-                <li class="text-xs text-gray-600">• 鄉村感較弱</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- 植物變體 -->
-        <div class="bg-gray-50 rounded-lg p-4">
-          <h3 class="text-sm font-semibold text-gray-900 mb-3">植物變體</h3>
-          <div class="space-y-3">
-            <div>
-              <p class="text-xs font-medium text-green-700 mb-2">✓ 優點</p>
-              <ul class="space-y-1">
-                <li class="text-xs text-gray-600">• 更多法式鄉村元素</li>
-                <li class="text-xs text-gray-600">• 植物裝飾增加氛圍</li>
-                <li class="text-xs text-gray-600">• 溫暖親和</li>
-              </ul>
-            </div>
-            <div>
-              <p class="text-xs font-medium text-orange-700 mb-2">⚠ 考量</p>
-              <ul class="space-y-1">
-                <li class="text-xs text-gray-600">• 可能略顯裝飾</li>
-                <li class="text-xs text-gray-600">• 需要平衡</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- 優雅變體 -->
-        <div class="bg-gray-50 rounded-lg p-4">
-          <h3 class="text-sm font-semibold text-gray-900 mb-3">優雅變體</h3>
-          <div class="space-y-3">
-            <div>
-              <p class="text-xs font-medium text-green-700 mb-2">✓ 優點</p>
-              <ul class="space-y-1">
-                <li class="text-xs text-gray-600">• 更多細節處理</li>
-                <li class="text-xs text-gray-600">• 奢華感提升</li>
-                <li class="text-xs text-gray-600">• 呼吸空間充足</li>
-              </ul>
-            </div>
-            <div>
-              <p class="text-xs font-medium text-orange-700 mb-2">⚠ 考量</p>
-              <ul class="space-y-1">
-                <li class="text-xs text-gray-600">• 可能過於精緻</li>
-                <li class="text-xs text-gray-600">• 資訊密度較低</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // variant 切換
-    const variantButtons = document.querySelectorAll('.variant-btn');
-    const variants = document.querySelectorAll('[data-variant]');
-    const descEl = document.getElementById('variant-desc');
-    const variantDescMap = {
-      current: '平衡的兩欄佈局',
-      minimalist: '更簡潔的單色調',
-      botanical: '增加植物裝飾元素',
-      elegant: '更多留白與細節'
-    };
-
-    variantButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id = btn.getAttribute('data-variant-button');
-        variantButtons.forEach(b => {
-          b.classList.remove('bg-[#A89968]', 'text-white', 'shadow-md');
-          b.classList.add('bg-gray-100', 'text-gray-700');
-        });
-        btn.classList.remove('bg-gray-100', 'text-gray-700');
-        btn.classList.add('bg-[#A89968]', 'text-white', 'shadow-md');
-
-        variants.forEach(v => v.classList.remove('active'));
-        const target = document.querySelector('[data-variant="' + id + '"]');
-        if (target) target.classList.add('active');
-
-        if (descEl && variantDescMap[id]) descEl.textContent = variantDescMap[id];
-      });
-    });
-
-    // accordion
-    document.querySelectorAll('.accordion-trigger').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id = btn.getAttribute('data-accordion');
-        const content = btn.parentElement.querySelector('.accordion-content');
-        const chev = btn.querySelector('.accordion-chevron');
-        const isOpen = content.classList.contains('open');
-
-        // close all accordions within same footer card
-        const container = btn.closest('footer, .bg-white.rounded-[4px]');
-        container.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
-        container.querySelectorAll('.accordion-chevron').forEach(ch => ch.classList.remove('open'));
-
-        if (!isOpen) {
-          content.classList.add('open');
-          chev.classList.add('open');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>evenif Launch Performance | Layout Optimized</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --evenif-sand: #F5EFE6;
+            --evenif-charcoal: #2C2C2C;
+            --evenif-moss: #3D4035;
+            --evenif-sage: #8C9485;
+            --evenif-gold: #C5A065;
+            --evenif-white: #FCFBFA;
         }
-      });
-    });
-  </script>
+        body {
+            background-color: var(--evenif-sand);
+            color: var(--evenif-charcoal);
+            font-family: 'Noto Sans TC', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, h3, .serif-font {
+            font-family: 'Noto Serif TC', serif;
+        }
+        .report-card {
+            background: var(--evenif-white);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .report-card:hover {
+            box-shadow: 0 12px 24px rgba(0,0,0,0.04);
+        }
+        .chart-container {
+            position: relative;
+            height: 320px;
+            width: 100%;
+        }
+        .sidebar-accent {
+            border-left: 4px solid var(--evenif-moss);
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border: 1px solid currentColor;
+            border-radius: 2px;
+        }
+        .insight-highlight {
+            background: rgba(197, 160, 101, 0.08);
+            border-left: 3px solid var(--evenif-gold);
+        }
+        .rank-gold { color: var(--evenif-gold); }
+        /* Optimized Title Style */
+        .product-title-container {
+            min-height: 4.5rem; /* Ensures enough space for long traditional Chinese names */
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body class="p-6 md:p-16 text-sm">
+
+    <!-- Header Section -->
+    <header class="max-w-6xl mx-auto mb-16 flex flex-col md:flex-row justify-between items-end border-b border-gray-300 pb-10">
+        <div class="mb-6 md:mb-0 text-left font-sans">
+            <span class="text-xs tracking-[0.4em] uppercase text-[#3D4035] font-semibold">Shopify Performance Log</span>
+            <h1 class="text-4xl md:text-5xl font-bold mt-3 uppercase tracking-tight">Bi-Weekly Report</h1>
+            <p class="text-sm text-gray-500 mt-3 tracking-widest uppercase">Feb 11 - Feb 24, 2026 | Grand Opening Phase</p>
+        </div>
+        <div class="text-right">
+        </div>
+    </header>
+
+    <!-- KPI Dashboard -->
+    <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 mb-12 font-sans">
+        <div class="report-card p-6">
+            <h4 class="text-[10px] text-gray-400 tracking-widest uppercase mb-2 font-bold text-center">Total Revenue</h4>
+            <div class="text-2xl font-bold text-center">HKD 7,343</div>
+            <div class="text-[10px] text-[#4A7C59] mt-2 font-medium text-center italic">Landed Success</div>
+        </div>
+        <div class="report-card p-6">
+            <h4 class="text-[10px] text-gray-400 tracking-widest uppercase mb-2 font-bold text-center">Real Orders</h4>
+            <div class="text-2xl font-bold text-center">8</div>
+            <div class="text-[10px] text-gray-500 mt-2 text-center italic">Excl. 5 tests</div>
+        </div>
+        <div class="report-card p-6 border-b-4 border-[#C5A065]">
+            <h4 class="text-[10px] text-gray-400 tracking-widest uppercase mb-2 font-bold text-[#C5A065] text-center">Real AOV</h4>
+            <div class="text-2xl font-bold text-[#C5A065] text-center">HKD 918</div>
+            <div class="text-[10px] text-[#C5A065] mt-2 font-bold text-center italic">↑ Strong Performance</div>
+        </div>
+        <div class="report-card p-6">
+            <h4 class="text-[10px] text-gray-400 tracking-widest uppercase mb-2 font-bold text-center">New Acquisition</h4>
+            <div class="text-2xl font-bold text-center">8</div>
+            <div class="text-[10px] text-gray-500 mt-2 text-center italic">100% Real Gain</div>
+        </div>
+        <div class="report-card p-6 bg-[#3D4035] text-white">
+            <h4 class="text-[10px] text-gray-300 tracking-widest uppercase mb-2 font-bold text-center">CVR</h4>
+            <div class="text-2xl font-bold text-center">1.02%</div>
+            <div class="text-[10px] text-[#C5A065] mt-2 font-bold text-center italic">Optimization Needed</div>
+        </div>
+    </div>
+
+    <!-- Brand Performance Section -->
+    <div class="max-w-6xl mx-auto mb-16">
+        <h2 class="text-2xl font-bold mb-8 serif-font uppercase tracking-widest border-l-4 border-[#3D4035] pl-6">Brand Sales Performance</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="report-card p-8 col-span-1">
+                <h3 class="text-lg font-bold mb-6 serif-font">In-Store Overview</h3>
+                <div class="space-y-4 text-xs font-sans">
+                    <div class="flex justify-between items-center">
+                        <span class="font-medium">elaceite</span>
+                        <span class="text-gray-500">8 Items</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="font-medium text-[#C5A065]">Yanlili 妍理理</span>
+                        <span class="text-gray-500">14 Items</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="font-medium">SOEL Living Oil</span>
+                        <span class="text-gray-500">5 Items</span>
+                    </div>
+                    <div class="flex justify-between items-center text-gray-400 italic">
+                        <span>ICOR / ASTALIFT </span>
+                        <span>7 Items</span>
+                    </div>
+                </div>
+                <div class="mt-8 pt-6 border-t border-gray-100 chart-container" style="height: 180px;">
+                    <canvas id="brandShareChart"></canvas>
+                </div>
+            </div>
+
+            <div class="report-card p-8 col-span-2">
+                <h3 class="text-lg font-bold mb-6 serif-font text-[#3D4035]">Brand Ranking</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs text-left">
+                        <thead class="text-[10px] text-gray-400 tracking-widest uppercase border-b">
+                            <tr>
+                                <th class="py-4">Rank</th>
+                                <th class="py-4">Brand</th>
+                                <th class="py-4">Revenue (HKD)</th>
+                                <th class="py-4">Market Share</th>
+                                <th class="py-4 text-center">Orders/Qty</th>
+                                <th class="py-4 text-right">CVR/Item</th>
+                            </tr>
+                        </thead>
+                        <tbody class="font-sans">
+                            <tr class="border-b border-gray-50">
+                                <td class="py-4 font-bold rank-gold">🥇</td>
+                                <td class="py-4 font-bold text-[#C5A065]">elaceite</td>
+                                <td class="py-4">4,923.00</td>
+                                <td class="py-4 font-bold">67.0%</td>
+                                <td class="py-4 text-center">6 Orders / 12 Qty</td>
+                                <td class="py-4 text-right font-medium">1.5 Qty/Item</td>
+                            </tr>
+                            <tr class="border-b border-gray-50">
+                                <td class="py-4 font-bold text-gray-400">🥈</td>
+                                <td class="py-4 font-bold">Yanlili 妍理理</td>
+                                <td class="py-4">2,420.40</td>
+                                <td class="py-4">33.0%</td>
+                                <td class="py-4 text-center">5 Orders / 11 Qty</td>
+                                <td class="py-4 text-right font-medium">0.8 Qty/Item</td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" class="py-4 text-[10px] text-gray-400 italic">No sales recorded for: SOEL, ICOR, ASTALIFT.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top 5 Best-Sellers Ranking (Optimized Layout) -->
+    <div class="max-w-6xl mx-auto mb-16">
+        <h2 class="text-2xl font-bold mb-8 serif-font uppercase tracking-widest border-l-4 border-[#3D4035] pl-6 text-[#3D4035]">Top 5 Best-Sellers</h2>
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-6 font-sans">
+            <!-- Rank 1 -->
+            <div class="report-card p-6 border-t-4 border-[#3D4035]">
+                <div class="text-[10px] text-gray-400 font-bold mb-2 uppercase tracking-tighter">Rank 01 👑</div>
+                <div class="product-title-container">
+                    <h3 class="font-bold text-sm leading-snug serif-font">elaceite｜潤澤平衡28日組</h3>
+                </div>
+                <div class="text-2xl font-bold text-[#3D4035]">5 Units</div>
+                <div class="text-[10px] text-gray-500 mt-2">Rev: HKD 2,691</div>
+                <div class="text-[10px] font-bold text-[#C5A065] mt-1 italic">36.6% Revenue Share</div>
+            </div>
+            <!-- Rank 2 -->
+            <div class="report-card p-6 border-t-4 border-[#8C9485]">
+                <div class="text-[10px] text-gray-400 font-bold mb-2 uppercase tracking-tighter">Rank 02</div>
+                <div class="product-title-container">
+                    <h3 class="font-bold text-sm leading-snug serif-font">elaceite｜葡萄果肌能亮采膠囊</h3>
+                </div>
+                <div class="text-2xl font-bold text-[#3D4035]">4 Units</div>
+                <div class="text-[10px] text-gray-500 mt-2">Rev: HKD 1,073</div>
+                <div class="text-[10px] font-bold text-[#8C9485] mt-1 italic">Steady Demand</div>
+            </div>
+            <!-- Rank 3 -->
+            <div class="report-card p-6 border-t-4 border-[#8C9485]">
+                <div class="text-[10px] text-gray-400 font-bold mb-2 uppercase tracking-tighter">Rank 03</div>
+                <div class="product-title-container">
+                    <h3 class="font-bold text-sm leading-snug serif-font">Yanlili 妍理理 01｜依蘭人參抗倦容</h3>
+                </div>
+                <div class="text-2xl font-bold text-[#3D4035]">4 Units</div>
+                <div class="text-[10px] text-gray-500 mt-2">Rev: HKD 241</div>
+                <div class="text-[10px] font-bold text-[#8C9485] mt-1 italic">Entry-level Hook</div>
+            </div>
+            <!-- Rank 4 -->
+            <div class="report-card p-6 border-t-4 border-[#C5A065]">
+                <div class="text-[10px] text-gray-400 font-bold mb-2 uppercase tracking-tighter">Rank 04</div>
+                <div class="product-title-container">
+                    <h3 class="font-bold text-sm leading-snug serif-font">Yanlili 妍理理｜曠鎂木香舒活乳</h3>
+                </div>
+                <div class="text-2xl font-bold text-[#3D4035]">2 Units</div>
+                <div class="text-[10px] text-gray-500 mt-2">Rev: HKD 1,256</div>
+                <div class="text-[10px] font-bold text-[#C5A065] mt-1 italic">High Contribution</div>
+            </div>
+            <!-- Rank 5 -->
+            <div class="report-card p-6 border-t-4 border-[#D6D3D1]">
+                <div class="text-[10px] text-gray-400 font-bold mb-2 uppercase tracking-tighter">Rank 05</div>
+                <div class="product-title-container">
+                    <h3 class="font-bold text-sm leading-snug serif-font">elaceite｜高純度膠原精萃鈣</h3>
+                </div>
+                <div class="text-2xl font-bold text-[#3D4035]">2 Units</div>
+                <div class="text-[10px] text-gray-500 mt-2">Rev: HKD 828</div>
+                <div class="text-[10px] font-bold text-[#D6D3D1] mt-1 italic">Premium Target</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Funnel and Traffic -->
+    <main class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+        <section class="report-card p-10">
+            <h3 class="text-xl font-bold mb-8 serif-font uppercase">Conversion Funnel Analysis</h3>
+            <div class="chart-container">
+                <canvas id="funnelChart"></canvas>
+            </div>
+            <div class="mt-6 p-5 insight-highlight font-sans text-xs text-gray-500 leading-relaxed">
+                <p class="text-sm font-bold text-[#3D4035] mb-1">Abandonment Rate: ~85.5%</p>
+                8 real orders from 55 ATCs. Normal for early stage; focus remains on reducing checkout friction for 89.5% mobile traffic.
+            </div>
+        </section>
+
+        <section class="report-card p-10 bg-[#3D4035] text-white font-sans">
+            <h3 class="text-xl font-bold mb-6 serif-font text-[#F5EFE6] uppercase tracking-widest">Instagram Spotlight</h3>
+            <div class="grid grid-cols-2 gap-8">
+                <div>
+                    <h4 class="text-[10px] text-gray-300 tracking-widest uppercase font-bold">Attributed Revenue</h4>
+                    <div class="text-2xl font-bold text-[#C5A065]">HKD 1,999.8</div>
+                </div>
+                <div>
+                    <h4 class="text-[10px] text-gray-300 tracking-widest uppercase font-bold">Transactions</h4>
+                    <div class="text-2xl font-bold">2 Orders</div>
+                </div>
+                <div class="col-span-2 pt-6 border-t border-gray-600">
+                    <div class="flex justify-between items-baseline mb-4">
+                        <h4 class="text-[10px] text-gray-300 tracking-widest uppercase font-bold text-xs">IG Average Order Value</h4>
+                        <span class="text-2xl font-bold text-[#C5A065]">HKD 999.9</span>
+                    </div>
+                    <p class="text-[11px] opacity-70 italic leading-relaxed">
+                        Instagram orders significantly outperform the store average (HKD 918). The curated social strategy is effectively attracting high-tier consumers.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Action Plan -->
+    <div class="max-w-6xl mx-auto font-sans">
+        <section class="bg-white p-10 border border-[#3D4035] relative">
+            <div class="absolute -top-4 left-6 bg-[#3D4035] text-white px-4 py-1 text-[10px] tracking-widest uppercase">Upcoming Actions</div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="space-y-4">
+                    <h4 class="font-bold text-[#3D4035] text-base underline underline-offset-8 decoration-[#C5A065]">Mobile UX Audit</h4>
+                    <p class="text-xs text-gray-600 leading-relaxed">Optimize the 89.5% mobile path. Simplify checkout forms and ensure seamless payment gateway integration on mobile browsers.</p>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="font-bold text-[#3D4035] text-base underline underline-offset-8 decoration-[#C5A065]">Content Syndication</h4>
+                    <p class="text-xs text-gray-600 leading-relaxed">Leverage the HKD 999.9 AOV insight. Produce more high-concept Reels featuring the elaceite x Yanlili synergistic rituals.</p>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="font-bold text-[#3D4035] text-base underline underline-offset-8 decoration-[#C5A065]">SleekFlow Recovery</h4>
+                    <p class="text-xs text-gray-600 leading-relaxed">Launch automated WhatsApp recovery flows. Target reduction of abandonment rate to 65-70%. Every order saved represents ~$918.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="mt-24 py-16 border-t border-gray-300 text-center">
+        <p class="serif-font text-3xl text-[#3D4035] mb-3 uppercase tracking-widest">evenif.</p>
+    </footer>
+
+    <script>
+        Chart.defaults.font.family = "'Noto Sans TC', sans-serif";
+        Chart.defaults.color = '#2C2C2C';
+
+        // 1. Brand Market Share Chart
+        const brandCtx = document.getElementById('brandShareChart').getContext('2d');
+        new Chart(brandCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['elaceite', 'Yanlili 妍理理'],
+                datasets: [{
+                    data: [67, 33],
+                    backgroundColor: ['#3D4035', '#C5A065'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                cutout: '75%',
+                plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 } } } }
+            }
+        });
+
+        // 2. Funnel Chart (Visits -> Real Orders)
+        const funnelCtx = document.getElementById('funnelChart').getContext('2d');
+        new Chart(funnelCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Visits (784)', 'Add to Carts (55)', 'Real Orders (8)'],
+                datasets: [{
+                    label: 'Units',
+                    data: [784, 55, 8],
+                    backgroundColor: ['#8C9485', '#C5A065', '#3D4035'],
+                    barThickness: 50
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { 
+                    x: { beginAtZero: true, grid: { display: false }, ticks: { display: false } },
+                    y: { grid: { display: false } }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
