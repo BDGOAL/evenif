@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,26 +28,31 @@
         .report-card {
             background: var(--evenif-white);
             border: 1px solid rgba(0,0,0,0.05);
-            padding: 2rem;
+            padding: 2.5rem;
             margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
         }
         .metric-card {
             background: #fff;
-            padding: 1.5rem;
+            padding: 1.75rem;
             text-align: center;
-            border-bottom: 4px solid var(--evenif-moss);
+            border-bottom: 3px solid var(--evenif-moss);
+            transition: transform 0.3s ease;
         }
-        .status-up { color: #4A7C59; font-weight: bold; }
-        .status-down { color: #C53030; font-weight: bold; }
-        .status-warn { color: #D69E2E; font-weight: bold; }
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+        .status-up { color: #4A7C59; font-weight: 600; }
+        .status-down { color: #C53030; font-weight: 600; }
+        .status-warn { color: #D69E2E; font-weight: 600; }
         
-        table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
-        th { background: #F9F7F5; padding: 12px; text-align: left; color: var(--evenif-moss); font-weight: 600; border-bottom: 2px solid #eee; }
-        td { padding: 12px; border-bottom: 1px solid #eee; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.85rem; }
+        th { background: #F9F7F5; padding: 14px; text-align: left; color: var(--evenif-moss); font-weight: 600; border-bottom: 2px solid #eee; text-transform: uppercase; letter-spacing: 0.05em; }
+        td { padding: 14px; border-bottom: 1px solid #eee; }
         
         .badge {
             display: inline-block;
-            padding: 2px 8px;
+            padding: 4px 10px;
             font-size: 10px;
             text-transform: uppercase;
             letter-spacing: 0.1em;
@@ -61,113 +66,104 @@
         .sidebar-accent { border-left: 5px solid var(--evenif-moss); padding-left: 1.5rem; }
         .chart-container { position: relative; height: 300px; width: 100%; }
         
-        .plan-item { position: relative; padding-left: 2rem; margin-bottom: 1.5rem; }
-        .plan-item::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0.5rem;
-            width: 10px;
-            height: 10px;
-            background: var(--evenif-gold);
-        }
+        .plan-header { background: var(--evenif-moss); color: #fff; padding: 8px 16px; font-size: 11px; letter-spacing: 0.2em; display: inline-block; margin-bottom: 1.5rem; }
+        .priority-label { font-weight: 700; color: var(--evenif-moss); text-transform: uppercase; font-size: 11px; border-bottom: 2px solid var(--evenif-gold); margin-bottom: 0.5rem; display: inline-block; }
     </style>
 </head>
-<body class="p-4 md:p-12">
+<body class="p-6 md:p-16">
 
     <!-- Header Section -->
-    <header class="max-w-6xl mx-auto mb-12 text-center">
-        <span class="text-xs tracking-[0.4em] uppercase text-[#3D4035] font-semibold">Shopify Analytics Dashboard</span>
-        <h1 class="text-4xl md:text-6xl font-bold mt-4 serif-font">完整績效報告 <span class="text-gray-400 text-2xl md:text-3xl font-light block md:inline md:ml-4">（17天同期對比）</span></h1>
-        <div class="flex flex-wrap justify-center gap-6 mt-8 text-sm">
-            <div class="px-4 py-2 bg-white border border-gray-200"><strong>本期：</strong> 2026年2月24日 — 3月12日</div>
-            <div class="px-4 py-2 bg-gray-100 border border-gray-200 text-gray-500"><strong>前期：</strong> 2026年2月7日 — 2月23日</div>
-        </div>
-        <div class="max-w-3xl mx-auto mt-6 p-4 bg-yellow-50 border border-yellow-200 text-xs text-yellow-800 italic">
-            ⚠️ 數據說明：本報告數據直接從 Shopify Analytics 實時提取，部分指標（如各渠道細分營收）因系統限制以整體維度呈現。
+    <header class="max-w-6xl mx-auto mb-16 text-center">
+        <span class="text-xs tracking-[0.4em] uppercase text-[#3D4035] font-semibold">Shopify Executive Dashboard</span>
+        <h1 class="text-4xl md:text-6xl font-bold mt-6 serif-font tracking-tight">Full Performance Report</h1>
+        <p class="text-gray-400 text-lg mt-2 font-light">17-Day Year-over-Year Comparison Analysis</p>
+        
+        <div class="flex flex-wrap justify-center gap-6 mt-10 text-xs tracking-widest uppercase">
+            <div class="px-6 py-3 bg-white border border-gray-100 shadow-sm"><strong>Current Period:</strong> Feb 24 — Mar 12, 2026</div>
+            <div class="px-6 py-3 bg-gray-50 border border-gray-100 text-gray-400"><strong>Previous Period:</strong> Feb 7 — Feb 23, 2026</div>
         </div>
     </header>
 
     <main class="max-w-6xl mx-auto">
 
-        <!-- 第一部分：整體營運表現 -->
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold mb-8 serif-font border-b border-[#3D4035] pb-2 uppercase tracking-widest">第一部分：整體營運表現</h2>
+        <!-- PART 1: OVERALL OPERATIONS -->
+        <section class="mb-20">
+            <h2 class="text-xl font-bold mb-10 serif-font border-b-2 border-[#3D4035] pb-3 uppercase tracking-[0.3em]">I. Overall Business Performance</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-                <div class="metric-card">
-                    <h4 class="text-xs text-gray-400 uppercase tracking-widest mb-2">總銷售額</h4>
-                    <div class="text-2xl font-bold">HKD 8,726</div>
-                    <div class="status-up text-sm mt-1">↑ 18.8% ✅</div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+                <div class="metric-card shadow-sm">
+                    <h4 class="text-[10px] text-gray-400 uppercase tracking-widest mb-2 font-bold">Total Sales</h4>
+                    <div class="text-3xl font-bold serif-font">HKD 8,726</div>
+                    <div class="status-up text-xs mt-2">↑ 18.8% ✅</div>
                 </div>
-                <div class="metric-card">
-                    <h4 class="text-xs text-gray-400 uppercase tracking-widest mb-2">訂單數量</h4>
-                    <div class="text-2xl font-bold">15 筆</div>
-                    <div class="status-up text-sm mt-1">↑ 15.4% ✅</div>
+                <div class="metric-card shadow-sm">
+                    <h4 class="text-[10px] text-gray-400 uppercase tracking-widest mb-2 font-bold">Total Orders</h4>
+                    <div class="text-3xl font-bold serif-font">15</div>
+                    <div class="status-up text-xs mt-2">↑ 15.4% ✅</div>
                 </div>
-                <div class="metric-card">
-                    <h4 class="text-xs text-gray-400 uppercase tracking-widest mb-2">平均訂單價值 (AOV)</h4>
-                    <div class="text-2xl font-bold">HKD 581.73</div>
-                    <div class="status-up text-sm mt-1">↑ 2.8% ✅</div>
+                <div class="metric-card shadow-sm">
+                    <h4 class="text-[10px] text-gray-400 uppercase tracking-widest mb-2 font-bold">Average Order Value</h4>
+                    <div class="text-3xl font-bold serif-font">HKD 581</div>
+                    <div class="status-up text-xs mt-2">↑ 2.8% ✅</div>
                 </div>
-                <div class="metric-card">
-                    <h4 class="text-xs text-gray-400 uppercase tracking-widest mb-2">新客戶</h4>
-                    <div class="text-2xl font-bold">14 位</div>
-                    <div class="status-up text-sm mt-1">↑ 55.6% ✅</div>
+                <div class="metric-card shadow-sm">
+                    <h4 class="text-[10px] text-gray-400 uppercase tracking-widest mb-2 font-bold">New Customers</h4>
+                    <div class="text-3xl font-bold serif-font">14</div>
+                    <div class="status-up text-xs mt-2">↑ 55.6% ✅</div>
                 </div>
             </div>
 
             <div class="report-card">
-                <h3 class="text-lg font-bold mb-4 serif-font">💰 一、營收與訂單詳情</h3>
+                <h3 class="text-lg font-bold mb-6 serif-font text-gray-500 uppercase tracking-wider">💰 Revenue & Order Metrics</h3>
                 <div class="overflow-x-auto">
                     <table>
                         <thead>
                             <tr>
-                                <th>指標</th>
-                                <th>本期（2/24–3/12）</th>
-                                <th>前期（2/7–2/23）</th>
-                                <th>變化</th>
-                                <th>狀態</th>
+                                <th>Indicator</th>
+                                <th>Current (2/24–3/12)</th>
+                                <th>Previous (2/7–2/23)</th>
+                                <th>Change</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>總銷售額</td>
+                                <td class="font-medium">Total Sales</td>
                                 <td>HKD 8,726</td>
                                 <td>HKD 7,343</td>
                                 <td class="status-up">+18.8%</td>
                                 <td>✅</td>
                             </tr>
                             <tr>
-                                <td>訂單數量</td>
-                                <td>15 筆</td>
-                                <td>13 筆</td>
+                                <td class="font-medium">Order Count</td>
+                                <td>15 Orders</td>
+                                <td>13 Orders</td>
                                 <td class="status-up">+15.4%</td>
                                 <td>✅</td>
                             </tr>
                             <tr>
-                                <td>平均訂單價值</td>
+                                <td class="font-medium">Average Order Value (AOV)</td>
                                 <td>HKD 581.73</td>
                                 <td>HKD 566.11</td>
                                 <td class="status-up">+2.8%</td>
                                 <td>✅</td>
                             </tr>
                             <tr>
-                                <td>新客戶</td>
-                                <td>14 位</td>
-                                <td>9 位</td>
+                                <td class="font-medium">New Customers</td>
+                                <td>14 Customers</td>
+                                <td>9 Customers</td>
                                 <td class="status-up">+55.6%</td>
                                 <td>✅</td>
                             </tr>
                             <tr>
-                                <td>回購客戶</td>
-                                <td>1 位</td>
-                                <td>2 位</td>
+                                <td class="font-medium">Returning Customers</td>
+                                <td>1 Customer</td>
+                                <td>2 Customers</td>
                                 <td class="status-down">-50.0%</td>
                                 <td>⚠️</td>
                             </tr>
                             <tr>
-                                <td>回購客戶比例</td>
+                                <td class="font-medium">Retention Rate</td>
                                 <td>6.3%</td>
                                 <td>13.3%</td>
                                 <td class="status-down">-7.0%</td>
@@ -176,50 +172,50 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="mt-4 p-4 bg-[#F9F7F5] border-l-4 border-green-700 text-sm">
-                    <strong>✅ 正面訊號：</strong> 本期整體營收、訂單、AOV 及新客戶均錄得增長，與上次報告（基於更長時間窗口）的趨勢有所不同，顯示近期業務正在回穩。回購客戶比例下降值得關注，需加強留客策略。
+                <div class="mt-8 p-6 bg-[#F9F7F5] border-l-4 border-green-700 text-sm italic">
+                    <strong>✅ Positive Indicators:</strong> This period showed synchronized growth in revenue, order volume, AOV, and new customer acquisition, signaling business stabilization. However, the decline in retention rate necessitates a more robust customer loyalty strategy.
                 </div>
             </div>
 
-            <!-- 流量來源與設備分析 -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <!-- TRAFFIC & DEVICE -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
                 <div class="report-card">
-                    <h3 class="text-lg font-bold mb-4 serif-font">📱 二、流量與來源分析</h3>
-                    <div class="mb-4 text-sm"><strong>總流量：</strong> 1,448 次訪問（前期：1,218 次，<span class="status-up">+18.9% ✅</span>）</div>
-                    <div class="chart-container mb-6">
+                    <h3 class="text-lg font-bold mb-6 serif-font text-gray-500 uppercase">📱 Traffic Source Analysis</h3>
+                    <div class="mb-6 text-sm"><strong>Total Traffic:</strong> 1,448 Visits (Prev: 1,218, <span class="status-up">+18.9% ✅</span>)</div>
+                    <div class="chart-container mb-8">
                         <canvas id="trafficSourceChart"></canvas>
                     </div>
                     <div class="overflow-x-auto">
                         <table class="text-[11px]">
                             <thead>
                                 <tr>
-                                    <th>來源</th>
-                                    <th>訪問佔比</th>
-                                    <th>前期佔比</th>
-                                    <th>變化</th>
-                                    <th>本期轉化率</th>
-                                    <th>轉化率變化</th>
+                                    <th>Channel</th>
+                                    <th>Current Share</th>
+                                    <th>Prev Share</th>
+                                    <th>Change</th>
+                                    <th>Current CVR</th>
+                                    <th>CVR Δ</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>社交媒體</td>
+                                    <td class="font-bold">Social Media</td>
                                     <td>1,020 (70.4%)</td>
                                     <td>679 (55.7%)</td>
                                     <td class="status-up">+50.2% ✅</td>
-                                    <td>0.88%</td>
+                                    <td class="font-bold text-moss">0.88%</td>
                                     <td class="status-up">+199% 🚀</td>
                                 </tr>
                                 <tr>
-                                    <td>直接流量</td>
+                                    <td class="font-bold">Direct</td>
                                     <td>409 (28.2%)</td>
                                     <td>531 (43.6%)</td>
                                     <td class="status-down">-23.0% ⚠️</td>
-                                    <td>1.22%</td>
+                                    <td class="font-bold">1.22%</td>
                                     <td class="status-down">-27.8% ⚠️</td>
                                 </tr>
                                 <tr>
-                                    <td>搜尋引擎</td>
+                                    <td class="font-bold">Search</td>
                                     <td>16 (1.1%)</td>
                                     <td>5 (0.4%)</td>
                                     <td class="status-up">+220% ✅</td>
@@ -232,32 +228,32 @@
                 </div>
 
                 <div class="report-card">
-                    <h3 class="text-lg font-bold mb-6 serif-font">設備與流量洞察</h3>
-                    <div class="overflow-x-auto mb-8">
-                        <table>
+                    <h3 class="text-lg font-bold mb-6 serif-font text-gray-500 uppercase">Device & Insights</h3>
+                    <div class="overflow-x-auto mb-10">
+                        <table class="text-[11px]">
                             <thead>
                                 <tr>
-                                    <th>設備</th>
-                                    <th>訪問佔比</th>
-                                    <th>前期佔比</th>
-                                    <th>變化</th>
+                                    <th>Device</th>
+                                    <th>Current Share</th>
+                                    <th>Prev Share</th>
+                                    <th>Change</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>手機</td>
-                                    <td>1,336 (92.3%)</td>
+                                    <td>Mobile</td>
+                                    <td class="font-bold">1,336 (92.3%)</td>
                                     <td>1,091 (89.6%)</td>
                                     <td class="status-up">+22.5% ✅</td>
                                 </tr>
                                 <tr>
-                                    <td>桌面電腦</td>
+                                    <td>Desktop</td>
                                     <td>101 (7.0%)</td>
                                     <td>119 (9.8%)</td>
                                     <td class="status-down">-15.1% ⚠️</td>
                                 </tr>
                                 <tr>
-                                    <td>平板電腦</td>
+                                    <td>Tablet</td>
                                     <td>1 (0.1%)</td>
                                     <td>2 (0.2%)</td>
                                     <td class="status-down">-50.0%</td>
@@ -265,67 +261,67 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="space-y-3 text-sm sidebar-accent">
-                        <p>🚀 <strong>社交媒體流量大幅反彈 +50.2%</strong>，且轉化率顯著提升至 0.88%，是本期最大亮點。</p>
-                        <p>⚠️ 直接流量下降 23%，轉化率亦有所下滑，需關注品牌直接觸達能力。</p>
-                        <p>📱 <strong>手機流量佔比達 92.3%</strong>，手機端體驗優化更為關鍵。</p>
-                        <p>✅ 搜尋引擎流量雖基數小，但增長 220%，SEO 策略初見成效。</p>
+                    <div class="space-y-4 text-xs sidebar-accent">
+                        <p>🚀 <strong>Social Media Surge:</strong> Traffic rebounded by +50.2% with a significant conversion rate spike to 0.88%, making it the highlight of the period.</p>
+                        <p>⚠️ <strong>Direct Traffic Warning:</strong> A 23.0% decline suggests a dip in brand direct-reach or EDM engagement.</p>
+                        <p>📱 <strong>Mobile Dominance:</strong> Mobile traffic now accounts for 92.3% of visits; mobile UX optimization is critical.</p>
+                        <p>✅ <strong>SEO Initial Results:</strong> Search engine traffic grew by 220% from a small base, showing early success in SEO strategy.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- 轉化漏斗 -->
+            <!-- CONVERSION FUNNEL -->
             <div class="report-card">
-                <h3 class="text-lg font-bold mb-4 serif-font">🛒 三、轉化漏斗表現</h3>
+                <h3 class="text-lg font-bold mb-8 serif-font text-gray-500 uppercase">🛒 Conversion Funnel Performance</h3>
                 <div class="overflow-x-auto">
                     <table>
                         <thead>
                             <tr>
-                                <th>指標</th>
-                                <th>本期</th>
-                                <th>前期</th>
-                                <th>變化</th>
-                                <th>狀態</th>
+                                <th>Indicator</th>
+                                <th>Current</th>
+                                <th>Previous</th>
+                                <th>Change</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>整體轉化率</td>
+                                <td class="font-medium">Store Conversion Rate</td>
                                 <td>1.04%</td>
                                 <td>0.90%</td>
                                 <td class="status-up">+14.4%</td>
                                 <td>✅</td>
                             </tr>
                             <tr>
-                                <td>加入購物車率</td>
+                                <td class="font-medium">Add to Cart (ATC) Rate</td>
                                 <td>3.45%</td>
                                 <td>5.75%</td>
                                 <td class="status-down">-40.0%</td>
                                 <td>🚨</td>
                             </tr>
                             <tr>
-                                <td>到達結帳頁面</td>
-                                <td>18 次</td>
-                                <td>32 次</td>
+                                <td class="font-medium">Reached Checkout</td>
+                                <td>18 times</td>
+                                <td>32 times</td>
                                 <td class="status-down">-43.8%</td>
                                 <td>🚨</td>
                             </tr>
                             <tr>
-                                <td>完成結帳</td>
-                                <td>15 次</td>
-                                <td>11 次</td>
+                                <td class="font-medium">Completed Checkout</td>
+                                <td>15 times</td>
+                                <td>11 times</td>
                                 <td class="status-up">+36.4%</td>
                                 <td>✅</td>
                             </tr>
                             <tr>
-                                <td>購物車加入次數</td>
-                                <td>50 次</td>
-                                <td>70 次</td>
+                                <td class="font-medium">ATC Count</td>
+                                <td>50 times</td>
+                                <td>70 times</td>
                                 <td class="status-down">-28.6%</td>
                                 <td>⚠️</td>
                             </tr>
                             <tr>
-                                <td>結帳完成率（到達結帳→完成）</td>
+                                <td class="font-medium">Checkout Success (Reach → Buy)</td>
                                 <td>83.3%</td>
                                 <td>34.4%</td>
                                 <td class="status-up">+142% 🚀</td>
@@ -334,126 +330,126 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                    <div class="p-4 bg-white border border-gray-100 text-sm">
-                        <strong>轉化漏斗分析：</strong><br>
-                        • 整體轉化率提升至 1.04%，顯示到達網站的用戶質量更高 ✅<br>
-                        • <strong>結帳完成率大幅提升至 83.3%</strong>，結帳流程優化成效顯著 🚀
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+                    <div class="p-6 bg-white border border-gray-100 text-xs">
+                        <h4 class="font-bold text-moss mb-3 uppercase tracking-wider underline">Funnel Analysis</h4>
+                        <p class="mb-2">• Overall CVR increased to 1.04%, indicating higher quality traffic acquisition. ✅</p>
+                        <p>• <strong>Checkout Success Rate surged to 83.3%</strong>, proving that recent checkout process optimizations are highly effective. 🚀</p>
                     </div>
-                    <div class="p-4 bg-red-50 border border-red-100 text-sm text-red-900">
-                        <strong>核心矛盾：</strong><br>
-                        流量增加、結帳完成率提升，但 <strong>加購率大幅下降 40%</strong>。問題在於產品頁面至購物車的轉化環節。
+                    <div class="p-6 bg-red-50 border border-red-100 text-xs text-red-900">
+                        <h4 class="font-bold mb-3 uppercase tracking-wider underline">Core Conflict</h4>
+                        <p class="leading-relaxed">While overall traffic and checkout efficiency improved, the <strong>Add to Cart Rate dropped by 40%</strong>. The bottleneck has shifted to the "Product Page to Cart" stage.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 第二部分：產品表現對比 -->
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold mb-8 serif-font border-b border-[#3D4035] pb-2 uppercase tracking-widest">第二部分：產品表現對比</h2>
+        <!-- PART 2: PRODUCT PERFORMANCE -->
+        <section class="mb-20">
+            <h2 class="text-xl font-bold mb-10 serif-font border-b-2 border-[#3D4035] pb-3 uppercase tracking-[0.3em]">II. Product Portfolio Analysis</h2>
             
             <div class="report-card">
-                <h3 class="text-lg font-bold mb-6 serif-font text-[#C5A065]">🏆 十大暢銷產品對比</h3>
+                <h3 class="text-lg font-bold mb-8 serif-font text-[#C5A065] uppercase">🏆 Top 10 Best-Sellers Comparison</h3>
                 <div class="overflow-x-auto">
                     <table>
                         <thead>
                             <tr>
-                                <th>排名</th>
-                                <th>產品名稱</th>
-                                <th>本期營收 (HKD)</th>
-                                <th>前期營收</th>
-                                <th>變化</th>
-                                <th>本期訂單</th>
-                                <th>前期訂單</th>
+                                <th>Rank</th>
+                                <th>Product Name</th>
+                                <th>Current Revenue</th>
+                                <th>Prev Revenue</th>
+                                <th>Change</th>
+                                <th>Current Units</th>
+                                <th>Prev Units</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td class="font-medium">24:01 無醇白葡萄氣泡酒</td>
-                                <td>3,680</td>
-                                <td>331</td>
+                                <td class="font-bold">elaceite｜24:01 無醇白葡萄氣泡酒</td>
+                                <td>HKD 3,680</td>
+                                <td>HKD 331</td>
                                 <td class="status-up">+1,011% 🚀</td>
                                 <td>9</td>
                                 <td>1</td>
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td class="font-medium">潤澤平衡28日組</td>
-                                <td>1,794</td>
-                                <td>2,691</td>
+                                <td class="font-bold">elaceite｜潤澤平衡28日組</td>
+                                <td>HKD 1,794</td>
+                                <td>HKD 2,691</td>
                                 <td class="status-down">-33.3% ⚠️</td>
                                 <td>3</td>
                                 <td>4</td>
                             </tr>
                             <tr>
                                 <td>3</td>
-                                <td class="font-medium">evenif | 妍理理 初見組合</td>
-                                <td>720</td>
-                                <td>0</td>
-                                <td><span class="badge badge-new">新品 🆕</span></td>
+                                <td class="font-bold">evenif | 妍理理 初見組合</td>
+                                <td>HKD 720</td>
+                                <td>HKD 0</td>
+                                <td><span class="badge badge-new">New 🆕</span></td>
                                 <td>1</td>
                                 <td>—</td>
                             </tr>
                             <tr>
                                 <td>4</td>
-                                <td class="font-medium">Yanlili 妍理理｜曠鎂木香舒活乳</td>
-                                <td>698</td>
-                                <td>1,256</td>
+                                <td class="font-bold">Yanlili 妍理理｜曠鎂木香舒活乳</td>
+                                <td>HKD 698</td>
+                                <td>HKD 1,256</td>
                                 <td class="status-down">-44.4% ⚠️</td>
                                 <td>1</td>
                                 <td>2</td>
                             </tr>
                             <tr>
                                 <td>5</td>
-                                <td class="font-medium">Yanlili 妍理理｜漢方面膜 12片裝</td>
-                                <td>660</td>
-                                <td>660</td>
+                                <td class="font-bold">Yanlili 妍理理｜漢方面膜 12片裝</td>
+                                <td>HKD 660</td>
+                                <td>HKD 660</td>
                                 <td class="text-gray-400">0%</td>
                                 <td>1</td>
                                 <td>1</td>
                             </tr>
                             <tr>
                                 <td>6</td>
-                                <td class="font-medium">elaceite｜豐盈髮況胺基酸膠囊</td>
-                                <td>560</td>
-                                <td>0</td>
-                                <td><span class="badge badge-new">新品 🆕</span></td>
+                                <td class="font-bold">elaceite｜豐盈髮況胺基酸膠囊</td>
+                                <td>HKD 560</td>
+                                <td>HKD 0</td>
+                                <td><span class="badge badge-new">New 🆕</span></td>
                                 <td>1</td>
                                 <td>—</td>
                             </tr>
                             <tr>
                                 <td>7</td>
-                                <td class="font-medium">elaceite｜鈣鎂基礎平衡膠囊</td>
-                                <td>316</td>
-                                <td>0</td>
-                                <td><span class="badge badge-new">新品 🆕</span></td>
+                                <td class="font-bold">elaceite｜鈣鎂基礎平衡膠囊</td>
+                                <td>HKD 316</td>
+                                <td>HKD 0</td>
+                                <td><span class="badge badge-new">New 🆕</span></td>
                                 <td>2</td>
                                 <td>—</td>
                             </tr>
                             <tr>
                                 <td>8</td>
-                                <td class="font-medium">elaceite｜葡萄果肌能亮采膠囊</td>
-                                <td>298</td>
-                                <td>1,073</td>
+                                <td class="font-bold">elaceite｜葡萄果肌能亮采膠囊</td>
+                                <td>HKD 298</td>
+                                <td>HKD 1,073</td>
                                 <td class="status-down">-72.2% 🚨</td>
                                 <td>1</td>
                                 <td>3</td>
                             </tr>
                             <tr>
-                                <td class="text-gray-400">—</td>
+                                <td class="text-gray-300">—</td>
                                 <td class="text-gray-400 italic">Yanlili 妍理理 01｜依蘭·人參</td>
-                                <td>0</td>
-                                <td>241</td>
+                                <td>HKD 0</td>
+                                <td>HKD 241</td>
                                 <td class="status-down">-100% 🚨</td>
                                 <td>—</td>
                                 <td>2</td>
                             </tr>
                             <tr>
-                                <td class="text-gray-400">—</td>
+                                <td class="text-gray-300">—</td>
                                 <td class="text-gray-400 italic">elaceite｜高純度膠原精萃鈣</td>
-                                <td>0</td>
-                                <td>828</td>
+                                <td>HKD 0</td>
+                                <td>HKD 828</td>
                                 <td class="status-down">-100% 🚨</td>
                                 <td>—</td>
                                 <td>1</td>
@@ -462,100 +458,99 @@
                     </table>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                    <div class="p-5 bg-white border-t-4 border-green-600 shadow-sm">
-                        <h4 class="font-bold text-sm mb-2">✅ 爆發增長</h4>
-                        <p class="text-xs text-gray-600">無醇白葡萄氣泡酒本期營收從 HKD 331 躍升至 3,680，成為絕對主力，<strong>佔本期總營收 42.2%</strong> 🚀</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                    <div class="p-6 bg-white border-t-4 border-green-600 shadow-sm">
+                        <h4 class="font-bold text-xs mb-3 text-moss uppercase tracking-wider">✅ Viral Growth</h4>
+                        <p class="text-[11px] text-gray-500 leading-relaxed">24:01 Alcohol-Free Sparkling surged from HKD 331 to HKD 3,680, becoming the primary revenue driver at <strong>42.2% of total turnover</strong>. 🚀</p>
                     </div>
-                    <div class="p-5 bg-white border-t-4 border-blue-600 shadow-sm">
-                        <h4 class="font-bold text-sm mb-2">🆕 新品表現</h4>
-                        <p class="text-xs text-gray-600">3 款新品（初見組合、豐盈髮況膠囊、鈣鎂平衡膠囊）首次進榜，顯示新品推廣策略有效。</p>
+                    <div class="p-6 bg-white border-t-4 border-blue-600 shadow-sm">
+                        <h4 class="font-bold text-xs mb-3 text-moss uppercase tracking-wider">🆕 New Product Traction</h4>
+                        <p class="text-[11px] text-gray-500 leading-relaxed">Three new SKUs (Starter Set, Density Capsule, Vital Balancing) entered the chart, validating the line expansion strategy.</p>
                     </div>
-                    <div class="p-5 bg-white border-t-4 border-red-600 shadow-sm">
-                        <h4 class="font-bold text-sm mb-2">⚠️ 需關注</h4>
-                        <p class="text-xs text-gray-600">明星產品（28日組、舒活乳）營收下滑；膠原精萃鈣與依蘭系列本期零銷售。</p>
+                    <div class="p-6 bg-white border-t-4 border-red-600 shadow-sm">
+                        <h4 class="font-bold text-xs mb-3 text-moss uppercase tracking-wider">⚠️ Attention Required</h4>
+                        <p class="text-[11px] text-gray-500 leading-relaxed">Decline observed in core lines (28-Day Ritual, Recovery Lotion); Collagen Essence recorded zero sales this period.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 第三部分：關鍵洞察與根本原因分析 -->
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold mb-8 serif-font border-b border-[#3D4035] pb-2 uppercase tracking-widest">第三部分：關鍵洞察與原因分析</h2>
+        <!-- PART 3: INSIGHTS & CAUSE ANALYSIS -->
+        <section class="mb-20">
+            <h2 class="text-xl font-bold mb-10 serif-font border-b-2 border-[#3D4035] pb-3 uppercase tracking-[0.3em]">III. Critical Insights & Root Cause Analysis</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- 正面亮點 -->
-                <div class="report-card sidebar-accent">
-                    <h3 class="text-lg font-bold mb-6 serif-font text-green-800">✅ 正面亮點</h3>
-                    <div class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Positive Highlights -->
+                <div class="report-card sidebar-accent bg-green-50/20">
+                    <h3 class="text-lg font-bold mb-8 serif-font text-green-800">✅ Key Highlights</h3>
+                    <div class="space-y-8">
                         <div>
-                            <h4 class="font-bold text-sm">1. 整體業務回穩 🏆</h4>
-                            <p class="text-xs text-gray-600 mt-1">營收 +18.8%、訂單 +15.4%、流量 +18.9%，三項核心指標同步增長。新客戶大幅增加 +55.6%，獲客能力提升。</p>
+                            <h4 class="font-bold text-sm text-moss">1. General Stabilization 🏆</h4>
+                            <p class="text-[11px] text-gray-600 mt-2">Revenue +18.8%, Orders +15.4%, Traffic +18.9%. New customer acquisition grew significantly by +55.6%.</p>
                         </div>
                         <div>
-                            <h4 class="font-bold text-sm">2. 社交媒體全面反彈 🚀</h4>
-                            <p class="text-xs text-gray-600 mt-1">流量 +50.2%，轉化率從 0.29% 提升至 0.88%。內容策略或廣告投放質量大幅改善。</p>
+                            <h4 class="font-bold text-sm text-moss">2. Social Media Rebound 🚀</h4>
+                            <p class="text-[11px] text-gray-600 mt-2">Traffic +50.2% with CVR jumping to 0.88%. Content strategy or ad quality has improved significantly.</p>
                         </div>
                         <div>
-                            <h4 class="font-bold text-sm">3. 結帳流程優化成效顯著 🚀</h4>
-                            <p class="text-xs text-gray-600 mt-1">結帳完成率從 34.4% 提升至 83.3%。到達結帳的用戶幾乎都完成了購買。</p>
+                            <h4 class="font-bold text-sm text-moss">3. Checkout Flow Efficiency 🚀</h4>
+                            <p class="text-[11px] text-gray-600 mt-2">Checkout success rate at 83.3%. High-intent users are successfully navigating to completion.</p>
                         </div>
                         <div>
-                            <h4 class="font-bold text-sm">4. 無醇氣泡酒爆發增長 🚀</h4>
-                            <p class="text-xs text-gray-600 mt-1">單品貢獻 42.2% 總營收，成為新的核心驅動產品。需持續加大推廣力。</p>
+                            <h4 class="font-bold text-sm text-moss">4. Hero Product Success 🚀</h4>
+                            <p class="text-[11px] text-gray-600 mt-2">Alcohol-free sparkling wine alone contributed 42.2% of revenue. Scale stock and promotion accordingly.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- 核心問題 -->
+                <!-- Problem Diagnosis -->
                 <div class="report-card border-l-8 border-red-600">
-                    <h3 class="text-lg font-bold mb-6 serif-font text-red-800">🚨 核心問題診斷</h3>
-                    <div class="space-y-6">
-                        <div class="p-4 bg-red-50 rounded">
-                            <h4 class="font-bold text-sm text-red-900">問題1：加入購物車率大幅下滑（-40%）</h4>
-                            <p class="text-[11px] text-red-700 mt-1 mb-2">數據：加購率從 5.75% 降至 3.45%</p>
-                            <p class="text-xs text-gray-600 italic">原因：社交媒體流量意圖較低、頁面缺乏購買誘因、新品建立信任感不足。</p>
-                            <div class="mt-2 text-[11px] font-bold text-red-800">立即行動：加入庫存提示、加強評價展示、設置加購彈窗優惠。</div>
+                    <h3 class="text-lg font-bold mb-8 serif-font text-red-800">🚨 Core Issues Diagnosis</h3>
+                    <div class="space-y-8">
+                        <div class="p-5 bg-red-50 rounded-sm">
+                            <h4 class="font-bold text-xs text-red-900 uppercase tracking-wider">Issue 1: Drastic Drop in ATC Rate (-40%)</h4>
+                            <p class="text-[10px] text-red-700 mt-1 mb-3">Data: Rate dropped from 5.75% to 3.45%</p>
+                            <p class="text-xs text-gray-600 mb-3"><strong>Causes:</strong> Traffic mix shift (social users have lower intent), lack of PDP urgency (scarcity, reviews), new SKUs lack social proof.</p>
+                            <div class="text-[10px] font-bold text-red-800 border-t border-red-200 pt-2">ACTION: Scarcity prompts, enhance UGC modules, ATC popup discounts.</div>
                         </div>
-                        <div class="p-4 bg-gray-50 rounded">
-                            <h4 class="font-bold text-sm text-gray-900">問題2：直接流量下降（-23%）</h4>
-                            <p class="text-xs text-gray-600 italic mt-1">原因：品牌忠誠度下降、回購客戶減少（僅 1 位）。</p>
-                            <div class="mt-2 text-[11px] font-bold text-gray-800">立即行動：加強 EDM 頻率、推出會員積分或回購優惠、設置自動化提醒。</div>
+                        <div class="p-5 bg-gray-50 rounded-sm">
+                            <h4 class="font-bold text-xs text-gray-900 uppercase tracking-wider">Issue 2: Direct Traffic Decline (-23%)</h4>
+                            <p class="text-xs text-gray-600 mb-3"><strong>Causes:</strong> Decline in brand loyalty/return visits, EDM reach issues, drop in repeat customers (only 1 this period).</p>
+                            <div class="text-[10px] font-bold text-gray-800 border-t border-gray-200 pt-2">ACTION: Increase EDM frequency, launch point system, automated 30-day reminders.</div>
                         </div>
-                        <div class="p-4 bg-gray-50 rounded">
-                            <h4 class="font-bold text-sm text-gray-900">問題3：回購客戶比例大幅下滑</h4>
-                            <p class="text-[11px] text-gray-500 mt-1">數據：6.3% vs 13.3%</p>
-                            <div class="mt-2 text-[11px] font-bold text-gray-800">立即行動：建立購後關懷流程、推送專屬回購優惠、補貨提醒功能。</div>
+                        <div class="p-5 bg-gray-50 rounded-sm">
+                            <h4 class="font-bold text-xs text-gray-900 uppercase tracking-wider">Issue 3: Retention Rate Volatility</h4>
+                            <p class="text-[10px] text-gray-500 mt-1 mb-3">Data: 6.3% vs 13.3%</p>
+                            <div class="text-[10px] font-bold text-gray-800 border-t border-gray-200 pt-2">ACTION: Post-purchase care flows, exclusive loyalty discounts, refill notifications.</div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 第四部分：緊急行動計劃 -->
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold mb-8 serif-font border-b border-[#3D4035] pb-2 uppercase tracking-widest">第四部分：緊急行動計劃</h2>
+        <!-- PART 4: STRATEGIC ACTION PLAN -->
+        <section class="mb-20">
+            <h2 class="text-xl font-bold mb-10 serif-font border-b-2 border-[#3D4035] pb-3 uppercase tracking-[0.3em]">IV. Strategic Action Plan</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <!-- Week 1 -->
                 <div class="report-card">
-                    <div class="inline-block bg-red-600 text-white px-3 py-1 text-[10px] font-bold uppercase mb-4">🚨 第一週（3/13–3/19）— 鞏固增長</div>
-                    <div class="space-y-6">
+                    <div class="plan-header">🚨 WEEK 1 (MAR 13–19) — CONSOLIDATE GROWTH</div>
+                    <div class="space-y-8">
                         <div>
-                            <h4 class="font-bold text-sm mb-2 text-red-800">優先級1：維持無醇氣泡酒增長勢頭</h4>
-                            <ul class="text-xs space-y-2 text-gray-600">
-                                <li class="flex items-start"><span class="mr-2">•</span> 確認 24:01 氣泡酒庫存充足</li>
-                                <li class="flex items-start"><span class="mr-2">•</span> 加大社交媒體廣告投放（複製成功素材）</li>
-                                <li class="flex items-start"><span class="mr-2">•</span> 創建產品專屬著陸頁，優化轉化路徑</li>
-                                <li class="flex items-start"><span class="mr-2">•</span> 設置相關產品交叉銷售（搭配健康補給）</li>
+                            <span class="priority-label">Priority 1: Maintain Sparkling Wine Momentum</span>
+                            <ul class="text-[11px] space-y-2 text-gray-600 mt-2">
+                                <li class="flex items-start"><span class="mr-3 text-gold">•</span> Ensure 24:01 Resverawine stock levels are secured.</li>
+                                <li class="flex items-start"><span class="mr-3 text-gold">•</span> Scale social ads using successful creative assets.</li>
+                                <li class="flex items-start"><span class="mr-3 text-gold">•</span> Create dedicated landing pages for conversion path optimization.</li>
                             </ul>
                         </div>
-                        <div class="pt-4 border-t border-gray-100">
-                            <h4 class="font-bold text-sm mb-2 text-red-800">優先級2：修復加入購物車率</h4>
-                            <ul class="text-xs space-y-2 text-gray-600">
-                                <li class="flex items-start"><span class="mr-2">•</span> 在所有產品頁面加入庫存緊張提示</li>
-                                <li class="flex items-start"><span class="mr-2">•</span> 優化手機端產品頁面（加購按鈕大小位置）</li>
-                                <li class="flex items-start"><span class="mr-2">•</span> 加入客戶評價模組（特別是新品頁面）</li>
+                        <div class="pt-6 border-t border-gray-100">
+                            <span class="priority-label">Priority 2: Repair Add to Cart Rate</span>
+                            <ul class="text-[11px] space-y-2 text-gray-600 mt-2">
+                                <li class="flex items-start"><span class="mr-3 text-gold">•</span> Implement scarcity alerts ("Only X left") on PDPs.</li>
+                                <li class="flex items-start"><span class="mr-3 text-gold">•</span> Optimize mobile Add-to-Cart button positioning/size.</li>
+                                <li class="flex items-start"><span class="mr-3 text-gold">•</span> Test post-ATC abandonment popup offers.</li>
                             </ul>
                         </div>
                     </div>
@@ -563,22 +558,22 @@
 
                 <!-- Week 2 -->
                 <div class="report-card">
-                    <div class="inline-block bg-blue-600 text-white px-3 py-1 text-[10px] font-bold uppercase mb-4">📈 第二週（3/20–3/26）— 擴大增長</div>
-                    <div class="space-y-6">
+                    <div class="plan-header" style="background: var(--evenif-sage);">📈 WEEK 2 (MAR 20–26) — SCALE GROWTH</div>
+                    <div class="space-y-8">
                         <div>
-                            <h4 class="font-bold text-sm mb-2 text-blue-800">優先級4：加強搜尋引擎流量</h4>
-                            <ul class="text-xs space-y-2 text-gray-600">
-                                <li class="flex items-start"><span class="mr-2">•</span> 搜尋流量增長 220%，加大 Google Ads 投入</li>
-                                <li class="flex items-start"><span class="mr-2">•</span> 優化核心產品頁面 SEO 結構</li>
-                                <li class="flex items-start"><span class="mr-2">•</span> 針對無醇飲品、護膚品類加強關鍵字投放</li>
+                            <span class="priority-label">Priority 4: Amplify Search Traffic</span>
+                            <ul class="text-[11px] space-y-2 text-gray-600 mt-2">
+                                <li class="flex items-start"><span class="mr-3 text-sage">•</span> Capitalize on 220% search growth; increase Google Ads spend.</li>
+                                <li class="flex items-start"><span class="mr-3 text-sage">•</span> Optimize core PDP SEO (Title tags, meta descriptions).</li>
+                                <li class="flex items-start"><span class="mr-3 text-sage">•</span> Targeted keyword bidding for "Alcohol-Free" & "Clinical Skincare".</li>
                             </ul>
                         </div>
-                        <div class="pt-4 border-t border-gray-100">
-                            <h4 class="font-bold text-sm mb-2 text-blue-800">優先級5：重新激活下滑產品</h4>
-                            <ul class="text-xs space-y-2 text-gray-600">
-                                <li class="flex items-start"><span class="mr-2">•</span> 亮采膠囊、高純度膠原鈣需重新推廣</li>
-                                <li class="flex items-start"><span class="mr-2">•</span> 考慮捆綁銷售（與暢銷氣泡酒組合）</li>
-                                <li class="flex items-start"><span class="mr-2">•</span> 檢視並更新廣告素材</li>
+                        <div class="pt-6 border-t border-gray-100">
+                            <span class="priority-label">Priority 5: Reactivate Declining SKUs</span>
+                            <ul class="text-[11px] space-y-2 text-gray-600 mt-2">
+                                <li class="flex items-start"><span class="mr-3 text-sage">•</span> Re-introduce Radiance Essence & Collagen Essence via bundles.</li>
+                                <li class="flex items-start"><span class="mr-3 text-sage">•</span> Refresh ad creative for underperforming product categories.</li>
+                                <li class="flex items-start"><span class="mr-3 text-sage">•</span> Increase EDM frequency to 2x per week with focus on loyalty.</li>
                             </ul>
                         </div>
                     </div>
@@ -586,87 +581,85 @@
             </div>
         </section>
 
-        <!-- 總結與關鍵指標對比 -->
+        <!-- KPI SUMMARY TABLE -->
         <section class="report-card bg-[#3D4035] text-white">
-            <h2 class="text-xl font-bold mb-8 serif-font text-[#C5A065] uppercase tracking-widest">📊 關鍵指標對比總結（17天同期）</h2>
+            <h2 class="text-xl font-bold mb-10 serif-font text-[#C5A065] uppercase tracking-[0.2em]">📊 Key Performance Indicators Summary</h2>
             <div class="overflow-x-auto">
                 <table class="text-white border-white/20">
                     <thead class="text-white">
                         <tr class="border-b border-white/20 text-[10px]">
-                            <th class="bg-transparent text-gray-300">指標</th>
-                            <th class="bg-transparent text-gray-300">本期（2/24–3/12）</th>
-                            <th class="bg-transparent text-gray-300">前期（2/7–2/23）</th>
-                            <th class="bg-transparent text-gray-300">變化</th>
+                            <th class="bg-transparent text-gray-300">Metric</th>
+                            <th class="bg-transparent text-gray-300">Current (2/24–3/12)</th>
+                            <th class="bg-transparent text-gray-300">Previous (2/7–2/23)</th>
+                            <th class="bg-transparent text-gray-300">Variance</th>
                         </tr>
                     </thead>
                     <tbody class="text-xs">
                         <tr class="border-b border-white/10">
-                            <td>總銷售額</td>
+                            <td class="font-bold">Total Revenue</td>
                             <td>HKD 8,726</td>
                             <td>HKD 7,343</td>
                             <td class="status-up">+18.8% ✅</td>
                         </tr>
                         <tr class="border-b border-white/10">
-                            <td>訂單數 / 新客戶</td>
-                            <td>15 筆 / 14 位</td>
-                            <td>13 筆 / 9 位</td>
+                            <td class="font-bold">Orders / New Customers</td>
+                            <td>15 Orders / 14 New</td>
+                            <td>13 Orders / 9 New</td>
                             <td class="status-up">+15.4% / +55.6%</td>
                         </tr>
                         <tr class="border-b border-white/10">
-                            <td>整體轉化率</td>
+                            <td class="font-bold">Store Conversion Rate</td>
                             <td>1.04%</td>
                             <td>0.90%</td>
                             <td class="status-up">+14.4% ✅</td>
                         </tr>
                         <tr class="border-b border-white/10">
-                            <td>社交媒體流量 / 轉化率</td>
-                            <td>1,020 次 / 0.88%</td>
-                            <td>679 次 / 0.29%</td>
+                            <td class="font-bold">Social Traffic / CVR</td>
+                            <td>1,020 Visits / 0.88%</td>
+                            <td>679 Visits / 0.29%</td>
                             <td class="status-up">+50.2% / +199% 🚀</td>
                         </tr>
                         <tr>
-                            <td>手機流量佔比</td>
+                            <td class="font-bold">Mobile Traffic Share</td>
                             <td>92.3%</td>
                             <td>89.6%</td>
-                            <td>+2.7%</td>
+                            <td class="text-gray-400">+2.7%</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="mt-8 p-6 bg-white/5 border border-white/10 text-sm leading-relaxed">
-                <strong>📌 總結：</strong><br>
-                本期業務整體呈現正向回穩趨勢，核心指標全面改善。最大驅動力來自 <strong>elaceite 無醇氣泡酒的爆發增長</strong> 及 <strong>社交媒體流量與轉化率的雙重提升</strong>。當前最需關注的是加入購物車率下滑及回購客戶流失兩大問題，建議優先從產品頁面優化及客戶留存策略入手。
+            <div class="mt-10 p-8 bg-white/5 border border-white/10 text-sm leading-relaxed italic">
+                <strong>Executive Summary:</strong> The business is showing a positive trend toward stabilization across core KPIs. Growth is primarily driven by the viral success of <strong>elaceite Resverawine</strong> and enhanced performance in Social Media conversion. Immediate focus must be redirected toward fixing the 40% drop in Add-to-Cart rates and stabilizing the customer retention loop.
             </div>
         </section>
 
     </main>
 
-    <footer class="mt-16 py-12 text-center text-gray-400 text-[10px] tracking-[0.4em] uppercase">
-        evenif | Internal Marketing Performance Report 2026
+    <footer class="mt-20 py-16 text-center text-gray-400 text-[10px] tracking-[0.6em] uppercase">
+        evenif | Internal Performance Analytics 2026
     </footer>
 
     <script>
         Chart.defaults.font.family = "'Noto Sans TC', sans-serif";
         Chart.defaults.color = '#2C2C2C';
 
-        // 流量來源圖表 (本期)
         const trafficCtx = document.getElementById('trafficSourceChart').getContext('2d');
         new Chart(trafficCtx, {
             type: 'doughnut',
             data: {
-                labels: ['社交媒體', '直接流量', '搜尋引擎', '其他'],
+                labels: ['Social Media', 'Direct Traffic', 'Search Engine', 'Other'],
                 datasets: [{
                     data: [70.4, 28.2, 1.1, 0.3],
                     backgroundColor: ['#3D4035', '#8C9485', '#C5A065', '#D6D3D1'],
                     borderWidth: 0,
-                    hoverOffset: 10
+                    hoverOffset: 15
                 }]
             },
             options: {
                 maintainAspectRatio: false,
-                cutout: '70%',
+                cutout: '75%',
                 plugins: {
-                    legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 } } }
+                    legend: { position: 'bottom', labels: { boxWidth: 10, padding: 20, font: { size: 10 } } }
                 }
             }
         });
