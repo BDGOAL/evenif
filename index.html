@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>evenif Mar 28 – Apr 27 2026 Performance Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --evenif-sand: #F5EFE6;
+            --evenif-charcoal: #2C2C2C;
+            --evenif-moss: #3D4035;
+            --evenif-sage: #8C9485;
+            --evenif-gold: #C5A065;
+            --evenif-white: #FCFBFA;
+        }
+        body {
+            background-color: var(--evenif-sand);
+            color: var(--evenif-charcoal);
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 1.6;
+        }
+        h1, h2, h3, .serif-font {
+            font-family: 'Noto Serif TC', serif;
+        }
+        .report-card {
+            background: var(--evenif-white);
+            border: 1px solid rgba(0,0,0,0.05);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+        .metric-card {
+            background: #fff;
+            padding: 1.75rem;
+            text-align: center;
+            border-bottom: 3px solid var(--evenif-moss);
+            transition: transform 0.3s ease;
+        }
+        .metric-card:hover { transform: translateY(-5px); }
+        
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.85rem; }
+        th { background: #F9F7F5; padding: 14px; text-align: left; color: var(--evenif-moss); font-weight: 600; border-bottom: 2px solid #eee; text-transform: uppercase; letter-spacing: 0.05em; }
+        td { padding: 14px; border-bottom: 1px solid #eee; }
+        
+        .status-up { color: #4A7C59; font-weight: bold; }
+        .status-down { color: #C53030; font-weight: bold; }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-radius: 2px;
+            font-weight: bold;
+        }
+        .badge-alert { background: #FFF5F5; color: #C53030; }
+        .badge-success { background: #E6FFFA; color: #2C7A7B; }
+
+        .sidebar-accent { border-left: 5px solid var(--evenif-moss); padding-left: 1.5rem; }
+        .chart-container { position: relative; height: 280px; width: 100%; }
+        
+        .plan-header { background: var(--evenif-moss); color: #fff; padding: 8px 16px; font-size: 11px; letter-spacing: 0.2em; display: inline-block; margin-bottom: 1.5rem; }
+        .priority-label { font-weight: 700; color: var(--evenif-moss); text-transform: uppercase; font-size: 11px; border-bottom: 2px solid var(--evenif-gold); margin-bottom: 0.5rem; display: inline-block; }
+    </style>
+</head>
+<body class="p-6 md:p-16">
+
+    <!-- Header Section -->
+    <header class="max-w-6xl mx-auto mb-16 text-center">
+        <span class="text-xs tracking-[0.4em] uppercase text-[#3D4035] font-semibold">Executive Performance Log</span>
+        <h1 class="text-4xl md:text-6xl font-bold mt-6 serif-font tracking-tight">evenif 三月下旬 – 四月 績效對比報告</h1>
+        <p class="text-gray-400 text-lg mt-2 font-light italic">「在熱度之外，回到結構與體質。」</p>
+        
+        <div class="max-w-2xl mx-auto mt-10 p-5 bg-white border border-gray-100 shadow-sm text-xs text-left leading-relaxed">
+            <strong>📅 對比說明：</strong><br>
+            本期：2026/3/28 – 4/27（31天） vs 對比期：2026/2/28 – 3/27（31天），屬等長期間對比。<br>
+            <strong>📌 特別說明：</strong>本期無 SleekFlow 廣播訊息，所有訂單均來自自然流量、Instagram 內容及直接渠道，折扣活動為主要促銷手段。
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto">
+
+        <!-- KPI Dashboard -->
+        <section class="mb-20">
+            <h2 class="text-xl font-bold mb-10 serif-font border-b-2 border-[#3D4035] pb-3 uppercase tracking-[0.3em]">I. 整體營運核心指標對比</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10 text-center">
+                <div class="metric-card shadow-sm">
+                    <h4 class="text-[10px] text-gray-400 uppercase tracking-widest mb-2 font-bold">總銷售額 (Total Sales)</h4>
+                    <div class="text-3xl font-bold serif-font">HKD 33,282</div>
+                    <div class="text-[10px] status-up mt-2">↑ 1.6%（持平略升）</div>
+                </div>
+                <div class="metric-card shadow-sm">
+                    <h4 class="text-[10px] text-gray-400 uppercase tracking-widest mb-2 font-bold">平均訂單價值 (AOV)</h4>
+                    <div class="text-3xl font-bold serif-font">HKD 1,040</div>
+                    <div class="text-[10px] status-up mt-2">↑ 1.6%</div>
+                </div>
+                <div class="metric-card shadow-sm">
+                    <h4 class="text-[10px] text-gray-400 uppercase tracking-widest mb-2 font-bold">轉化率 (CVR)</h4>
+                    <div class="text-3xl font-bold serif-font">0.98%</div>
+                    <div class="text-[10px] status-down mt-2">↓ 24.6%</div>
+                </div>
+                <div class="metric-card shadow-sm">
+                    <h4 class="text-[10px] text-gray-400 uppercase tracking-widest mb-2 font-bold">退貨率 (Returns)</h4>
+                    <div class="text-3xl font-bold serif-font">0%</div>
+                    <div class="text-[10px] status-up mt-2">零退貨維持</div>
+                </div>
+            </div>
+
+            <div class="report-card">
+                <div class="overflow-x-auto">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>指標項目</th>
+                                <th>本期 (3/28–4/27)</th>
+                                <th>對比期 (2/28–3/27)</th>
+                                <th>變化</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-medium">總銷售額</td>
+                                <td class="font-bold">HKD 33,282</td>
+                                <td>HKD 32,766</td>
+                                <td class="status-up">+1.6%</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">毛銷售額</td>
+                                <td>HKD 35,602</td>
+                                <td>HKD 34,314</td>
+                                <td class="status-up">+3.8%</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">折扣總額</td>
+                                <td class="font-bold">HKD -2,320</td>
+                                <td>HKD -1,548</td>
+                                <td class="status-down">+49.9% 折扣成本上升</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">折扣佔毛銷售額</td>
+                                <td>6.52%</td>
+                                <td>4.51%</td>
+                                <td class="status-down">+2.0pp</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">訂單數量</td>
+                                <td class="font-bold">32 筆</td>
+                                <td>32 筆</td>
+                                <td>→ 完全持平</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">平均訂單價值 (AOV)</td>
+                                <td>HKD 1,040</td>
+                                <td>HKD 1,024</td>
+                                <td class="status-up">+1.6%</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">退貨率</td>
+                                <td>0%</td>
+                                <td>0%</td>
+                                <td class="status-up">✅ 穩定</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">新客戶數</td>
+                                <td>29 人（90.6%）</td>
+                                <td>28 人（87.5%）</td>
+                                <td>→ 幾乎持平</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">回購客戶數</td>
+                                <td>3 人（9.4%）</td>
+                                <td>4 人（12.5%）</td>
+                                <td class="status-down">-25%，回購比例 -3.5pp</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-6 p-4 bg-[#F9F7F5] text-[11px] text-gray-700 italic">
+                    💡 <strong>核心詮釋：</strong>在沒有任何 SleekFlow 廣播的情況下，本期靠 Instagram＋自然流量把「訂單數與營收」維持在與對比期幾乎同一水準，但需要付出更高的折扣成本來支撐，實際獲利壓力上升。
+                </div>
+            </div>
+        </section>
+
+        <!-- TRAFFIC & FUNNEL -->
+        <section class="mb-20">
+            <h2 class="text-xl font-bold mb-10 serif-font border-b-2 border-[#3D4035] pb-3 uppercase tracking-[0.3em]">II. 流量結構與轉化效率對比</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="report-card">
+                    <h3 class="text-lg font-bold mb-6 serif-font text-gray-500 uppercase">📱 流量來源與設備 (Sessions)</h3>
+                    <div class="overflow-x-auto">
+                        <table class="text-[11px]">
+                            <thead>
+                                <tr>
+                                    <th>來源</th>
+                                    <th>本期</th>
+                                    <th>對比期</th>
+                                    <th>變化</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-bold">總訪問次數</td>
+                                    <td class="font-bold">3,251</td>
+                                    <td>2,464</td>
+                                    <td class="status-up">+31.9%</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">Social</td>
+                                    <td>2,337（71.9%）</td>
+                                    <td>1,743（70.7%）</td>
+                                    <td class="status-up">+34.1%</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">Direct</td>
+                                    <td>852（26.2%）</td>
+                                    <td>679（27.6%）</td>
+                                    <td class="status-up">+25.5%</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">Search</td>
+                                    <td>32（1.0%）</td>
+                                    <td>30（1.2%）</td>
+                                    <td>持平 →</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">Unknown</td>
+                                    <td>29（0.9%）</td>
+                                    <td>12（0.5%）</td>
+                                    <td class="status-down">+142%（歸因惡化）</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">Email</td>
+                                    <td>1（0.03%）</td>
+                                    <td>0</td>
+                                    <td class="status-up">首次出現 🆕</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mt-6">
+                        <table class="text-[11px]">
+                            <thead>
+                                <tr>
+                                    <th>設備</th>
+                                    <th>本期</th>
+                                    <th>對比期</th>
+                                    <th>變化</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-bold">Mobile</td>
+                                    <td>3,121（96.0%）</td>
+                                    <td>2,250（91.3%）</td>
+                                    <td class="status-up">+38.7%</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">Desktop</td>
+                                    <td>125（3.8%）</td>
+                                    <td>210（8.5%）</td>
+                                    <td class="status-down">-40.5%</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">Tablet</td>
+                                    <td>4（0.1%）</td>
+                                    <td>2（0.1%）</td>
+                                    <td>持平 →</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mt-6 p-4 bg-[#F9F7F5] text-[11px] text-gray-700 italic">
+                        ⚠️ <strong>流量結構結論：</strong>整體流量大幅成長 +32%，且幾乎全面手機化（Mobile 佔比 96%），說明 IG 與手機端內容帶來大量新訪客；但 Unknown Sessions 同時上升，代表追蹤與 UTM 設定有待修復。
+                    </div>
+
+                    <div class="mt-6 chart-container">
+                        <canvas id="trafficCompareChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="report-card">
+                    <h3 class="text-lg font-bold mb-6 serif-font text-gray-500 uppercase">🛒 轉化漏斗診斷 (Funnel)</h3>
+                    <div class="overflow-x-auto">
+                        <table class="text-[11px]">
+                            <thead>
+                                <tr>
+                                    <th>階段</th>
+                                    <th>本期數據</th>
+                                    <th>對比期數據</th>
+                                    <th>趨勢</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>總訪問次數</td>
+                                    <td>3,251</td>
+                                    <td>2,464</td>
+                                    <td class="status-up">+31.9%</td>
+                                </tr>
+                                <tr>
+                                    <td>加入購物車</td>
+                                    <td>111（3.41%）</td>
+                                    <td>121（4.91%）</td>
+                                    <td class="status-down">加購率 -30.5%</td>
+                                </tr>
+                                <tr>
+                                    <td>到達結帳頁面</td>
+                                    <td>47（1.45%）</td>
+                                    <td>42（1.70%）</td>
+                                    <td class="status-down">結帳到達率 -14.7%</td>
+                                </tr>
+                                <tr>
+                                    <td>完成結帳</td>
+                                    <td class="font-bold">32（0.98%）</td>
+                                    <td>32（1.30%）</td>
+                                    <td class="status-down">完成率 -24.6%</td>
+                                </tr>
+                                <tr>
+                                    <td>購物車放棄率</td>
+                                    <td>31.9%</td>
+                                    <td>23.8%</td>
+                                    <td class="status-down">+8.1pp</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-6 p-5 bg-[#F9F7F5] border-l-4 border-[#C5A065]">
+                        <span class="badge badge-alert mb-2">FUNNEL WARNING</span>
+                        <p class="text-xs leading-relaxed">
+                            <strong>流量成長 +32%，但 CVR 自 1.30% 降至 0.98%，加購率與完成率同步下滑。</strong><br>
+                            目前的 funnel 顯示：帶來的流量變多，但「願意加購」與「最後付款」的比例變差，代表流量質素下降或前端敘事與後端產品／價格之間出現落差。<br>
+                            相較全球平均約 70% 的購物車放棄率，你的 31.9% 仍優於市場，但已明顯高於上期表現，需要及早干預。 [web:6][web:18][web:31]
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCT COMPARISON -->
+        <section class="mb-20">
+            <h2 class="text-xl font-bold mb-10 serif-font border-b-2 border-[#3D4035] pb-3 uppercase tracking-[0.3em]">III. 暢銷產品結構與變化</h2>
+            <div class="report-card">
+                <div class="overflow-x-auto">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>產品名稱</th>
+                                <th>本期銷售額</th>
+                                <th>本期訂單 / AOV</th>
+                                <th>對比期銷售額</th>
+                                <th>變化</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td class="font-bold text-[#C5A065]">elaceite｜24:01 無醇白葡萄氣泡酒</td>
+                                <td>HKD 5,726</td>
+                                <td>11 單｜HKD 521</td>
+                                <td>HKD 7,596（18 單）</td>
+                                <td class="status-down">-24.6%</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td class="font-medium">Yanlili 妍理理｜曠鎂木香舒活乳</td>
+                                <td>HKD 5,273</td>
+                                <td>8 單｜HKD 659</td>
+                                <td>HKD 3,239（5 單）</td>
+                                <td class="status-up">+62.8%</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td class="font-medium">elaceite｜葡萄果肌能亮采膠囊</td>
+                                <td>HKD 3,982</td>
+                                <td>7 單｜HKD 569</td>
+                                <td>HKD 1,085（3 單）</td>
+                                <td class="status-up">+267%</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td class="font-medium">elaceite｜全方位內在補給28日組</td>
+                                <td>HKD 3,598</td>
+                                <td>3 單｜HKD 1,199</td>
+                                <td>HKD 8,196（4 單）</td>
+                                <td class="status-down">-56.1%</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td class="font-medium">elaceite｜豐盈髮況胺基酸膠囊</td>
+                                <td>HKD 2,555</td>
+                                <td>4 單｜HKD 639</td>
+                                <td>HKD 2,677（5 單）</td>
+                                <td class="status-down">-4.6%</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td class="font-medium">evenif｜妍理理 初見組合</td>
+                                <td>HKD 1,987</td>
+                                <td>3 單｜HKD 662</td>
+                                <td>HKD 1,415（2 單）</td>
+                                <td class="status-up">+40.4%</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td class="font-medium">ASTALIFT｜抗紫外線美白膠原美肌飲</td>
+                                <td>HKD 1,730</td>
+                                <td>4 單｜HKD 432</td>
+                                <td class="text-gray-400">—</td>
+                                <td class="font-bold">新上榜 🆕</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td class="font-medium">elaceite｜皺紋與脫髮療方組合</td>
+                                <td>HKD 1,672</td>
+                                <td>2 單｜HKD 836</td>
+                                <td>HKD 3,408（2 單）</td>
+                                <td class="status-down">-50.9%</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td class="font-medium">ASTALIFT｜骨膠原之王 10000mg</td>
+                                <td>HKD 1,490</td>
+                                <td>2 單｜HKD 745</td>
+                                <td class="text-gray-400">—</td>
+                                <td class="font-bold">新上榜 🆕</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td class="font-medium">Yanlili 妍理理 00｜櫻花・Q10</td>
+                                <td>HKD 917</td>
+                                <td>3 單｜HKD 306</td>
+                                <td class="text-gray-400">—</td>
+                                <td class="font-bold">新上榜 🆕</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-6 p-4 bg-red-50 text-[11px] text-red-900 italic">
+                    ⬇️ <strong>跌出榜單：</strong> elaceite x 北麓草水｜強韌機制組合（上期 HKD 2,596）、Yanlili 妍理理 01（上期 HKD 581）、北麓草水｜深度水凝面膜（上期 HKD 401）。
+                </div>
+
+                <div class="mt-6 p-5 bg-[#F9F7F5] border-l-4 border-[#3D4035] text-xs text-gray-700">
+                    <p class="font-bold mb-2 text-[#3D4035]">📋 產品組合結構解讀：</p>
+                    <ul class="list-disc ml-4 space-y-2">
+                        <li><strong>核心「28日組」明顯失速：</strong>全方位內在補給 28 日組由 HKD 8,196 跌至 HKD 3,598，營收腰斬，且訂單數只從 4 單掉到 3 單，顯示單價與推廣重心有偏移，需要優先釐清是庫存、曝光不足還是需求飽和。</li>
+                        <li><strong>中價單品線持續走強：</strong>曠鎂木香舒活乳與葡萄果肌能亮采膠囊合計貢獻超過 HKD 9,000，說明「日常保養＋內在保養」中價位段已被消費者接受，可考慮以這兩支為核心設計 routine 組合，拉回 AOV。</li>
+                        <li><strong>ASTALIFT 線成功落地：</strong>兩款產品合計 HKD 3,220（約 9.7% 營收），對於新品線來說表現亮眼，適合作為「肌膚加乘」或「換季保養」主題再放大。</li>
+                        <li><strong>飲品類（24:01）熱度稍退：</strong>24:01 雖仍是第一名，但銷售下滑約 25%，更像是從爆發回到健康基準，需要避免過度依賴單一爆款支撐整體營收。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- INSIGHTS & ACTIONS -->
+        <section class="mb-20">
+            <h2 class="text-xl font-bold mb-10 serif-font border-b-2 border-[#3D4035] pb-3 uppercase tracking-[0.3em]">IV. 折扣活動評估與策略調整建議</h2>
+
+            <div class="report-card mb-10">
+                <h3 class="text-lg font-bold mb-6 serif-font text-moss">🏷️ 折扣活動專項分析</h3>
+                <div class="overflow-x-auto">
+                    <table class="text-[11px]">
+                        <thead>
+                            <tr>
+                                <th>折扣標籤</th>
+                                <th>本期銷售額</th>
+                                <th>訂單數</th>
+                                <th>折扣金額</th>
+                                <th>毛銷售額</th>
+                                <th>折扣率</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>無折扣（null）</td>
+                                <td>HKD 20,350</td>
+                                <td>22</td>
+                                <td>HKD -1,057</td>
+                                <td>HKD 21,407</td>
+                                <td>4.94%</td>
+                            </tr>
+                            <tr>
+                                <td>Shopline-VIP</td>
+                                <td>HKD 7,837</td>
+                                <td>6</td>
+                                <td>HKD -767</td>
+                                <td>HKD 8,604</td>
+                                <td>8.92%</td>
+                            </tr>
+                            <tr>
+                                <td>Shopline-normalmember</td>
+                                <td>HKD 3,229</td>
+                                <td>3</td>
+                                <td>HKD -242</td>
+                                <td>HKD 3,471</td>
+                                <td>6.97%</td>
+                            </tr>
+                            <tr>
+                                <td>Testing</td>
+                                <td>HKD 1,866</td>
+                                <td>1</td>
+                                <td>HKD -254</td>
+                                <td>HKD 2,120</td>
+                                <td>12.0%</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">合計</td>
+                                <td class="font-bold">HKD 33,282</td>
+                                <td class="font-bold">32</td>
+                                <td class="font-bold">HKD -2,320</td>
+                                <td class="font-bold">HKD 35,602</td>
+                                <td class="font-bold">6.52%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-6 p-4 bg-[#F9F7F5] text-[11px] text-gray-700 italic">
+                    🔍 <strong>折扣解讀：</strong><br>
+                    本期約 31% 訂單使用 Shopline 會員折扣，貢獻超過 HKD 11,000 銷售額；但整體折扣佔比由 4.51% 升至 6.52%，折扣成本多支出約 HKD 772，換來的營收僅多 HKD 516，短期看屬「以利換量但淨利倒縮」的局面。Instagram AOV 亦由 HKD 1,140 降至 HKD 1,002，印證折扣正在稀釋單筆價值而非明顯帶來新增訂單。
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
+                <div class="report-card sidebar-accent">
+                    <h3 class="text-lg font-bold mb-6 serif-font text-moss">✅ 正面表現（可以放大的部分）</h3>
+                    <ul class="space-y-4 text-xs text-gray-700">
+                        <li><strong>無廣播仍守住 32 筆訂單：</strong>證明 IG 內容與自然流量已能自主支撐一個基礎營收盤，之後可把 SleekFlow 廣播定位為「放大利潤」而非「填補缺口」。 [web:33][web:34]</li>
+                        <li><strong>Yanlili 與葡萄膠囊成長明顯：</strong>曠鎂木香舒活乳 +62.8%，葡萄果肌能亮采膠囊 +267%，適合作為「日常保養」主線，設計例行補給方案（30/60 日計畫）。</li>
+                        <li><strong>ASTALIFT 品線站穩：</strong>首月即佔約 10% 營收，證明品牌匹配 evenif 的客群期待，可考慮以「外在光感＋內在保養」作為敘事，把 ASTALIFT 與 elaceite 串起來賣。</li>
+                        <li><strong>零退貨率持續：</strong>連續多期 0% 退貨為極佳信任背書，可在 PDP 與結帳頁增加「退貨記錄」或用戶評價 highlight，補強轉化率。 [web:32][web:35][web:37]</li>
+                    </ul>
+                </div>
+
+                <div class="report-card border-l-4 border-red-500">
+                    <h3 class="text-lg font-bold mb-6 serif-font text-red-800">⚠️ 優先處理的風險與缺口</h3>
+                    <ul class="space-y-4 text-xs text-gray-700">
+                        <li><strong>全方位 28 日組與皺紋／脫髮組合連續下滑：</strong>兩款原本高客單組合合計下滑超過 HKD 6,000，若不處理，客單將長期被拉低。</li>
+                        <li><strong>整體轉化率跌破 1%：</strong>目前 CVR 低於 Shopify 平均 1.4–1.8% 水平，明顯仍有 UX 與 funnel 優化空間。 [web:32][web:35][web:37]</li>
+                        <li><strong>折扣 ROI 欠佳：</strong>折扣成本增幅高於營收增幅，短期可接受作為測試，但不宜長期以折扣當作主要成長槓桿。</li>
+                        <li><strong>追蹤與歸因風險：</strong>Unknown Sessions +142%，未歸因訂單仍然佔 19.3% 營收，若未修復 UTM 與像素，之後很難判斷哪條 Campaign 真正創造價值。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Action Plan -->
+            <div class="report-card">
+                <div class="plan-header">🎯 行動路線圖 (ACTION PLAN)</div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div>
+                        <span class="priority-label">🚨 本週優先</span>
+                        <p class="text-[11px] text-gray-700">
+                            1）<strong>調查 28 日組與皺紋／脫髮組合下滑原因：</strong>確認是否為庫存不足、曝光減少（貼文／廣告）或是價格／文案不再對應現階段受眾需求，必要時重新包裝為「功能導向」計畫組合。<br><br>
+                            2）<strong>盤點 Shopline 折扣策略：</strong>設定折扣率上限（例如 5–7%）、改為滿額折抵（如滿 1,800 折 100），確保折扣是放大客單而不是把原本會買的訂單打折掉。
+                        </p>
+                    </div>
+                    <div>
+                        <span class="priority-label">📈 短期優化（2 週）</span>
+                        <p class="text-[11px] text-gray-700">
+                            3）<strong>修復加購率：</strong>針對產品頁 CTA、Cross-sell 區塊與「一起買」推薦，做 A/B Test（例如加上限時標籤、實用場景、Before / After 故事），目標將加購率從 3.4% 拉回 4.5% 以上。 [web:22][web:25][web:28]<br><br>
+                            4）<strong>設計「日常＋進階」雙層方案：</strong>以曠鎂木香舒活乳＋葡萄膠囊作為日常組，再以 28 日組或 ASTALIFT 作為進階加購，讓高價組合有清晰的升級理由，而不是單獨存在。
+                        </p>
+                    </div>
+                    <div>
+                        <span class="priority-label">🗓️ 中期佈局（4 週）</span>
+                        <p class="text-[11px] text-gray-700">
+                            5）<strong>規劃下一輪 SleekFlow 廣播試驗：</strong>下個結算週期可同步跑 A/B：一個月以「折扣＋無廣播」為主，下一個月「廣播＋減少折扣」，比較每 HKD 1 折扣 vs 每條廣播訊息的實際 ROI。 [web:33][web:34]<br><br>
+                            6）<strong>修復 UTM 與 Unknown 流量：</strong>確保 IG Bio、Stories Link、wl（WhatsApp）與 evenifhk 官網各入口皆有明確 UTM 標籤，並在 GA4／Shopify 中檢查 Campaign 命名是否一致，以減少 Unknown Sessions 對判斷的干擾。
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-8 text-[10px] text-gray-500 italic">
+                    ⚠️ 數據限制：折扣活動以 order_tag 作為分組依據，若有訂單未正確標註折扣標籤，將落入「無折扣」類別。Meta ROAS、LTV 與渠道真實貢獻仍需搭配 Ads Manager 與 GA4 深入核對。
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="mt-20 py-16 text-center text-gray-400 text-[10px] tracking-[0.6em] uppercase border-t border-gray-200">
+        evenif | Internal Comparative Report Mar 28 – Apr 27 vs Feb 28 – Mar 27, 2026
+    </footer>
+
+    <script>
+        Chart.defaults.font.family = "'Noto Sans TC', sans-serif";
+        Chart.defaults.color = '#2C2C2C';
+
+        // Traffic Compare Chart
+        const trafficCtx = document.getElementById('trafficCompareChart').getContext('2d');
+        new Chart(trafficCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Social', 'Direct', 'Search'],
+                datasets: [
+                    {
+                        label: '本期 Sessions',
+                        data: [2337, 852, 32],
+                        backgroundColor: '#3D4035',
+                    },
+                    {
+                        label: '對比期 Sessions',
+                        data: [1743, 679, 30],
+                        backgroundColor: '#D6D3D1',
+                    }
+                ]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 } } } },
+                scales: { y: { beginAtZero: true, grid: { display: false } } }
+            }
+        });
+    </script>
+</body>
+</html>
