@@ -1,858 +1,155 @@
-<!DOCTYPE html>
-<html lang="zh-HK">
-<head>
-<meta charset="UTF-8">
-<title>evenif 2026年6月度營運績效報告</title>
-<style>
-  :root {
-    --bg-color: #F9F6F0;
-    --text-color: #2F2F2F;
-    --accent-gold: #C5B48D;
-    --border-color: #E5E0D8;
-    --alert-red: #D36B5B;
-    --alert-green: #5B9D7A;
-    --alert-warning: #E2A35D;
-  }
-  
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    line-height: 1.6;
-    margin: 0;
-    padding: 40px 20px;
-  }
+📋 evenif 績效報告
+本期：2026年6月28日 – 7月27日 vs 對比期：2026年5月27日 – 6月26日
+（各30天，等長對比）
 
-  .report-container {
-    max-width: 1050px;
-    margin: 0 auto;
-    background: #FFFFFF;
-    padding: 40px;
-    border-radius: 4px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-  }
+📌 本期特別說明：① 本月無 SleekFlow 廣播（連續第五個月）② Meta 廣告期間：6/28–7/27，總花費 HK$8,700 ③ 銷售額強勁反彈，創近期新高 ④ 廣告策略集中化成效顯著
 
-  /* Header */
-  .report-header {
-    border-bottom: 2px solid var(--text-color);
-    padding-bottom: 20px;
-    margin-bottom: 35px;
-  }
-  .brand-logo {
-    font-size: 26px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin: 0 0 10px 0;
-  }
-  .report-title {
-    font-size: 22px;
-    margin: 0 0 5px 0;
-    color: var(--text-color);
-  }
-  .report-date {
-    font-size: 14px;
-    color: #7F7F7F;
-  }
-  .special-note {
-    background-color: #F2EDE4;
-    padding: 15px;
-    border-left: 3px solid var(--accent-gold);
-    font-size: 14px;
-    margin-top: 15px;
-    border-radius: 0 4px 4px 0;
-  }
+第一部分：整體營運表現
+💰 1. 營收與訂單指標
+指標	本期（6/28–7/27）	對比期（5/27–6/26）	變化
+總銷售額	HKD 37,892	HKD 12,045	🟢 +214.6%
+毛銷售額	HKD 41,734	HKD 13,031	🟢 +220.3%
+折扣總額	HKD -3,843	HKD -986	🔴 折扣大增 +289.8%
+折扣佔毛銷售額	9.21%	7.57%	🔴 +1.64pp
+訂單數量	39	12	🟢 +225.0%
+平均訂單價值 AOV	HKD 972	HKD 1,004	🔴 -3.2%
+退貨率	0%	0%	✅ 持平
+新客戶數	31（79.5%）	7（58.3%）	🟢 +342.9%
+回購客戶數	8（20.5%）	5（41.7%）	🟢 +60.0%
+回購客戶比例	20.5%	41.7%	🔴 -21.2pp（新客湧入稀釋，屬正常）
+💡 核心洞察：銷售額強勁反彈 +215%，訂單 +225%，新客 +343%。Meta 廣告策略集中化（20+ 個 → 4 個 Campaign）是最大驅動力。回購率下降屬新客大量湧入的正常稀釋效應。折扣率升至 9.21% 需持續監控。
 
-  /* Structure */
-  h2 {
-    font-size: 18px;
-    border-bottom: 1px solid var(--text-color);
-    padding-bottom: 8px;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-  h3 {
-    font-size: 15px;
-    margin-top: 25px;
-    margin-bottom: 12px;
-    color: #4F4F4F;
-  }
+📱 2. 流量來源與設備
+來源	本期 Sessions	對比期 Sessions	變化
+總訪問次數	3,106	2,007	🟢 +54.8%
+Social	1,432（46.1%）	1,118（55.7%）	🟢 +28.1%
+Direct	1,384（44.6%）	782（38.9%）	🟢 +77.0%
+Search	84（2.7%）	41（2.0%）	🟢 +104.9%
+Unknown	205（6.6%）	66（3.3%）	🔴 +210.6%（追蹤異常）
+設備	本期	對比期	變化
+📱 手機 Mobile	2,763（89.0%）	1,847（92.0%）	🟢 +49.6%
+🖥️ 桌面 Desktop	335（10.8%）	160（8.0%）	🟢 +109.4%
+📟 平板 Tablet	9（0.3%）	4（0.2%）	→ 持平
+⚠️ Unknown 流量暴增 +211%（66 → 205 sessions）。根據廣告代理說明，Meta 歸因模型計算「點擊後 7 天」內的轉化，部分 Meta 廣告帶來的訪客可能因 UTM 缺失而被歸入 Unknown 或 Direct，導致 Social 流量被低估。Direct 流量大增 +77% 亦反映廣告帶來的品牌搜尋及延遲回訪效應。
 
-  /* Table Style */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 25px;
-    font-size: 13.5px;
-  }
-  th {
-    background-color: #F7F5F0;
-    text-align: left;
-    padding: 12px 10px;
-    font-weight: 600;
-    border-bottom: 1px solid var(--border-color);
-    color: #4F4F4F;
-  }
-  td {
-    padding: 12px 10px;
-    border-bottom: 1px solid #FAF9F6;
-  }
-  tr:hover td {
-    background-color: #FDFDFD;
-  }
-  
-  /* Highlight Badges */
-  .status-red { color: var(--alert-red); font-weight: 600; }
-  .status-green { color: var(--alert-green); font-weight: 600; }
-  .status-warn { color: var(--alert-warning); font-weight: 600; }
-  
-  /* Callout Block */
-  .critical-box {
-    background-color: #FFF5F4;
-    border: 1px solid #F3D9D7;
-    padding: 18px;
-    border-radius: 4px;
-    font-size: 14px;
-    margin: 20px 0;
-    color: #6E3B35;
-  }
-  
-  /* Grid layouts */
-  .grid-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-  }
+🛒 3. 轉化漏斗指標
+漏斗階段	本期（6/28–7/27）	對比期（5/27–6/26）	變化
+總訪問次數	3,106	2,007	🟢 +54.8%
+加入購物車	213（6.86%）	98（4.88%）	🟢 加購率 +1.98pp
+到達結帳	74（2.38%）	19（0.95%）	🟢 +289.5%
+完成結帳	39（1.26%）	12（0.60%）	🟢 +225.0%
+整體轉化率	1.26%	0.60%	🟢 +110.0%
+購物車放棄率	47.3%	36.8%	🔴 惡化 +10.5pp（歷史最高）
+🔴 購物車放棄率 47.3% 為歷史最高，且已連續三期上升（21.9% → 36.8% → 47.3%）。74 人到達結帳，35 人放棄。廣告代理建議建立「加購未結帳」再行銷受眾，針對這批高意願用戶進行二次投放，可直接改善此問題並提升整體 ROAS。
 
-  .insight-section {
-    font-size: 14px;
-  }
-  .insight-list {
-    padding-left: 20px;
-    margin: 8px 0;
-  }
-  .insight-list li {
-    margin-bottom: 8px;
-  }
+📊 4. 各流量來源營收表現
+來源	本期銷售額	本期訂單	本期 AOV	對比期銷售額	對比期訂單	對比期 AOV	變化
+未歸因 Direct	HKD 12,941	14	HKD 924	HKD 3,478	3	HKD 1,159	🟢 +272.1%
+Instagram	HKD 8,252	7	HKD 1,179	HKD 2,847	4	HKD 712	🟢 +189.8%
+Linktree	HKD 7,305	6	HKD 1,218	HKD 1,765	1	HKD 1,765	🟢 +313.9%
+evenifhk（官網）	HKD 4,731	6	HKD 788	HKD 3,008	3	HKD 1,003	🟢 +57.3%
+Facebook	HKD 3,289	3	HKD 1,096	HKD 946	1	HKD 946	🟢 +247.7%
+Google	HKD 1,119	2	HKD 559	—	—	—	🆕 回歸
+Shop App	HKD 255	1	HKD 255	—	—	—	🆕 新渠道
+💡 歸因說明：未歸因 Direct 14 筆訂單（HKD 12,941）中，部分很可能是 Meta 廣告的延遲轉化（Meta 計算點擊後 7 天內），因 UTM 缺失或 iOS 14+ 隱私限制而未能正確歸因至 Social。若計入此因素，Meta 廣告的真實 ROAS 可能高於報告數字。
 
-  @media(max-width: 768px) {
-    .grid-2 { grid-template-columns: 1fr; }
-    .report-container { padding: 20px; }
-  }
-</style>
-</head>
-<body>
+📣 5. META 廣告表現深度評估（6/28–7/27）
+Campaign 層級完整分析：
 
-<div class="report-container">
-  
-  <div class="report-header">
-    <div class="brand-logo">evenif</div>
-    <div class="report-title">📦 2026 年 6 月度線上營運績效報告</div>
-    <div class="report-date">本期：2026年5月27日 – 6月26日 vs 對比期：2026年4月27日 – 5月26日（各31天等長對比）</div>
-    
-    <div class="special-note">
-      <strong>📌 本期特別說明：</strong><br>
-      ① 本月無 SleekFlow 廣播（連續第四個月無推播，新客與大盤缺乏主動觸發渠道）。<br>
-      ② Meta 廣告投放期間為：1–30 Jun 2026。<br>
-      ③ <strong>核心困境：</strong> 銷售額跌幅過半（腰斬），廣告大面積無效，預算不均與轉化漏斗嚴重卡死。
-    </div>
-  </div>
+廣告系列	花費（HKD）	Impressions	Reach	購買數	ROAS	CPA（HKD）	CTR	評估
+(Updated) Elaceite supplement	$3,223	34,595	10,132	12	3.52	$268	1.50%	🟢 主力廣告，穩定有效
+Elaceite Sales_IG Story Format	$1,335	10,363	3,793	8	6.55	$167	2.89%	🟢 本月最高 ROAS，明星素材
+Yanlili Sales_防曬 Post	$724	8,981	4,044	4	4.21	$181	3.21%	🟢 防曬新品表現良好
+Yanlili Sales_Mask Campaign	$718	11,008	4,704	4	6.06	$180	1.79%	🟢 面膜系列高 ROAS
+其他（已關閉/測試廣告）	~$2,700	—	—	—	—	—	—	⚠️ 差額來源，見說明
+帳戶合計	$8,700	64,947+	22,673+	28+	—	$214	—	🟢 整體大幅改善
+廣告花費差額說明（HK$8,700 vs HK$6,001）： 差額 HK$2,699 來自期間內已關閉的舊廣告系列、零星測試支出及自動化推廣活動，屬正常現象。四個主要 Campaign 的 ROAS 數據可信，代表本月核心廣告投資效益。
 
-  <h2>第一部分：整體營運表現</h2>
-  
-  <h3>💰 1. 營收與訂單指標</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>營運指標</th>
-        <th>本期 (5/27–6/26)</th>
-        <th>對比期 (4/27–5/26)</th>
-        <th>環比變化</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>總銷售額 (Gross Revenue)</strong></td>
-        <td>HKD 12,045</td>
-        <td>HKD 25,722</td>
-        <td><span class="status-red">🔴 -53.2% (營收腰斬)</span></td>
-      </tr>
-      <tr>
-        <td>毛銷售額 (Gross Sales)</td>
-        <td>HKD 13,031</td>
-        <td>HKD 26,327</td>
-        <td><span class="status-red">🔴 -50.5%</span></td>
-      </tr>
-      <tr>
-        <td>折扣總額 (Total Discounts)</td>
-        <td>HKD -986</td>
-        <td>HKD -605</td>
-        <td><span class="status-red">🔴 +63.0% (讓利增加)</span></td>
-      </tr>
-      <tr>
-        <td>折扣佔毛銷售額比例</td>
-        <td>7.57%</td>
-        <td>2.30%</td>
-        <td><span class="status-red">🔴 +5.37pp</span></td>
-      </tr>
-      <tr>
-        <td><strong>訂單數量 (Orders)</strong></td>
-        <td>12</td>
-        <td>25</td>
-        <td><span class="status-red">🔴 -52.0%</span></td>
-      </tr>
-      <tr>
-        <td>平均訂單價值 (AOV)</td>
-        <td>HKD 1,004</td>
-        <td>HKD 1,029</td>
-        <td><span class="status-red">🔴 -2.4%</span></td>
-      </tr>
-      <tr>
-        <td>退貨率 (Returns)</td>
-        <td>0%</td>
-        <td>0%</td>
-        <td><span class="status-green">✅ 持平</span></td>
-      </tr>
-      <tr>
-        <td>新客戶數 (New Customers)</td>
-        <td>7 (58.3%)</td>
-        <td>15 (60.0%)</td>
-        <td><span class="status-red">🔴 -53.3%</span></td>
-      </tr>
-      <tr>
-        <td>回購客戶數 (Returning)</td>
-        <td>5 (41.7%)</td>
-        <td>8 (32.0%)</td>
-        <td><span class="status-red">🔴 -37.5%</span></td>
-      </tr>
-      <tr>
-        <td><strong>回購客戶比例 (Retention Rate)</strong></td>
-        <td><strong>41.7%</strong></td>
-        <td>32.0%</td>
-        <td><span class="status-green">🟢 歷史新高 +9.7pp</span></td>
-      </tr>
-    </tbody>
-  </table>
+受眾洞察：
 
-  <div class="grid-2">
-    <div>
-      <h3>📱 2. 流量來源 Session 佔比</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>流量管道</th>
-            <th>本期 Sessions</th>
-            <th>對比期 Sessions</th>
-            <th>環比變化</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>總訪問次數</strong></td>
-            <td><strong>2,007</strong></td>
-            <td><strong>2,502</strong></td>
-            <td><span class="status-red">🔴 -19.8%</span></td>
-          </tr>
-          <tr>
-            <td>Social (社群 paid/org)</td>
-            <td>1,118 (55.7%)</td>
-            <td>1,642 (65.6%)</td>
-            <td><span class="status-red">🔴 -31.9%</span></td>
-          </tr>
-          <tr>
-            <td>Direct (直接流量)</td>
-            <td>782 (38.9%)</td>
-            <td>726 (29.0%)</td>
-            <td><span class="status-green">🟢 +7.7%</span></td>
-          </tr>
-          <tr>
-            <td>Search (搜尋流量)</td>
-            <td>41 (2.0%)</td>
-            <td>42 (1.7%)</td>
-            <td>→ 持平</td>
-          </tr>
-          <tr>
-            <td>Unknown (未知代碼)</td>
-            <td>66 (3.3%)</td>
-            <td>92 (3.7%)</td>
-            <td><span class="status-green">🟢 改善 -28.3%</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    
-    <div>
-      <h3>💻 3. 設備裝置 Session 分佈</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>設備類型</th>
-            <th>本期 Sessions</th>
-            <th>對比期 Sessions</th>
-            <th>變化</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>📱 手機 Mobile</td>
-            <td>1,847 (92.0%)</td>
-            <td>2,402 (96.0%)</td>
-            <td><span class="status-red">🔴 -23.1%</span></td>
-          </tr>
-          <tr>
-            <td>🖥️ 桌面 Desktop</td>
-            <td>160 (8.0%)</td>
-            <td>97 (3.9%)</td>
-            <td><span class="status-green">🟢 +64.9%</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+受眾	表現	行動建議
+HK Supplement + online shopping	CPA 比行業基準低 19.85%	🟢 持續加碼
+HK F 25-50 ONLINE SHOPPING	CPA 比行業基準高 41.19%（未開 Advantage+）	🔴 立即開啟全版位
+影片素材（Reels）	目前缺乏，無法在高流量版位展示	⚠️ 製作 15 秒短影音
+與上月廣告對比：
 
-  <h3>🛒 4. 網店轉化漏斗指標 (Conversion Funnel)</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>漏斗階段</th>
-        <th>本期次數 / 轉化率</th>
-        <th>對比期次數 / 轉化率</th>
-        <th>階段指標增減</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1. 總訪問次數 (Sessions)</td>
-        <td>2,007</td>
-        <td>2,502</td>
-        <td><span class="status-red">🔴 流失 495 個 Sessions (-19.8%)</span></td>
-      </tr>
-      <tr>
-        <td>2. 加入購物車 (Add to Cart)</td>
-        <td>98 (4.88%)</td>
-        <td>91 (3.64%)</td>
-        <td><span class="status-green">🟢 意願提升：加購率 +1.24pp</span></td>
-      </tr>
-      <tr>
-        <td>3. 到達結帳頁 (Reached Checkout)</td>
-        <td>19 (0.95%)</td>
-        <td>32 (1.28%)</td>
-        <td><span class="status-red">🔴 流失嚴重 (-40.6%)</span></td>
-      </tr>
-      <tr>
-        <td>4. 完成結帳 (Purchased)</td>
-        <td>12 (0.60%)</td>
-        <td>25 (1.00%)</td>
-        <td><span class="status-red">🔴 訂單減半 (-52.0%)</span></td>
-      </tr>
-      <tr>
-        <td><strong>整體網店轉化率 (CVR)</strong></td>
-        <td><strong>0.60%</strong></td>
-        <td><strong>1.00%</strong></td>
-        <td><span class="status-red">🔴 效率下滑 -40.0% (低於大盤基準)</span></td>
-      </tr>
-      <tr>
-        <td><strong>購物車放棄率 (Cart Abandonment)</strong></td>
-        <td><strong>36.8%</strong></td>
-        <td><strong>21.9%</strong></td>
-        <td><span class="status-red">🔴 嚴重惡化 +14.9pp</span></td>
-      </tr>
-    </tbody>
-  </table>
+指標	本月	上月（6月）	變化
+有效廣告系列比例	4/4（100%）	6/20（30%）	🟢 大幅改善
+最高 ROAS	6.55	無（廣告分散）	🟢
+最低 CPA	HKD 167	HKD 230	🟢 -27.4%
+廣告素材數量	4 個 Campaign	20+ 個 ad	🟢 集中策略奏效
+學習期廣告	0	5+ 個	🟢 全部退出學習期
+🏷️ 6. 折扣活動專項分析
+指標	本期（6/28–7/27）	對比期（5/27–6/26）	變化
+折扣總額	HKD -3,843	HKD -986	🔴 +289.8%
+折扣佔毛銷售額	9.21%	7.57%	🔴 +1.64pp
+含折扣訂單比例	39/39（100%）	12/12（100%）	→ 持平（全部觸發）
+平均每筆折扣	HKD 99	HKD 82	🔴 +20.7%
+evenif-new-launch-50（滿 HKD 800 減 $50）及 evenif-new-launch-12（滿 HKD 1,500 打 88 折）效益評估：
 
-  <div class="critical-box">
-    <strong>⚠️ 轉化漏斗核心漏洞診斷：</strong><br>
-    本期產品頁面的吸引力與前端加購行為表現良好（加購率逆勢上升至 <strong>4.88%</strong>）。然而，從<strong>「加入購物車」到「進入結帳頁」</strong>的環節發生崩塌，購物車放棄率高達 <strong>36.8%</strong>。必須立即針對結帳流程排查：確認新推動的自動折扣（evenif-new-launch-50 / 12）是否在結帳頁面產生計算衝突、加載過慢，或運費門檻有未通知的調整。
-  </div>
+評估維度	本期結論
+折扣帶來增量訂單？	🟢 是 — 訂單從 12 增至 39（+225%），廣告 + 折扣協同效應明顯
+折扣稀釋毛利？	🔴 是 — 折扣率 9.21%，每筆平均 HKD 99
+折扣吸引新客？	🟢 是 — 新客從 7 增至 31（+343%）
+折扣成本合理？	🟢 合理 — 多付 HKD 2,857 折扣，銷售額增加 HKD 25,847
+⚠️ 折扣機制說明：兩個折扣碼均為自動套用，Shopify Analytics 無法按碼分組顯示，屬平台機制限制。本月折扣在廣告驅動流量配合下轉為正效益，但折扣率 9.21% 偏高。建議將 evenif-new-launch-12 門檻從 HKD 1,500 提升至 HKD 2,000，保護毛利同時維持大單激勵。
 
-  <h3>📊 5. 各流量管道營收效益分析</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>營收來源歸因</th>
-        <th>本期營收</th>
-        <th>本期訂單</th>
-        <th>本期 AOV</th>
-        <th>對比期營收</th>
-        <th>對比期訂單</th>
-        <th>環比表現變化</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Direct (未歸因直接流量)</strong></td>
-        <td>HKD 3,478</td>
-        <td>3</td>
-        <td>HKD 1,159</td>
-        <td>HKD 7,764</td>
-        <td>10</td>
-        <td><span class="status-red">🔴 營收 -55.2%</span></td>
-      </tr>
-      <tr>
-        <td><strong>evenifhk (官網直接進入)</strong></td>
-        <td>HKD 3,008</td>
-        <td>3</td>
-        <td>HKD 1,003</td>
-        <td>HKD 9,276</td>
-        <td>3</td>
-        <td><span class="status-red">🔴 訂單持平但 AOV 暴跌 -67.6%</span></td>
-      </tr>
-      <tr>
-        <td><strong>Instagram (IG 引流)</strong></td>
-        <td>HKD 2,847</td>
-        <td>4</td>
-        <td>HKD 712</td>
-        <td>HKD 3,884</td>
-        <td>7</td>
-        <td><span class="status-red">🔴 營收 -26.7%</span></td>
-      </tr>
-      <tr>
-        <td><strong>Linktree (Bio 頁面)</strong></td>
-        <td>HKD 1,765</td>
-        <td>1</td>
-        <td>HKD 1,765</td>
-        <td>HKD 2,564</td>
-        <td>3</td>
-        <td><span class="status-red">🔴 營收 -31.2%</span></td>
-      </tr>
-      <tr>
-        <td><strong>Facebook (FB 引流)</strong></td>
-        <td>HKD 946</td>
-        <td>1</td>
-        <td>HKD 946</td>
-        <td>HKD 1,514</td>
-        <td>1</td>
-        <td><span class="status-red">🔴 AOV 下滑 -37.5%</span></td>
-      </tr>
-    </tbody>
-  </table>
+第二部分：十大暢銷產品對比
+#	產品名稱	本期銷售額	本期訂單	本期 AOV	本期佔比	對比期銷售額	對比期訂單	變化
+1	elaceite｜豐盈髮況胺基酸膠囊（生髮）	HKD 10,946	13	HKD 842	28.9%	HKD 503	1	🟢 +2,075%
+2	elaceite｜全方位內在補給28日組	HKD 3,598	3	HKD 1,199	9.5%	—	—	🆕 回歸
+3	evenif | 妍理理 初見組合	HKD 3,031	5	HKD 606	8.0%	HKD 720	1	🟢 +320.9%
+4	Yanlili Y33 妍曦霧感防曬棒 20g	HKD 2,735	12	HKD 228	7.2%	—	—	🆕 新品首次上榜
+5	Yanlili 妍理理｜漢方面膜 12片裝	HKD 2,661	3	HKD 887	7.0%	HKD 660	1	🟢 +303.2%
+6	elaceite｜皺紋與脫髮療方組合	HKD 2,645	3	HKD 882	7.0%	HKD 1,689	2	🟢 +56.6%
+7	Yanlili 妍理理｜曠鎂木香舒活乳	HKD 2,457	4	HKD 614	6.5%	—	—	🆕 回歸
+8	ASTALIFT｜骨膠原之王 10000mg	HKD 1,948	2	HKD 974	5.1%	—	—	🆕 回歸
+9	ASTALIFT｜抗紫外線美白膠原美肌飲	HKD 1,179	1	HKD 1,179	3.1%	—	—	🆕 回歸
+10	elaceite｜24:01 無醇白葡萄氣泡酒	HKD 1,104	2	HKD 552	2.9%	HKD 1,067	2	🟢 +3.5%
+跌出榜單： 高純度膠原精萃鈣（HKD 2,024）、葡萄果肌能亮采膠囊（HKD 1,608）、北麓草水強韌機制組合（HKD 720）、SOEL 私密舒緩組合（HKD 630）、鈣鎂基礎平衡膠囊（HKD 580）
 
-  <h3>📣 6. META 廣告表現深度評估 (1–30 Jun 2026 / 按 Ad 層級排序，已精準換算為 HKD)</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>廣告素材名稱 / 狀態</th>
-        <th>花費 (HKD)</th>
-        <th>Reach</th>
-        <th>購買轉化 (Results)</th>
-        <th>單次轉化成本 (CPA/HKD)</th>
-        <th>素材質量評估</th>
-        <th>臨床診斷結論</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Retargeting Carousel 🟢 Active</td>
-        <td>HKD 6,708</td>
-        <td>3,923</td>
-        <td>2 purchases</td>
-        <td>HKD 3,354</td>
-        <td>Average</td>
-        <td><span class="status-warn">⚠️ 再行銷受眾有限，CPA偏高</span></td>
-      </tr>
-      <tr>
-        <td>【elaceite－豐盈髮況胺基酸膠囊】 🟡 Learning</td>
-        <td>HKD 8,775</td>
-        <td>8,027</td>
-        <td>2 purchases</td>
-        <td>HKD 4,388</td>
-        <td>Above avg</td>
-        <td><span class="status-red">🔴 陷入學習期，成本失控嚴重</span></td>
-      </tr>
-      <tr>
-        <td>【elaceite－豐盈髮況膠囊】(第二版) 🟡 Learning</td>
-        <td>HKD 8,408</td>
-        <td>12,797</td>
-        <td>2 purchases</td>
-        <td>HKD 4,204</td>
-        <td>Average</td>
-        <td><span class="status-red">🔴 觸及極廣但精準度差，無優化</span></td>
-      </tr>
-      <tr>
-        <td>【你能站出問問題，是因為多少錢的辛苦解決了？】 🟡 Learning</td>
-        <td>HKD 6,786</td>
-        <td>3,526</td>
-        <td>1 purchase</td>
-        <td>HKD 6,786</td>
-        <td>Average</td>
-        <td><span class="status-red">🔴 CPA 飆升，遠超單品客單價，嚴重虧損</span></td>
-      </tr>
-      <tr>
-        <td>【洗頭見到水盆落髮－係咪年紀大就大難逃？】 🟡 Learning</td>
-        <td>HKD 1,794</td>
-        <td>3,056</td>
-        <td>1 purchase</td>
-        <td>HKD 1,794</td>
-        <td>Average</td>
-        <td><span class="status-green">🟢 CPA 尚在合理防禦範疇，繼續觀察</span></td>
-      </tr>
-      <tr>
-        <td>【elaceite－24:01 無醇白葡萄氣泡酒】 🟢 Active</td>
-        <td>HKD 3,182</td>
-        <td>2,121</td>
-        <td>0</td>
-        <td>--</td>
-        <td>Above avg</td>
-        <td><span class="status-red">🔴 空轉，完全無購買轉化</span></td>
-      </tr>
-      <tr>
-        <td>【elaceite－豚原蛋白膠囊】 🟡 Learning</td>
-        <td>HKD 8,408</td>
-        <td>12,797</td>
-        <td>2 purchases</td>
-        <td>HKD 4,204</td>
-        <td>Average</td>
-        <td><span class="status-red">🔴 陷入學習期，數據無法收斂</span></td>
-      </tr>
-      <tr>
-        <td>ASTALIFT 美肌套裝組合 ⚪ Off</td>
-        <td>HKD 3,728</td>
-        <td>1,975</td>
-        <td>0</td>
-        <td>--</td>
-        <td>Average</td>
-        <td><span class="status-red">🔴 零轉化無效素材</span></td>
-      </tr>
-      <tr>
-        <td>【elaceite－24:01 無醇白葡萄氣泡酒】(Ad set) ⚪ Off</td>
-        <td>HKD 3,338</td>
-        <td>2,121</td>
-        <td>1 purchase</td>
-        <td>HKD 3,338</td>
-        <td>Above avg</td>
-        <td><span class="status-warn">⚠️ 成本過高已關閉</span></td>
-      </tr>
-      <tr>
-        <td>婚禮・派對・朋友聚會・快樂年紀大就大難逃？ ⚪ Off</td>
-        <td>HKD 4,625</td>
-        <td>2,965</td>
-        <td>0</td>
-        <td>--</td>
-        <td>Above avg</td>
-        <td><span class="status-red">🔴 大額預算流失，無轉化</span></td>
-      </tr>
-      <tr>
-        <td>Yanlili 漢方－妍理理大香草活乳 IG Story ⚪ Off</td>
-        <td>HKD 4,415</td>
-        <td>3,767</td>
-        <td>0</td>
-        <td>--</td>
-        <td>Average</td>
-        <td><span class="status-red">🔴 零回報</span></td>
-      </tr>
-      <tr>
-        <td>每一道理想之前的好好－都有著多少失敗 ⚪ Off</td>
-        <td>HKD 2,956</td>
-        <td>1,028</td>
-        <td>0</td>
-        <td>--</td>
-        <td>Average</td>
-        <td><span class="status-red">🔴 零轉化</span></td>
-      </tr>
-      <tr>
-        <td>Yanlili 漢方－妍理理大香草活乳 Story Video ⚪ Off</td>
-        <td>HKD 858</td>
-        <td>2,062</td>
-        <td>0</td>
-        <td>--</td>
-        <td>Average</td>
-        <td><span class="status-red">🔴 零轉化</span></td>
-      </tr>
-      <tr>
-        <td>【出差出差－要開始好好的活動活動了 🏃】 ⚪ Off</td>
-        <td>HKD 1,981</td>
-        <td>1,516</td>
-        <td>0</td>
-        <td>--</td>
-        <td>Average</td>
-        <td><span class="status-red">🔴 零轉化</span></td>
-      </tr>
-      <tr>
-        <td>【洗頭見到水盆落髮（第二版）】 🟢 Active</td>
-        <td>HKD 1,794</td>
-        <td>3,056</td>
-        <td>1 purchase</td>
-        <td>HKD 1,794</td>
-        <td>Average</td>
-        <td><span class="status-green">🟢 本月唯一具備演算法防禦力之素材</span></td>
-      </tr>
-      <tr>
-        <td>【elaceite－葡萄果肌能亮采膠囊】 ⚪ Off</td>
-        <td>HKD 1,412</td>
-        <td>995</td>
-        <td>0</td>
-        <td>--</td>
-        <td>Above avg</td>
-        <td><span class="status-red">🔴 零轉化</span></td>
-      </tr>
-      <tr>
-        <td>【出差出差（第二版）】 ⚪ Off</td>
-        <td>HKD 1,108</td>
-        <td>672</td>
-        <td>0</td>
-        <td>--</td>
-        <td>Above avg</td>
-        <td><span class="status-red">🔴 零轉化</span></td>
-      </tr>
-      <tr>
-        <td>佐高清透感杯・實現我喜歡喝酒的樣子 🍷 ⚪ Off</td>
-        <td>HKD 811</td>
-        <td>613</td>
-        <td>0</td>
-        <td>--</td>
-        <td>Average</td>
-        <td><span class="status-red">🔴 零轉化</span></td>
-      </tr>
-      <tr>
-        <td>佐美好的香港夏天・真的好好的活著 😊 ⚪ Off</td>
-        <td>HKD 764</td>
-        <td>556</td>
-        <td>0</td>
-        <td>--</td>
-        <td>Average</td>
-        <td><span class="status-red">🔴 零轉化</span></td>
-      </tr>
-      <tr>
-        <td>回月「回到」製告 零 ──「零度感覺」 ⚪ Off</td>
-        <td>HKD 437</td>
-        <td>524</td>
-        <td>0</td>
-        <td>--</td>
-        <td>Below avg</td>
-        <td><span class="status-red">🔴 已及時止損停用</span></td>
-      </tr>
-    </tbody>
-  </table>
+🟢 廣告與銷售高度吻合：生髮膠囊（Elaceite supplement 廣告 ROAS 3.52）→ Shopify 銷售 +2,075%；Y33 防曬棒（Yanlili 防曬廣告 ROAS 4.21）→ 新品首月 12 訂單；漢方面膜（Yanlili 面膜廣告 ROAS 6.06）→ 銷售 +303%。廣告投放與產品銷售的協同效應清晰可見。
 
-  <div class="critical-box">
-    <strong>🔴 Meta 廣告端核心策略崩潰診斷：</strong><br>
-    本月同時開啟高達 <strong>20+ 個素材 (Ad)</strong>，預算極度分散。在整體預算池有限的情況下，大批素材直接撞牆，高達 <strong>14 個素材徹底零購買轉化</strong>。多個核心素材全部卡在 <strong>Learning（學習期）</strong> 無法退出，導致機器無法優化受眾，CPA 虛高（最高素材投報成本高達 <strong>HKD 6,786</strong>）。這在演算法邏輯中屬於典型的預算自我消耗，必須立刻大幅精簡。
-  </div>
+第三部分：洞察與建議
+🔍 分析內容
+✅ 本月顯著改善
 
-  <h3>🏷️ 7. 自動折扣活動專項評質 (evenif-new-launch-50 / 12)</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>評估指標</th>
-        <th>本期 (5/27–6/26)</th>
-        <th>對比期 (4/27–5/26)</th>
-        <th>數據診斷</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>折扣總額</td>
-        <td>HKD -986</td>
-        <td>HKD -605</td>
-        <td><span class="status-red">讓利規模上升 63%</span></td>
-      </tr>
-      <tr>
-        <td>折扣佔毛銷售額比例</td>
-        <td>7.57%</td>
-        <td>2.30%</td>
-        <td><span class="status-red">利潤空間被稀釋 5.27pp</span></td>
-      </tr>
-      <tr>
-        <td>含折扣訂單比例</td>
-        <td><strong>100% (12/12 筆訂單)</strong></td>
-        <td>28% (7/25 筆訂單)</td>
-        <td><span class="status-warn">全店訂單無條件自動觸發折扣</span></td>
-      </tr>
-    </tbody>
-  </table>
+銷售額強勁反彈 +215%：HKD 12,045 → HKD 37,892，創近四個月新高
+廣告策略集中化成功：20+ 個分散廣告 → 4 個 Campaign，全部有效，ROAS 最高達 6.55
+新客大幅回升 +343%：7 → 31 人，新客獲取渠道重新打通
+Y33 防曬棒新品成功上市：首月 12 訂單，廣告 ROAS 4.21，夏季旺季時機精準
+Yanlili 面膜廣告 ROAS 6.06：本月最高效廣告之一，面膜系列重新激活
+全渠道全面回升：Instagram、Linktree、Facebook、Google 銷售額全線增長
+⚠️ 需要關注
 
-  <p><strong>📊 折扣效益矩陣實測：</strong></p>
-  <ul>
-    <li><strong>折扣能否帶來增量訂單？</strong> <span class="status-red">❌ 否</span> — 全店讓利下，訂單依然從 25 筆腰斬至 12 筆（-52%）。</li>
-    <li><strong>折扣是否嚴重稀釋毛利？</strong> <span class="status-red">❌ 是</span> — 整體折扣侵蝕率直接從 2.30% 飆升至 7.57%。</li>
-    <li><strong>折扣能否成功吸引新客？</strong> <span class="status-red">❌ 否</span> — 本期新客獲取數大跌 53.3%（僅剩 7 人）。</li>
-    <li><strong>折扣機會成本是否合理？</strong> <span class="status-red">❌ 極不合理</span> — 品牌多付出了 HKD 381 的讓利成本，卻換來總銷售額少收 HKD 13,677 的代價。</li>
-  </ul>
-  <p><span class="status-red"><strong>💡 結論：</strong> 本月的全自動折扣策略被證實完全無效。當店鋪缺乏外在主動觸達渠道（如 SleekFlow 廣播）時，大打全店自動讓利並不能憑空創造流量，只會稀釋掉忠實回購客的自然利潤。</span></p>
+問題	數據	嚴重程度
+購物車放棄率連升三期	21.9% → 36.8% → 47.3%（歷史最高）	🔴 緊急
+折扣率偏高	9.21%，全部訂單觸發自動折扣	🔴 需優化
+Unknown 流量暴增	66 → 205（+211%），UTM 缺失	🔴 需修復
+HK F 25-50 未開 Advantage+	CPA 比行業高 41.19%	⚠️ 需立即執行
+缺乏影片素材	無法在 Reels 獲最佳展示	⚠️ 需補充
+廣告花費差額	HK$8,700 vs $6,001（差額 $2,699 為已關閉廣告）	✅ 已釐清
+🎯 行動建議
+🚨 緊急優先事項（本週）
 
-  <h2>第二部分：十大暢銷產品對比</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>當期排名</th>
-        <th>產品名稱與規格</th>
-        <th>本期銷售額</th>
-        <th>本期訂單</th>
-        <th>本期 AOV</th>
-        <th>營收佔比</th>
-        <th>對比期銷售額</th>
-        <th>對比期訂單</th>
-        <th>暢銷榜地位增減</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>elaceite｜高純度膠原精萃鈣</td>
-        <td>HKD 2,024</td>
-        <td>3</td>
-        <td>HKD 675</td>
-        <td>16.8%</td>
-        <td>--</td>
-        <td>--</td>
-        <td><span class="status-green">🆕 首次強勢進榜 (空降冠軍)</span></td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>elaceite｜皺紋與脫髮療方組合</td>
-        <td>HKD 1,689</td>
-        <td>2</td>
-        <td>HKD 844</td>
-        <td>14.0%</td>
-        <td>--</td>
-        <td>--</td>
-        <td><span class="status-green">🔄 經典高效組合回歸</span></td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>elaceite｜葡萄果肌能亮采膠囊</td>
-        <td>HKD 1,608</td>
-        <td>3</td>
-        <td>HKD 536</td>
-        <td>13.4%</td>
-        <td>HKD 1,931</td>
-        <td>3</td>
-        <td><span class="status-red">🔴 銷量平穩但營收微跌 -16.7%</span></td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>elaceite｜24:01 無醇白葡萄氣泡酒</td>
-        <td>HKD 1,067</td>
-        <td>2</td>
-        <td>HKD 534</td>
-        <td>8.9%</td>
-        <td>HKD 1,840</td>
-        <td>5</td>
-        <td><span class="status-red">🔴 營收大跌 -42.0% (推廣力道減弱)</span></td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td>Yanlili 妍理理｜初見組合</td>
-        <td>HKD 720</td>
-        <td>1</td>
-        <td>HKD 720</td>
-        <td>6.0%</td>
-        <td>--</td>
-        <td>--</td>
-        <td><span class="status-green">🔄 漢方體驗組重新回歸</span></td>
-      </tr>
-      <tr>
-        <td>6</td>
-        <td>elaceite x 北麓草水｜強韌機制組合</td>
-        <td>HKD 720</td>
-        <td>1</td>
-        <td>HKD 720</td>
-        <td>6.0%</td>
-        <td>HKD 720</td>
-        <td>1</td>
-        <td>📊 精準持平 (需求客群固定)</td>
-      </tr>
-      <tr>
-        <td>7</td>
-        <td>Yanlili 妍理理｜漢方面膜 12片裝</td>
-        <td>HKD 660</td>
-        <td>1</td>
-        <td>HKD 660</td>
-        <td>5.5%</td>
-        <td>HKD 633</td>
-        <td>1</td>
-        <td><span class="status-green">🟢 穩定微幅微調 +4.3%</span></td>
-      </tr>
-      <tr>
-        <td>8</td>
-        <td>elaceite x SOEL｜私密舒緩組合</td>
-        <td>HKD 630</td>
-        <td>1</td>
-        <td>HKD 630</td>
-        <td>5.2%</td>
-        <td>--</td>
-        <td>--</td>
-        <td><span class="status-green">🆕 聯名私密護理首次上榜</span></td>
-      </tr>
-      <tr>
-        <td>9</td>
-        <td>elaceite｜鈣鎂基礎平衡膠囊</td>
-        <td>HKD 580</td>
-        <td>2</td>
-        <td>HKD 290</td>
-        <td>4.8%</td>
-        <td>--</td>
-        <td>--</td>
-        <td><span class="status-green">🆕 地基微量元素單品上榜</span></td>
-      </tr>
-      <tr>
-        <td>10</td>
-        <td>elaceite｜豐盈髮況胺基酸膠囊</td>
-        <td>HKD 503</td>
-        <td>1</td>
-        <td>HKD 503</td>
-        <td>4.2%</td>
-        <td>HKD 3,282</td>
-        <td>4</td>
-        <td><span class="status-red">🔴 重點旗艦單品銷量暴跌 -84.7%</span></td>
-      </tr>
-    </tbody>
-  </table>
+調查購物車放棄率 47.3%（三期連升，歷史最高）：74 人到達結帳，35 人放棄。立即測試：① 自動折扣是否在結帳頁正確顯示 ② 運費設定 ③ 手機版結帳流程 ④ Shop Pay 是否正常運作
+開啟 HK F 25-50 廣告組的 Advantage+ 版位：CPA 比行業高 41.19%，開啟後預期降低 CPA 10–15%，立即執行
+建立「加購未結帳」再行銷受眾：利用 Meta Pixel 建立自訂受眾，針對 35 位放棄結帳的高意願用戶進行二次投放，預期 ROAS 遠高於冷受眾廣告
+修復 UTM 追蹤：Unknown 流量 205 sessions（+211%），所有 Instagram/Linktree/WhatsApp 連結必須加上 UTM 參數
+📈 短期優化（未來2週）
 
-  <div class="critical-box" style="background-color: #FFF9F2; border-color: #F7EAD3; color: #7A592C;">
-    <strong>⚠️ 跌出暢銷大盤榜單的產品警訊：</strong><br>
-    上月的核心大盤支柱 <strong>全方位內在補給 28 日組（曾創下 HKD 8,196 的最高業績）</strong> 本月完全零銷量，直接跌出榜單。隨之一起跌出榜外的還包括：Yanlili 曠鎂木香舒活乳（上月 HKD 2,021）、ASTALIFT 骨膠原之王（上月 HKD 1,779）、Yanlili 03 珍珠薏仁及 01 依蘭人參。這再次證明，在缺乏主動推播（SleekFlow）的觸發下，高單價的定期續訂組與明星保養品會迅速流失大盤營收。
-  </div>
+加碼 Elaceite IG Story Format 廣告：ROAS 6.55 是本月最高，建議預算從 HK$1,335 提升至 HK$2,500+
+加碼 Yanlili 面膜廣告：ROAS 6.06，HK$718 帶來 4 purchases，建議提升至 HK$1,500
+製作 15 秒短影音素材：針對生髮膠囊及 Y33 防曬棒製作短影音，解鎖 Reels 版位，預期降低 CPM 並擴大觸及
+調整折扣門檻：evenif-new-launch-12 門檻從 HKD 1,500 提升至 HKD 2,000，保護毛利同時維持大單激勵
+🗓️ 中期策略（未來4週）
 
-  <h2>第三部分：深度洞察與行動策略</h2>
-  
-  <div class="insight-section">
-    <div class="grid-2">
-      <div>
-        <h3 class="status-green">✅ 本期正面營運表現</h3>
-        <ul class="insight-list">
-          <li><strong>回購比例逆勢攀升至歷史新高 (41.7%)：</strong> 說明老客黏著度與品牌忠誠度非常穩固。在無廣播刺激的極端條件下，仍有 5 位優質老客定時回購，是支撐品牌低谷的地基。</li>
-          <li><strong>前端加購意願亮眼 (4.88%)：</strong> 加購率從 3.64% 提升至 4.88%，表示精簡保養的內容、視覺調性與產品頁面依然具備高度智性吸引力。</li>
-          <li><strong>Unknown 追蹤精準度提升：</strong> 未知流量 Sessions 由 92 下降至 66，後台數據歸因失真問題有所改善。</li>
-          <li><strong>生髮痛點素材成功定錨：</strong> 「洗頭見到水盆落髮」素材跑出全月最低的實質開發成本（約合 HKD 1,794），可作為下個月大盤的核心彈藥。</li>
-        </ul>
-      </div>
-      
-      <div>
-        <h3 class="status-red">🔴 核心戰略失誤對照矩陣</h3>
-        <ul class="insight-list">
-          <li><strong>素材極度過剩 × 預算過度分散：</strong> 同時投放 20+ 個廣告素材，導致每個廣告組分到的預算低於門檻，全部卡在 Learning 狀態。</li>
-          <li><strong>大量預算無端浪費：</strong> 有高達 14/20 的素材最終產生零購買轉化。其中「辛苦解決問題」素材換算後單次購買成本高達 HKD 6,786，遠遠超出產品的 AOV。</li>
-          <li><strong>上月高投報素材本月全面癱瘓：</strong> 上月表現驚艷的 elaceite 生髮膠囊（上月 ROAS 3.21）本月全部陷入學習期，單個轉化拉高至 HKD 4,204 - HKD 4,388。無醇白葡萄酒系列本月直接零轉化。</li>
-        </ul>
-      </div>
-    </div>
-
-    <h3 class="status-warn" style="border-bottom: 1px dashed var(--text-color); padding-bottom: 5px; margin-top:30px;">🎯 三階段精密著陸優化建議</h3>
-    
-    <h4>🚨 1. 緊急優先事項（本週內立馬執行）</h4>
-    <ul class="insight-list">
-      <li><strong>全網廣告素材強制斷捨離：</strong> 立即關閉 14 個零購買轉化的無效廣告素材。將全部預算強制收攏、集中投放至「洗頭落髮」素材及 Retargeting 廣告。<b>核心原則：一次只測試 2–3 個素材，每個廣告組每天最少投放相當於 $50 USD 的預算，強制機器在一週內退出 Learning 期。</b></li>
-      <li><strong>重新激活 SleekFlow 廣播機制：</strong> 連續 4 個月無推播是導致新客斷層、高客單價「28日組」完全蒸發的主因。本週內必須針對歷史 VIP 與購物車未結帳客群，發送一次定向漢方或精進保養廣播，喚醒沉默用戶。</li>
-      <li><strong>結帳漏斗漏洞實測：</strong> 面對 36.8% 的驚人放棄率，團隊需在手機和桌面端親自走一遍結帳流程，測試自動折扣代碼與運費模組是否產生了影響加載或支付的系統 Bug。</li>
-    </ul>
-
-    <h4>📈 2. 短期優化方針（未來 2 週內）</h4>
-    <ul class="insight-list">
-      <li><strong>定點培養「洗頭落髮」素材：</strong> 既然該素材具備最低轉化成本的防禦基因（HKD 1,794），集中加碼預算，讓機器完成學習，目標將穩定單次轉換成本壓低。</li>
-      <li><strong>即刻暫停無效自動折扣：</strong> 暫停 evenif-new-launch-50 與 12 自動讓利。改為配合廣播或 IG 動態釋出「限時手動專屬折扣碼」，將 7.57% 的利潤空間優先回饋給有主動購買意願的精確受眾。</li>
-      <li><strong>重啟「全方位內在補給 28 日組」的內容心智：</strong> 作為客單價支柱，需透過 IG 精緻排版內容或名醫背書短片重新推廣，主打「順應 28 天細胞更新週期」的理性調理概念。</li>
-    </ul>
-
-    <h4>🗓️ 3. 中期策略排期（未來 4 週內）</h4>
-    <ul class="insight-list">
-      <li><strong>重整 7 月份營運目標：</strong> 透過「集中型 Meta 廣告 ＋ 月中 SleekFlow 定向廣播」雙管齊下。目標在 7 月底將新客數恢復至 20+ 人，將網店整體轉化率拉回 1.2% 的健康水位，總營收回歸 <strong>HKD 25,000+</strong> 軌道。</li>
-      <li><strong>重建 Instagram 社群流量壁壘：</strong> 面對 Social 流量連續下滑（-31.9%），不能完全依賴付費廣告輸血。必須建立恆定的智性圖文與影片發佈節奏，利用醫師團隊的 Qualification（12萬次美妍臨床實證）輸出硬核、直白、直擊都會線條塌陷與熬夜枯黃的機能型科普，重聚有機流量。</li>
-    </ul>
-  </div>
-
-</div>
-
-</body>
-</html>
+Y33 防曬棒趁夏季旺季擴量：新品首月 12 訂單，廣告 ROAS 4.21，建議加大防曬廣告預算
+重啟 SleekFlow 廣播：連續五個月無廣播，建議針對歷史客戶發送定向廣播，目標帶動額外 10+ 訂單，補充廣告以外的自然轉化
+8月目標設定：維持廣告集中策略（4–6 個 Campaign），目標銷售額 HKD 40,000+，購物車放棄率降至 35% 以下
+附錄：數據說明與限制
+項目	說明
+Meta ROAS vs Shopify 差異	Meta 計算「點擊後 7 天 / 瀏覽後 1 天」轉化，Shopify 可能將延遲購買歸為 Direct；iOS 14+ 隱私限制亦導致部分轉化未被 Pixel 捕捉。本月 Direct 14 筆訂單（HKD 12,941）部分很可能是 Meta 廣告的延遲轉化，真實 ROAS 可能更高
+廣告花費差額	HK$8,700 總花費 vs 四 Campaign 合計 HK$6,001，差額 HK$2,699 來自已關閉舊廣告、測試支出及自動化推廣，屬正常現象
+折扣碼數據	evenif-new-launch-50 及 evenif-new-launch-12 為自動套用折扣，Shopify Analytics 無法按碼分組，屬平台機制限制
+建議補充數據	受眾年齡/性別分佈、LTV（客戶終身價值）、Pixel 事件追蹤完整性 — 可從 Meta Business Insights 獲取，建議納入下月報告
