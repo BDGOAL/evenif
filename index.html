@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>evenif 2026年8月度營運績效報告</title>
+<style>
+  :root {
+    --bg-color: #F9F6F0;
+    --text-color: #2F2F2F;
+    --muted-color: #7A766F;
+    --accent-gold: #C5B48D;
+    --border-color: #E5E0D8;
+    --alert-red: #D36B5B;
+    --alert-green: #5B9D7A;
+    --alert-warning: #E2A35D;
+    --soft-green: #F4F8F5;
+    --soft-red: #FFF5F4;
+    --soft-gold: #F6F1E7;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang HK", "Noto Sans HK", sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.65;
+    margin: 0;
+    padding: 40px 20px;
+  }
+
+  .report-container {
+    max-width: 1080px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    padding: 42px;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.025);
+  }
+
+  .report-header {
+    border-bottom: 2px solid var(--text-color);
+    padding-bottom: 22px;
+    margin-bottom: 30px;
+  }
+
+  .brand-logo {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 29px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 0 0 8px 0;
+  }
+
+  .report-title {
+    font-size: 23px;
+    margin: 0 0 5px 0;
+    font-weight: 650;
+  }
+
+  .report-date {
+    font-size: 14px;
+    color: var(--muted-color);
+  }
+
+  .special-note {
+    background-color: #F2EDE4;
+    padding: 15px 17px;
+    border-left: 3px solid var(--accent-gold);
+    font-size: 14px;
+    margin-top: 16px;
+    border-radius: 0 4px 4px 0;
+  }
+
+  h2 {
+    font-size: 18px;
+    border-bottom: 1px solid var(--text-color);
+    padding-bottom: 8px;
+    margin-top: 42px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  h3 {
+    font-size: 15px;
+    margin-top: 26px;
+    margin-bottom: 12px;
+    color: #4F4F4F;
+  }
+
+  h4 {
+    font-size: 14px;
+    margin: 22px 0 8px;
+  }
+
+  p { margin: 10px 0; }
+
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin: 22px 0 6px;
+  }
+
+  .kpi-card {
+    border: 1px solid var(--border-color);
+    background: #FCFBF8;
+    padding: 16px;
+    border-radius: 4px;
+    min-height: 118px;
+  }
+
+  .kpi-label {
+    color: var(--muted-color);
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .kpi-value {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+  }
+
+  .kpi-change {
+    font-size: 12px;
+    margin-top: 9px;
+  }
+
+  .executive-box {
+    background: var(--soft-gold);
+    border: 1px solid #E7DDC9;
+    padding: 19px 20px;
+    margin: 20px 0 8px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  .executive-box strong.title {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 15px;
+  }
+
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 25px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.2px;
+    min-width: 680px;
+  }
+
+  th {
+    background-color: #F7F5F0;
+    text-align: left;
+    padding: 11px 10px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-color);
+    color: #4F4F4F;
+    vertical-align: top;
+  }
+
+  td {
+    padding: 11px 10px;
+    border-bottom: 1px solid #F1EFEA;
+    vertical-align: top;
+  }
+
+  tr:hover td { background-color: #FDFDFD; }
+
+  .status-red { color: var(--alert-red); font-weight: 600; }
+  .status-green { color: var(--alert-green); font-weight: 600; }
+  .status-warn { color: var(--alert-warning); font-weight: 600; }
+  .status-neutral { color: #6D6A64; font-weight: 600; }
+
+  .critical-box,
+  .insight-box,
+  .method-box {
+    padding: 17px 18px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin: 18px 0;
+  }
+
+  .critical-box {
+    background-color: var(--soft-red);
+    border: 1px solid #F3D9D7;
+    color: #6E3B35;
+  }
+
+  .insight-box {
+    background-color: var(--soft-green);
+    border: 1px solid #D7E8DC;
+    color: #2D523B;
+  }
+
+  .method-box {
+    background-color: #F7F5F0;
+    border: 1px solid var(--border-color);
+    color: #55514B;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .insight-section { font-size: 14px; }
+
+  .insight-list {
+    padding-left: 20px;
+    margin: 8px 0;
+  }
+
+  .insight-list li { margin-bottom: 8px; }
+
+  .mini-bar {
+    display: grid;
+    grid-template-columns: 112px 1fr 64px;
+    align-items: center;
+    gap: 10px;
+    margin: 9px 0;
+    font-size: 12.5px;
+  }
+
+  .bar-track {
+    height: 8px;
+    background: #EEEAE2;
+    border-radius: 100px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 100px;
+    background: var(--accent-gold);
+  }
+
+  .funnel {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0 6px;
+  }
+
+  .funnel-step {
+    padding: 12px 10px;
+    background: #FAF8F3;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    border-radius: 4px;
+  }
+
+  .funnel-step .n {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .funnel-step .label {
+    display: block;
+    font-size: 11.5px;
+    color: var(--muted-color);
+    margin-top: 3px;
+  }
+
+  .priority {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .priority-high { background: #FBE7E4; color: #9F493E; }
+  .priority-mid { background: #FFF1DD; color: #9B6727; }
+  .priority-low { background: #EAF3ED; color: #3E7454; }
+
+  .footer-note {
+    margin-top: 34px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+    color: var(--muted-color);
+    font-size: 11.5px;
+  }
+
+  @media(max-width: 850px) {
+    .kpi-grid { grid-template-columns: 1fr 1fr; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .funnel { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media(max-width: 560px) {
+    body { padding: 0; background: #fff; }
+    .report-container { padding: 22px 16px; box-shadow: none; }
+    .kpi-grid { grid-template-columns: 1fr; }
+    .funnel { grid-template-columns: 1fr; }
+    .report-title { font-size: 20px; }
+  }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .report-container { max-width: none; box-shadow: none; padding: 20px; }
+    tr, .kpi-card, .critical-box, .insight-box, .method-box { break-inside: avoid; }
+    h2, h3 { break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="report-container">
+
+  <div class="report-header">
+    <div class="brand-logo">evenif</div>
+    <div class="report-title">📦 2026 年 8 月度線上營運與廣告效益報告</div>
+    <div class="report-date">Shopify 本期：2026年7月28日 – 8月27日｜對比期：2026年6月28日 – 7月27日</div>
+
+    <div class="special-note">
+      <strong>📌 本期重點：</strong><br>
+      ① 本月未有 SleekFlow 主動廣播（連續第六個月）。<br>
+      ② Meta 廣告資料期間為 7/28–8/29，總花費 HKD 8,506，整體 ROAS 2.89。<br>
+      ③ 銷售額按總量下跌 17.2%，但網店轉化率升至 1.40%，結帳完成效率明顯改善。<br>
+      ④ Instagram 銷售逆市增長；皺紋與脫髮療方組合、無醇白葡萄氣泡酒錄得顯著增長，Yanlili 單片面膜亦首次多款同時上榜。
+    </div>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">總銷售額</div>
+      <div class="kpi-value">HKD 34,352</div>
+      <div class="kpi-change status-red">▼ 17.2% vs 上期</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">網店轉化率</div>
+      <div class="kpi-value">1.40%</div>
+      <div class="kpi-change status-green">▲ 0.07pp｜近期高位</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Direct 流量佔比</div>
+      <div class="kpi-value">56.3%</div>
+      <div class="kpi-change status-green">▲ 11.5pp</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Meta 廣告</div>
+      <div class="kpi-value">ROAS 2.89</div>
+      <div class="kpi-change status-neutral">Spend HKD 8,506</div>
+    </div>
+  </div>
+
+  <div class="executive-box">
+    <strong class="title">管理層摘要｜本月回落主要是「流量規模下降」，不是「轉化失效」</strong>
+    本期網站流量下跌 18.8%，與總銷售額下跌 17.2% 幅度接近；同時 CVR 由 1.33% 升至 1.40%，完成結帳效率亦改善。換言之，本月首要問題是高質素流量不足及 AOV 輕微回落，而非網店本身失去轉化能力。下一步應優先恢復有效流量、刷新疲勞素材，並把預算集中到 Instagram、Supplement、Hair 及防曬等已證實可轉化的入口。
+  </div>
+
+  <h2>第一部分：整體營運表現</h2>
+
+  <h3>💰 1. 營收與顧客結構</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>營運指標</th>
+          <th>本期 (7/28–8/27)</th>
+          <th>對比期 (6/28–7/27)</th>
+          <th>變化</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>總銷售額</strong></td><td>HKD 34,352</td><td>HKD 41,489</td><td><span class="status-red">🔴 -17.2%</span></td></tr>
+        <tr><td>毛銷售額</td><td>HKD 38,613</td><td>HKD 45,818</td><td><span class="status-red">🔴 -15.7%</span></td></tr>
+        <tr><td>折扣總額</td><td>HKD -4,261</td><td>HKD -4,329</td><td><span class="status-neutral">→ -1.6%</span></td></tr>
+        <tr><td><strong>折扣佔毛銷售額</strong></td><td><strong>11.03%</strong></td><td>9.45%</td><td><span class="status-red">🔴 +1.58pp</span></td></tr>
+        <tr><td><strong>訂單數</strong></td><td>37</td><td>42</td><td><span class="status-red">🔴 -11.9%</span></td></tr>
+        <tr><td>平均訂單價值 AOV</td><td>HKD 928</td><td>HKD 988</td><td><span class="status-red">🔴 -6.1%</span></td></tr>
+        <tr><td>退貨率</td><td>0%</td><td>0%</td><td><span class="status-green">✅ 持平</span></td></tr>
+        <tr><td>新客戶</td><td>28</td><td>34</td><td><span class="status-red">🔴 -17.6%</span></td></tr>
+        <tr><td>回購客戶</td><td>8</td><td>8</td><td><span class="status-green">✅ 絕對數字持平</span></td></tr>
+        <tr><td><strong>回購客戶比例</strong></td><td><strong>22.9%</strong></td><td>19.1%</td><td><span class="status-green">🟢 +3.8pp</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight-box">
+    <strong>💡 核心判斷：</strong> 生髮膠囊由上期爆發高位回調，是營收下降的重要結構因素，但回購客戶仍維持 8 人，並沒有同步流失。新客跌幅（-17.6%）亦與網站流量跌幅（-18.8%）接近，進一步反映本月主要缺口在於「新流量規模」，而非顧客信任或結帳能力突然轉弱。
+  </div>
+<div class="grid-2">
+    <div>
+      <h3>📱 2. 流量來源</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>來源</th><th>本期</th><th>對比期</th><th>變化</th></tr></thead>
+          <tbody>
+            <tr><td><strong>總流量</strong></td><td>2,566</td><td>3,162</td><td><span class="status-red">🔴 -18.8%</span></td></tr>
+            <tr><td>Direct</td><td>1,446 (56.3%)</td><td>1,417 (44.8%)</td><td><span class="status-green">🟢 +2.0%｜佔比 +11.5pp</span></td></tr>
+            <tr><td>Social</td><td>974 (37.9%)</td><td>1,448 (45.8%)</td><td><span class="status-red">🔴 -32.7%</span></td></tr>
+            <tr><td>Search</td><td>87 (3.4%)</td><td>88 (2.8%)</td><td><span class="status-neutral">→ 持平</span></td></tr>
+            <tr><td>Unknown</td><td>59 (2.3%)</td><td>209 (6.6%)</td><td><span class="status-green">🟢 -71.8%</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div>
+      <h3>💻 3. 設備分佈</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>設備</th><th>本期</th><th>對比期</th><th>變化</th></tr></thead>
+          <tbody>
+            <tr><td>📱 Mobile</td><td>2,121 (82.7%)</td><td>2,817 (89.1%)</td><td><span class="status-red">🔴 -24.7%</span></td></tr>
+            <tr><td>🖥️ Desktop</td><td>437 (17.0%)</td><td>313 (9.9%)</td><td><span class="status-green">🟢 +39.6%</span></td></tr>
+            <tr><td>📟 Tablet</td><td>8 (0.3%)</td><td>8 (0.3%)</td><td><span class="status-neutral">→ 持平</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<h3>🛒 4. 網店轉化漏斗</h3>
+  <div class="funnel">
+    <div class="funnel-step"><span class="n">2,566</span><span class="label">網站流量</span></div>
+    <div class="funnel-step"><span class="n">169</span><span class="label">Add to Cart｜6.59%</span></div>
+    <div class="funnel-step"><span class="n">48</span><span class="label">Reached Checkout｜1.87%</span></div>
+    <div class="funnel-step"><span class="n">36</span><span class="label">Completed Checkout｜1.40%</span></div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>漏斗階段</th><th>本期</th><th>對比期</th><th>變化</th></tr></thead>
+      <tbody>
+        <tr><td>總流量</td><td>2,566</td><td>3,162</td><td><span class="status-red">🔴 -18.8%</span></td></tr>
+        <tr><td>加入購物車</td><td>169 (6.59%)</td><td>220 (6.96%)</td><td><span class="status-red">🔴 加購率 -0.37pp</span></td></tr>
+        <tr><td>到達結帳</td><td>48 (1.87%)</td><td>76 (2.40%)</td><td><span class="status-red">🔴 結帳到達率 -0.53pp</span></td></tr>
+        <tr><td>完成結帳</td><td>36 (1.40%)</td><td>42 (1.33%)</td><td><span class="status-green">🟢 CVR +0.07pp</span></td></tr>
+        <tr><td><strong>整體轉化率</strong></td><td><strong>1.40%</strong></td><td>1.33%</td><td><span class="status-green">🟢 相對提升約 5.3%</span></td></tr>
+        <tr><td><strong>結帳放棄率</strong></td><td><strong>25.0%</strong></td><td>44.7%</td><td><span class="status-green">🟢 改善 19.7pp</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight-box">
+    <strong>💡 轉化診斷：</strong> 本月最值得肯定的是「進入 Checkout 後的完成率」。48 次到達結帳中有 36 次完成，完成率達 75%，較上期約 55.3% 明顯改善。真正需要補強的是漏斗上游：加購率微跌，以及由 Add to Cart 到 Checkout 的推進率下降。這代表下一輪優化應集中在產品頁說服力、購物車誘因及再行銷，而不是大幅重做付款流程。
+  </div>
+
+  <h3>📣 5. Meta 廣告表現深度評估（7/28–8/29）</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Campaign</th><th>花費</th><th>購買</th><th>ROAS</th><th>CPA</th><th>評估</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>(Updated) Elaceite supplement (ALL)</strong></td><td>HKD 2,028</td><td>9</td><td>3.49</td><td>HKD 225</td><td><span class="status-green">🟢 最多購買、最低 CPA，核心主力</span></td></tr>
+        <tr><td><strong>Elaceite Hair_Dark Post</strong></td><td>HKD 1,917</td><td>6</td><td>3.53</td><td>HKD 319</td><td><span class="status-green">🟢 新素材表現穩健</span></td></tr>
+        <tr><td><strong>Yanlili Sales_防曬 Post</strong></td><td>HKD 1,607</td><td>6</td><td>3.60</td><td>HKD 268</td><td><span class="status-green">🟢 本月最高 ROAS</span></td></tr>
+        <tr><td><strong>Yanlili Sales_Mask Campaign</strong></td><td>HKD 1,876</td><td>4</td><td>1.96</td><td>HKD 469</td><td><span class="status-red">🔴 CPA 最高，需重做素材 / 受眾</span></td></tr>
+        <tr><td>其他測試 / 已關閉</td><td>~HKD 1,078</td><td>—</td><td>—</td><td>—</td><td><span class="status-warn">⚠️ 佔總花費約 12.7%</span></td></tr>
+        <tr style="background:#F7F5F0;font-weight:700"><td>帳戶合計</td><td>HKD 8,506</td><td>25+</td><td>2.89</td><td>約 HKD 340</td><td><span class="status-warn">⚠️ 仍有優化空間</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid-2">
+    <div>
+      <h3>受眾與素材訊號</h3>
+      <div class="mini-bar"><span>女性受眾</span><div class="bar-track"><div class="bar-fill" style="width:88%"></div></div><span>主導</span></div>
+      <div class="mini-bar"><span>25–34歲</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span>12,168</span></div>
+      <div class="mini-bar"><span>35–44歲</span><div class="bar-track"><div class="bar-fill" style="width:72%"></div></div><span>8,795</span></div>
+      <ul class="insight-list">
+        <li>Supplement + online shopping 受眾 CTR 較行業基準高 13.09%。</li>
+        <li>New Sales ad set CTR 較行業基準低 37.27%，吸引力不足。</li>
+        <li>【洗頭排水口塞滿】素材 CTR 28 日內下跌 91.25%，素材疲勞已非常明顯。</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Campaign 對比重點</h3>
+      <ul class="insight-list">
+        <li><strong>Supplement：</strong> 本月 ROAS 3.49，與上期 3.52 基本持平；屬可持續放大的穩定盤。</li>
+        <li><strong>防曬：</strong> ROAS 由上期 4.21 降至 3.60，但花費增至 HKD 1,607、購買增至 6，仍具放量價值。</li>
+        <li><strong>Mask：</strong> ROAS 由上期 6.06 降至 1.96；花費增加但購買仍為 4，效率下滑最顯著。</li>
+        <li><strong>Hair_Dark Post：</strong> ROAS 3.53，與皺紋及脫髮療方組合本月 +121.3% 的銷售增長互相呼應。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="critical-box">
+    <strong>🔴 廣告最優先處理：</strong> 立即更換【洗頭排水口塞滿】素材，並把 Yanlili Mask Campaign 由「加預算」改為「先重建素材與受眾，再決定預算」。本月三個較健康 Campaign 只佔約 65% 廣告花費，卻按 ROAS 粗略推算貢獻接近八成 Meta 歸因營收，資源集中仍有提升空間。
+  </div>
+<h3>🏷️ 6. 折扣活動專項評估</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>指標</th><th>本期</th><th>對比期</th><th>評估</th></tr></thead>
+      <tbody>
+        <tr><td>折扣總額</td><td>HKD -4,261</td><td>HKD -4,329</td><td><span class="status-neutral">→ 金額基本持平</span></td></tr>
+        <tr><td><strong>折扣佔毛銷售額</strong></td><td><strong>11.03%</strong></td><td>9.45%</td><td><span class="status-red">🔴 +1.58pp</span></td></tr>
+        <tr><td>含折扣訂單比例</td><td>100%</td><td>100%</td><td><span class="status-warn">⚠️ 全單觸發</span></td></tr>
+        <tr><td>平均每單折扣</td><td>HKD 115</td><td>HKD 103</td><td><span class="status-red">🔴 +11.7%</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="critical-box">
+    <strong>🔴 折扣邊際效益正在下降：</strong> 折扣率連續三期由 7.57% → 9.21% → 11.03%，但本期訂單與新客仍分別下跌 11.9% 及 17.6%。建議把自動折扣由「長期常態」改為「有時限、可測試」的促銷機制，並優先測試提高高階 88 折門檻，避免折扣逐步變成顧客預期中的固定價格。
+  </div>
+
+  <h2>第二部分：十大暢銷產品對比</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>#</th><th>產品</th><th>本期銷售額</th><th>訂單</th><th>AOV</th><th>營收佔比</th><th>對比期銷售額</th><th>變化</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><strong>elaceite｜豐盈髮況胺基酸膠囊</strong></td><td>HKD 8,141</td><td>9</td><td>HKD 905</td><td>23.7%</td><td>HKD 12,984</td><td><span class="status-red">🔴 -37.3%｜高位正常化</span></td></tr>
+        <tr><td>2</td><td><strong>elaceite｜皺紋與脫髮療方組合</strong></td><td>HKD 5,852</td><td>5</td><td>HKD 1,170</td><td>17.0%</td><td>HKD 2,645</td><td><span class="status-green">🟢 +121.3%</span></td></tr>
+        <tr><td>3</td><td>elaceite｜24:01 無醇白葡萄氣泡酒</td><td>HKD 2,844</td><td>3</td><td>HKD 948</td><td>8.3%</td><td>HKD 1,104</td><td><span class="status-green">🟢 +157.6%</span></td></tr>
+        <tr><td>4</td><td>evenif｜妍理理 初見組合</td><td>HKD 2,506</td><td>3</td><td>HKD 835</td><td>7.3%</td><td>HKD 3,602</td><td><span class="status-red">🔴 -30.4%</span></td></tr>
+        <tr><td>5</td><td>elaceite｜葡萄果肌能亮采膠囊</td><td>HKD 1,989</td><td>4</td><td>HKD 497</td><td>5.8%</td><td>—</td><td><span class="status-green">🆕 回歸榜單</span></td></tr>
+        <tr><td>6</td><td>Yanlili Y33 妍曦霧感防曬棒 20g</td><td>HKD 1,694</td><td>8</td><td>HKD 212</td><td>4.9%</td><td>HKD 2,735</td><td><span class="status-red">🔴 -38.1%</span></td></tr>
+        <tr><td>7</td><td>Yanlili 妍理理｜漢方面膜 12片裝</td><td>HKD 1,605</td><td>2</td><td>HKD 802</td><td>4.7%</td><td>HKD 2,661</td><td><span class="status-red">🔴 -39.7%</span></td></tr>
+        <tr><td>8</td><td>Yanlili 03｜珍珠・薏仁・茉莉</td><td>HKD 1,218</td><td>4</td><td>HKD 304</td><td>3.5%</td><td>—</td><td><span class="status-green">🆕 新上榜</span></td></tr>
+        <tr><td>9</td><td>Yanlili 01｜依蘭・人參・抗倦容</td><td>HKD 1,156</td><td>3</td><td>HKD 385</td><td>3.4%</td><td>—</td><td><span class="status-green">🆕 新上榜</span></td></tr>
+        <tr><td>10</td><td>Yanlili 08｜乳香木・人參・山藥</td><td>HKD 1,101</td><td>3</td><td>HKD 367</td><td>3.2%</td><td>—</td><td><span class="status-green">🆕 新上榜</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight-box">
+    <strong>💡 產品組合正在變得更健康：</strong> Top 10 產品佔本期銷售約 81.8%。生髮膠囊雖然回調，但連同皺紋與脫髮療方組合仍佔全店約 40.7%；另一方面，Yanlili 初見組合、12片裝及三款單片面膜合計約佔 22.1%，顯示 Mask Campaign 雖然廣告 ROAS 偏低，卻成功把需求由單一套裝分散到多個 SKU。這種「產品長尾化」有助降低過度依賴單一爆款的風險。
+  </div>
+
+  <div class="grid-2">
+    <div>
+      <h3 class="status-green">✅ 本期正面訊號</h3>
+      <ul class="insight-list">
+        <li><strong>CVR 升至 1.40%</strong>，網店轉化能力沒有隨營收下跌而轉弱。</li>
+        <li><strong>結帳放棄率降至 25%</strong>，付款流程較上期順暢。</li>
+        <li><strong>Direct 流量維持穩定</strong>，整體流量下跌主要來自 Social。</li>
+        <li><strong>皺紋與脫髮療方組合 +121%</strong>，新廣告素材與產品銷售方向一致。</li>
+        <li><strong>無醇白葡萄氣泡酒 +157.6%</strong>，有潛力成為第二增長線。</li>
+        <li><strong>Yanlili 單片面膜多款首次上榜</strong>，產品需求由套裝向單品延伸。</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="status-red">🔴 需要處理</h3>
+      <ul class="insight-list">
+        <li><strong>Social 流量下跌 32.7%</strong>，是本月營收回落的最大流量原因。</li>
+        <li><strong>折扣率 11.03%</strong>，連續三期上升，毛利壓力擴大。</li>
+        <li><strong>Mask Campaign ROAS 1.96</strong>，效率跌幅最大。</li>
+        <li><strong>洗頭排水口素材 CTR -91.25%</strong>，已屬嚴重素材疲勞。</li>
+        <li><strong>New Sales ad set CTR -37.27% vs benchmark</strong>，需調整素材及版位設定。</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>第三部分：下月執行建議</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>優先度</th><th>行動</th><th>執行重點</th><th>主要目的</th></tr></thead>
+      <tbody>
+
+        <tr>
+          <td><span class="priority priority-high">P1 本週</span></td>
+          <td><strong>停止 / 更換疲勞生髮素材</strong></td>
+          <td>【洗頭排水口塞滿】CTR 已跌 91.25%；以 9:16 Reels、UGC、生活情境及前後對比概念建立新素材輪替。</td>
+          <td>恢復 Social CTR 與流量規模</td>
+        </tr>
+        <tr>
+          <td><span class="priority priority-high">P1 本週</span></td>
+          <td><strong>重建 Yanlili Mask Campaign</strong></td>
+          <td>在 ROAS 1.96 下暫停單純加預算；先測新 Hook、不同面膜痛點、單片 SKU 與初見組合的分開溝通。</td>
+          <td>把長尾需求轉化成可盈利投放</td>
+        </tr>
+        <tr>
+          <td><span class="priority priority-high">P1 本週</span></td>
+          <td><strong>收緊自動折扣</strong></td>
+          <td>將長期全單折扣改為限時測試；優先測試提高 88 折高階門檻，並監察 AOV、CVR 與毛利三者變化。</td>
+          <td>把折扣率壓回 9% 以下</td>
+        </tr>
+        <tr>
+          <td><span class="priority priority-mid">P2 兩週</span></td>
+          <td><strong>放大 Supplement / Hair / 防曬</strong></td>
+          <td>三者 ROAS 約 3.49–3.60；以小步遞增預算方式放大，避免一次性拉高導致學習重置或效率急跌。</td>
+          <td>補回有效 Social 營收</td>
+        </tr>
+        <tr>
+          <td><span class="priority priority-mid">P2 兩週</span></td>
+          <td><strong>New Sales ad set 開啟 Advantage+ 版位測試</strong></td>
+          <td>目前 CTR 低於 benchmark；以同素材 A/B 測試自動版位 vs 現行設定，實際驗證 CPA 改善幅度。</td>
+          <td>提升版位效率</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="executive-box">
+    <strong class="title">9 月建議 KPI</strong>
+    <strong>銷售額：</strong> HKD 38,000+　｜　<strong>折扣率：</strong> ≤ 9%　｜　<strong>Meta ROAS：</strong> ≥ 3.5　｜　<strong>CVR：</strong> ≥ 1.40%　｜　<strong>Social 流量：</strong> 恢復至 1,200+。<br>
+    KPI 的核心不是單純追求更多廣告支出，而是以「恢復高質素流量 + 控制讓利 + 保持轉化效率」三者同步推進。
+  </div>
+
+</div>
+</body>
+</html>
